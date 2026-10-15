@@ -25,9 +25,10 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │   │   └── Dione_Nascimento_CV.pdf # Currículo profissional para download (sanitizado)
 │   ├── img/
 │   │   ├── EU.jpg               # Foto profissional de perfil
-│   │   └── favicon.svg          # Favicon vetorial com monograma DN
+│   │   ├── favicon.svg          # Favicon vetorial com monograma DN
+│   │   └── videos/              # Capas e miniaturas de aulas práticas do YouTube
 │   └── js/
-│       └── app.js               # Lógica interativa: tema, filtros e navegação suave
+│       └── app.js               # Lógica interativa: tema, filtros, carrossel e lazy player
 ├── data/
 │   └── content.js               # Base de dados estruturada de projetos e experiências
 ├── tests/

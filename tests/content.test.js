@@ -13,6 +13,7 @@ describe('Base de Conteúdo Estruturada (data/content.js)', () => {
     assert.ok(Array.isArray(portfolio.pt.skills), 'skills deve ser um array');
     assert.ok(Array.isArray(portfolio.pt.education), 'education deve ser um array');
     assert.ok(Array.isArray(portfolio.pt.tools), 'tools deve ser um array');
+    assert.ok(Array.isArray(portfolio.pt.youtubeVideos), 'youtubeVideos deve ser um array');
   });
 
   test('Todos os projetos devem pertencer a categorias válidas e possuir dados essenciais', () => {
@@ -30,6 +31,17 @@ describe('Base de Conteúdo Estruturada (data/content.js)', () => {
       assert.ok(p.solution, `Projeto ${p.id}: campo solution obrigatório`);
       assert.ok(p.result, `Projeto ${p.id}: campo result obrigatório`);
       assert.ok(Array.isArray(p.tech) && p.tech.length > 0, `Projeto ${p.id}: tech deve conter pelo menos uma tecnologia`);
+    });
+  });
+
+  test('Todos os vídeos do canal devem conter ID do YouTube, título e URL válida', () => {
+    assert.ok(portfolio.pt.youtubeVideos.length > 0, 'Deve conter pelo menos um vídeo cadastrado');
+    portfolio.pt.youtubeVideos.forEach((v, idx) => {
+      assert.ok(v.id, `Vídeo ${idx}: campo id (YouTube ID) obrigatório`);
+      assert.ok(v.title, `Vídeo ${v.id}: campo title obrigatório`);
+      assert.ok(v.url && v.url.startsWith('https://www.youtube.com/'), `Vídeo ${v.id}: url deve ser do YouTube`);
+      assert.ok(v.description, `Vídeo ${v.id}: campo description obrigatório`);
+      assert.ok(Array.isArray(v.topics) && v.topics.length > 0, `Vídeo ${v.id}: topics deve conter pelo menos um tópico`);
     });
   });
 });

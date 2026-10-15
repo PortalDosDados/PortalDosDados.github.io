@@ -295,6 +295,37 @@ const PORTFOLIO = {
       },
     ],
 
+    youtubeVideos: [
+      {
+        id: '5IF6ByNH_hQ',
+        ref: 'VID-001-PBI-FROTA',
+        badge: 'POWER BI • AULA 01',
+        title: 'Power BI do Zero: Dashboard de Manutenção de Frota',
+        category: 'Power BI',
+        description:
+          'Construção passo a passo de um dashboard gerencial de manutenção de frotas e ordens de serviço no Power BI, calculando taxa de manutenção preventiva, volume de OS por mês e análise por árvore de decomposição.',
+        thumbnail: 'assets/img/videos/power-bi-do-zero-aula-1.png',
+        fallbackThumbnail: 'https://img.youtube.com/vi/5IF6ByNH_hQ/hqdefault.jpg',
+        url: 'https://www.youtube.com/watch?v=5IF6ByNH_hQ&list=PLdDl00ELa1blnoiUxODvPpyfP0cHirX0L',
+        playlistUrl: 'https://www.youtube.com/playlist?list=PLdDl00ELa1blnoiUxODvPpyfP0cHirX0L',
+        topics: ['Modelagem Relacional', 'KPI Preventivas (28.19%)', 'Árvore de Decomposição', 'Power BI Service'],
+      },
+      {
+        id: 'HExTWVTRovg',
+        ref: 'VID-002-POWERAPPS-ESTOQUE',
+        badge: 'POWER APPS • AULA 01',
+        title: 'Power Apps: App de Gestão e Controle de Estoque',
+        category: 'Power Apps',
+        description:
+          'Desenvolvimento prático de um aplicativo corporativo em Power Apps para controle de estoque em tempo real, abrangendo telas interativas, cadastros e movimentações operacionais no chão de fábrica.',
+        thumbnail: 'https://img.youtube.com/vi/HExTWVTRovg/maxresdefault.jpg',
+        fallbackThumbnail: 'https://img.youtube.com/vi/HExTWVTRovg/hqdefault.jpg',
+        url: 'https://www.youtube.com/watch?v=HExTWVTRovg&t=7s',
+        playlistUrl: null,
+        topics: ['Telas & Formulários', 'Navegação Dinâmica', 'Entradas & Saídas', 'Chão de Fábrica'],
+      },
+    ],
+
     tools: [
       {
         title: 'Canal Portal dos Dados (YouTube)',
