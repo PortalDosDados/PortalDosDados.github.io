@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portaldosdados.github.io/sitemap.xml

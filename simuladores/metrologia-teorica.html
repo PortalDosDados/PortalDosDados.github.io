@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de Metrologia Teórica | Dione Nascimento</title>
+    <meta name="description" content="Quiz gratuito de metrologia teórica com correção automática, revisão comentada e boletim em PDF." />
+    <link rel="canonical" href="https://portaldosdados.github.io/simuladores/metrologia-teorica.html" />
+    <meta property="og:title" content="Simulador de Metrologia Teórica" />
+    <meta property="og:description" content="Teste seus conhecimentos em metrologia e baixe seu boletim em PDF." />
+    <meta property="og:image" content="https://portaldosdados.github.io/assets/img/EU.jpg" />
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+
+    <script>
+      (function () {
+        var d = document.documentElement;
+        d.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/simulador.css" />
+  </head>
+  <body>
+    <header class="sim-header">
+      <div class="container sim-header__inner">
+        <a class="brand" href="../index.html#educacao">
+          <span class="brand__mark" aria-hidden="true">DN</span>
+          <span>Voltar ao portfólio</span>
+        </a>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema claro/escuro">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="container sim" id="conteudo">
+      <div class="sim-intro">
+        <p class="eyebrow">Ferramenta educativa</p>
+        <h1>Simulador de Metrologia Teórica</h1>
+        <p>Informe seu nome, responda às questões e clique em <strong>Finalizar teste</strong>. Depois você pode revisar as respostas e baixar o boletim em PDF.</p>
+      </div>
+
+      <noscript><p class="noscript-msg">Este simulador precisa de JavaScript ativado.</p></noscript>
+
+      <form id="quiz-form" class="sim-form" novalidate>
+        <div class="card sim-field">
+          <label for="nome-aluno">Nome completo</label>
+          <input type="text" id="nome-aluno" name="nome" autocomplete="name" placeholder="Seu nome..." required />
+          <p class="sim-error" id="nome-erro" role="alert" hidden>Por favor, informe seu nome.</p>
+        </div>
+
+        <div class="sim-progress" aria-live="polite">
+          <span id="progress-text">0 de 0 respondidas</span>
+          <div class="sim-progress__bar"><div class="sim-progress__fill" id="progress-fill"></div></div>
+        </div>
+
+        <div id="area-perguntas" class="sim-questions"></div>
+
+        <p class="sim-error" id="pendentes-erro" role="alert" hidden></p>
+
+        <div class="sim-actions">
+          <button type="submit" class="btn btn--primary" id="btn-finalizar">Finalizar teste</button>
+        </div>
+      </form>
+
+      <section id="resultado" class="sim-result" hidden aria-labelledby="resultado-title" tabindex="-1">
+        <div id="boletim" class="card boletim">
+          <div class="boletim__head">
+            <div>
+              <p class="eyebrow">Boletim de desempenho</p>
+              <h2 id="resultado-title">Simulador de Metrologia Teórica</h2>
+            </div>
+            <div class="boletim__score">
+              <strong id="display-pct">0%</strong>
+              <span id="display-nota">0 de 0</span>
+            </div>
+          </div>
+          <dl class="boletim__meta">
+            <div><dt>Aluno(a)</dt><dd id="display-nome"></dd></div>
+            <div><dt>Data</dt><dd id="display-data"></dd></div>
+          </dl>
+          <p class="boletim__comment" id="perf-comment"></p>
+          <h3 class="boletim__subtitle">Revisão das questões</h3>
+          <ol class="review" id="review-list"></ol>
+          <p class="boletim__footer">Gerado em portaldosdados.github.io · Dione Nascimento</p>
+        </div>
+
+        <div class="sim-actions">
+          <button type="button" class="btn btn--primary" id="btn-gerar-pdf">Baixar boletim em PDF</button>
+          <button type="button" class="btn btn--ghost" id="btn-refazer">Refazer teste</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="dados-metrologia.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+    <script src="simulador.js" defer></script>
+  </body>
+</html>
