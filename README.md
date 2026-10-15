@@ -8,7 +8,7 @@ Portfólio profissional de **Dione Nascimento**, especialista em Dados Industria
 
 ## 🎯 Sobre o Projeto
 
-Este repositório contém o portfólio profissional e as aplicações educativas desenvolvidas por Dione Nascimento. A interface foi construída seguindo a estética **Industrial Tech / Blueprint**, com alto contraste, telemetria operacional, cards estruturados de estudos de caso (Problema → Solução → Resultado) e ferramentas práticas para a indústria.
+Este repositório contém o portfólio profissional desenvolvido por Dione Nascimento. A interface foi construída seguindo a estética **Industrial Tech / Blueprint**, com alto contraste, telemetria operacional, cards estruturados de estudos de caso (Problema → Solução → Resultado) e ferramentas práticas para a indústria.
 
 ---
 
@@ -20,8 +20,7 @@ Este repositório contém o portfólio profissional e as aplicações educativas
 │       └── deploy.yml           # CI/CD: Quality Gate (testes) e deploy automatizado no Pages
 ├── assets/
 │   ├── css/
-│   │   ├── main.css             # Estilos compartilhados e temas base
-│   │   └── simulador.css        # Folha de estilos e modo PDF do simulador
+│   │   └── main.css             # Estilos compartilhados e temas base
 │   ├── cv/
 │   │   └── Dione_Nascimento_CV.pdf # Currículo profissional para download (sanitizado)
 │   ├── img/
@@ -31,13 +30,8 @@ Este repositório contém o portfólio profissional e as aplicações educativas
 │       └── app.js               # Lógica interativa: tema, filtros e navegação suave
 ├── data/
 │   └── content.js               # Base de dados estruturada de projetos e experiências
-├── simuladores/
-│   ├── metrologia-teorica.html  # Interface do Simulador de Metrologia Teórica
-│   ├── dados-metrologia.js      # Banco de 10 questões com gabarito e comentários
-│   └── simulador.js             # Lógica interativa do quiz e exportação de boletim em PDF
 ├── tests/
-│   ├── content.test.js          # Teste automatizado de integridade de data/content.js
-│   └── metrologia.test.js       # Teste de integridade de regras de negócio do simulador
+│   └── content.test.js          # Teste automatizado de integridade de data/content.js
 ├── .gitattributes               # Normalização de quebras de linha
 ├── .gitignore                   # Exclusão de arquivos de SO, IDE e temporários
 ├── .nojekyll                    # Instrução para o GitHub Pages ignorar o Jekyll
@@ -55,7 +49,6 @@ Este repositório contém o portfólio profissional e as aplicações educativas
 
 - **Frontend & Layout:** HTML5 semântico, Tailwind CSS com tema *Industrial Tech* customizado.
 - **Tipografia & Ícones:** Inter, JetBrains Mono e Google Material Symbols Outlined.
-- **Ferramentas Educativas:** `html2pdf.js` para geração em tempo real de boletins de avaliação em formato PDF.
 - **Integrações de Dados & TO:** Power BI (DAX), Python (Pandas/Streamlit), SQL (PostgreSQL/MySQL), Power Apps, Power Automate, Pentaho (PDI), Google Apps Script, SAP, MES e SGI.
 - **Hospedagem & CI/CD:** GitHub Pages automatizado via GitHub Actions (`.github/workflows/deploy.yml`).
 
@@ -95,8 +88,7 @@ node --test tests/*.test.js
 ```
 
 Os testes cobrem:
-- **`tests/metrologia.test.js`**: Garante a integridade de todas as questões do simulador, unicidade de IDs, coerência do gabarito (`respostaCorreta` dentro dos limites) e presença de explicações comentadas.
-- **`tests/content.test.js`**: Valida a consistência de categorias, projetos e atributos da base de dados do portfólio.
+- **`tests/content.test.js`**: Valida a consistência de categorias, projetos, atributos e links da base de dados do portfólio.
 
 ---
 

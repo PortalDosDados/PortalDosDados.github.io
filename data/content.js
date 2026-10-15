@@ -27,7 +27,6 @@ const PORTFOLIO = {
       { id: 'bi', label: 'Power BI' },
       { id: 'python', label: 'Python & Automação' },
       { id: 'powerplatform', label: 'Power Platform' },
-      { id: 'educacao', label: 'Educação' },
     ],
 
     projects: [
@@ -117,20 +116,6 @@ const PORTFOLIO = {
         highlight: '−4 h/mês',
         tech: ['Python', 'Power BI', 'Pandas', 'Centros de Custo', 'Validação'],
         context: 'ArcelorMittal Pecém',
-      },
-      {
-        id: 'simulador-metrologia',
-        featured: false,
-        category: 'educacao',
-        title: 'Simulador de Metrologia Teórica',
-        problem:
-          'Necessidade de validação prática rápida de conhecimentos teóricos de metrologia industrial (resolução de paquímetros, calibração e normas técnicas).',
-        solution:
-          'Quiz interativo no navegador com 10 questões, correção automática instantânea, explicações comentadas detalhadas e emissão de boletim de desempenho em PDF.',
-        result:
-          'Ferramenta pública aplicada ativamente em turmas de qualificação técnica e formação industrial.',
-        tech: ['HTML', 'JavaScript', 'PDF', 'Metrologia'],
-        links: [{ label: 'Abrir simulador', url: 'simuladores/metrologia-teorica.html' }],
       },
     ],
 
@@ -316,12 +301,6 @@ const PORTFOLIO = {
         description: 'Canal dedicado à disseminação de conhecimento sobre dados industriais, gestão da manutenção e tomada de decisão baseada em dados.',
         url: 'https://www.youtube.com/@Portal_dos_Dados',
         icon: 'video',
-      },
-      {
-        title: 'Simulador de Metrologia Teórica',
-        description: 'Quiz interativo com 10 questões, correção automática e boletim de desempenho em PDF.',
-        url: 'simuladores/metrologia-teorica.html',
-        icon: 'ruler',
       },
       {
         title: 'Página / App Portal dos Dados (Streamlit)',
