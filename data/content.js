@@ -15,11 +15,11 @@
 const PORTFOLIO = {
   pt: {
     stats: [
-      { value: 15, suffix: '+', label: 'Anos na indústria' },
-      { value: 10, suffix: '', label: 'Anos na siderurgia' },
-      { value: 20, suffix: '+', label: 'Dashboards' },
+      { value: 15, suffix: '+', label: 'Anos na Indústria' },
+      { value: 10, suffix: '', label: 'Anos em Siderurgia' },
+      { value: 5, suffix: '+', label: 'Anos com Power BI' },
       { value: 10, suffix: '+', label: 'Automações' },
-      { value: 6, suffix: '+', label: 'Projetos de alto impacto' },
+      { value: 5, suffix: '+', label: 'Projetos Estratégicos' },
     ],
 
     projectCategories: [
@@ -266,7 +266,7 @@ const PORTFOLIO = {
       {
         title: 'Formação em Data Analytics',
         detail: 'Digital College',
-        type: 'Formação Complementar',
+        type: 'Formação',
       },
       {
         title: 'Certificação de Analista de Dados',
@@ -276,22 +276,22 @@ const PORTFOLIO = {
       {
         title: 'Business Intelligence',
         detail: 'FIAP · 40 horas',
-        type: 'Curso',
+        type: 'Formação',
       },
       {
-        title: 'Power BI Avançado para Análise de Dados',
+        title: 'Power BI para Análise de Dados',
         detail: 'Data Science Academy · 72 horas',
-        type: 'Curso',
+        type: 'Formação',
       },
       {
         title: 'Gestão de Projetos',
         detail: 'Veduca / USP (2021) · 45 horas',
-        type: 'Curso',
+        type: 'Formação',
       },
       {
-        title: 'MASP (Metodologia de Análise e Solução de Problemas)',
+        title: 'Metodologia MASP',
         detail: 'Grupo Voitto',
-        type: 'Curso',
+        type: 'Formação',
       },
     ],
 

@@ -37,6 +37,7 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 ├── .gitignore                   # Exclusão de arquivos de SO, IDE e temporários
 ├── .nojekyll                    # Instrução para o GitHub Pages ignorar o Jekyll
 ├── 404.html                     # Página 404 customizada
+├── AGENTS.md                    # Diretrizes e padrões de commit para agentes e colaboradores
 ├── index.html                   # Página principal (Layout Industrial Tech com Tailwind)
 ├── LICENSE                      # Licença oficial MIT
 ├── robots.txt                   # Diretrizes para indexadores de busca
