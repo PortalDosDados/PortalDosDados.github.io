@@ -26,7 +26,7 @@ const PORTFOLIO = {
       { id: 'all', label: 'Todos' },
       { id: 'bi', label: 'Power BI' },
       { id: 'python', label: 'Python & Automação' },
-      { id: 'powerplatform', label: 'Power Platform' },
+      { id: 'mobile', label: 'Mobile & Flutter' },
     ],
 
     projects: [
@@ -61,16 +61,16 @@ const PORTFOLIO = {
       {
         id: 'pm-mobit',
         featured: true,
-        category: 'powerplatform',
-        title: 'Aplicativo para Gestão de Manutenção (PM Mobit) — Eurotech',
+        category: 'mobile',
+        title: 'Aplicativo Mobile para Gestão de Manutenção em Campo (PM Mobit)',
         problem:
-          'Controle de atividades e inspeções de manutenção em formulários de papel, acarretando baixa rastreabilidade, lentidão e risco de perda de informações.',
+          'Operações de campo e rotinas de manutenção de equipamentos críticos realizadas com formulários manuais em papel, gerando baixa rastreabilidade, atrasos no cumprimento de SLA e falta de visibilidade em tempo real.',
         solution:
-          'Desenvolvimento de sistema web em Google Apps Script para digitalização de inspeções de campo, abertura automática de Ordens de Serviço, modelagem de dados para integração com Power BI e automação de alertas operacionais.',
+          'Desenvolvimento de aplicação móvel corporativa em Flutter e Dart integrada ao Supabase (Auth, Database e Storage). Digitalização completa de rotinas de inspeção, checklists preventivos com captura de evidências fotográficas, abertura automática de ordens corretivas ao detectar itens não conformes, controle rigoroso de SLA e dashboards gerenciais de desempenho operacional.',
         result:
-          'Eliminação de controles em papel, aumento substancial da rastreabilidade das atividades, maior confiabilidade dos dados e melhoria da governança das informações.',
-        tech: ['Google Apps Script', 'Power BI', 'Web', 'Automação'],
-        context: 'Eurotech',
+          'Substituição de 100% dos formulários em papel por fluxo digital auditável, detecção precoce de falhas com disparo imediato de corretivas e monitoramento de pontualidade e produtividade da equipe técnica em tempo real.',
+        tech: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL', 'Mobile'],
+        context: 'Gestão de Manutenção em Campo',
       },
       {
         id: 'disponibilidade',
@@ -213,6 +213,8 @@ const PORTFOLIO = {
         icon: 'code',
         items: [
           'Python (Pandas, Streamlit, scripts)',
+          'Flutter & Dart (Mobile)',
+          'Supabase (BaaS & PostgreSQL)',
           'Power Apps',
           'Power Automate',
           'Google Apps Script',

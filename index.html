@@ -141,6 +141,9 @@
         "Python",
         "Pandas",
         "Streamlit",
+        "Flutter",
+        "Dart",
+        "Supabase",
         "SQL",
         "Modelagem Dimensional",
         "Star Schema",
@@ -491,7 +494,7 @@
         <button class="px-3 py-1 rounded bg-primary-container text-on-primary font-label-caps text-[11px] font-semibold filter-btn active" data-cat="all">Todos</button>
         <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="bi">Power BI</button>
         <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="python">Python & Automação</button>
-        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="powerplatform">Power Platform</button>
+        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="mobile">Mobile & Flutter</button>
       </div>
     </div>
 
@@ -611,31 +614,31 @@
         </div>
       </div>
 
-      <!-- CARD 3: PM Mobit Eurotech -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="powerplatform">
+      <!-- CARD 3: PM Mobit -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="mobile">
         <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">smartphone</span>
             <span>REF // 003-PM-MOBIT</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">GOOGLE APPS SCRIPT • POWER BI</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • SUPABASE • POSTGRESQL</span>
         </div>
 
         <div class="p-6 space-y-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
-            Aplicativo para Gestão de Manutenção (PM Mobit) — Eurotech
+            Aplicativo Mobile para Gestão de Manutenção em Campo (PM Mobit)
           </h3>
           <div class="space-y-3 text-sm">
             <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
-                Rotinas de inspeção e ordens de manutenção preenchidas manualmente em papel, gerando baixa rastreabilidade e lentidão operacional.
+                Rotinas de inspeção de equipamentos críticos e apontamentos em campo realizados manualmente em papel, gerando baixa rastreabilidade, lentidão e atrasos no controle de SLA.
               </p>
             </div>
             <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
-                Desenvolvimento de sistema web em Google Apps Script para digitalização completa das rotinas, abertura automática de OS, disparo de alertas e integração com Power BI.
+                Desenvolvimento de aplicação móvel corporativa em Flutter e Dart integrada ao Supabase (Auth, Database e Storage). Digitalização de checklists com evidências fotográficas, abertura automática de ordens corretivas ao detectar não conformidades, controle rigoroso de SLA e dashboard analítico de produtividade e indicadores operacionais em tempo real.
               </p>
             </div>
           </div>
@@ -644,23 +647,23 @@
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">Zero</div>
-                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Controle em Papel</div>
+                <div class="font-metric-display text-lg text-tertiary font-bold">100%</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Fluxo Digital &amp; Fotos</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">100%</div>
-                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Rastreabilidade Total</div>
+                <div class="font-metric-display text-lg text-primary font-bold">Auto</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Disparo de Corretivas</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">Alertas</div>
-                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Automação de OS</div>
+                <div class="font-metric-display text-lg text-on-surface font-bold">SLA &amp; KPIs</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Auditoria em Tempo Real</div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
-          <span class="font-label-caps text-[10px] text-outline">STATUS: IMPLANTADO & OPERACIONAL</span>
+          <span class="font-label-caps text-[10px] text-outline">STATUS: IMPLANTADO &amp; OPERACIONAL</span>
           <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
             <span>Conversar sobre a solução</span>
             <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -1217,16 +1220,16 @@
           <div class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider mb-1">[MÓDULO // 02]</div>
           <h3 class="text-lg text-on-surface font-bold">Programação & Automação</h3>
           <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">
-            Automações de processos com Python (Pandas, Streamlit, scripts ETL), criação de aplicativos para coleta de campo com Power Apps, fluxos automatizados com Power Automate e Google Apps Script.
+            Desenvolvimento de aplicativos móveis em Flutter e Dart integrados a Supabase/PostgreSQL, automações de processos com Python (Pandas, Streamlit, scripts ETL), fluxos com Power Automate, Power Apps e Google Apps Script.
           </p>
         </div>
         <div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Flutter</span>
+          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Dart</span>
+          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Supabase</span>
           <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Python</span>
           <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Pandas</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Streamlit</span>
           <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Apps</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Automate</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Google Apps Script</span>
         </div>
       </div>
 
