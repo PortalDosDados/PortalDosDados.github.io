@@ -10,15 +10,7 @@
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
 
   <!-- Prevenção de Flash de Tema (FOIT) -->
-  <script>
-    try {
-      var savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    } catch (e) {}
-  </script>
+  <script src="../assets/js/theme-init.js"></script>
 
   <!-- Fonts & Material Symbols -->
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -31,69 +23,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
-            "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
-            "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
-            "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
-            "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
-            "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
-            "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
-            "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
-            "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
-            "background": "rgb(var(--c-background) / <alpha-value>)",
-            "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
-            "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
-            "outline": "rgb(var(--c-outline) / <alpha-value>)",
-            "error": "rgb(var(--c-error) / <alpha-value>)",
-            "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
-            "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
-            "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
-            "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
-            "surface": "rgb(var(--c-surface) / <alpha-value>)",
-            "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
-            "primary": "rgb(var(--c-primary) / <alpha-value>)",
-            "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
-            "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
-            "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
-            "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
-            "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
-            "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
-            "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
-            "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
-            "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
-            "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
-            "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
-            "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
-            "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
-            "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
-            "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
-            "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
-            "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
-            "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
-            "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)",
-            "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
-            "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
-            "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)",
-            "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
-            "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)"
-          },
-          "fontFamily": {
-            "metric-display": ["'JetBrains Mono'", "monospace"],
-            "code-md": ["'JetBrains Mono'", "monospace"],
-            "label-caps": ["Inter", "sans-serif"],
-            "headline-lg": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
+  <script src="../assets/js/tools/tailwind.config.tools.js"></script>
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased blueprint-grid selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
 
@@ -300,145 +230,7 @@
 
   <!-- Scripts -->
   <script src="../assets/js/tools/calculadora-paradas.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Alternância de Tema
-      const themeBtn = document.getElementById('themeToggleBtn');
-      const themeIcon = document.getElementById('themeIcon');
-      const htmlTag = document.documentElement;
-
-      const applyTheme = (mode) => {
-        if (mode === 'light') {
-          htmlTag.classList.remove('dark');
-          htmlTag.setAttribute('data-theme', 'light');
-          if (themeIcon) themeIcon.textContent = 'light_mode';
-        } else {
-          htmlTag.classList.add('dark');
-          htmlTag.setAttribute('data-theme', 'dark');
-          if (themeIcon) themeIcon.textContent = 'dark_mode';
-        }
-      };
-
-      if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-          const next = htmlTag.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-          applyTheme(next);
-          try { localStorage.setItem('theme', next); } catch (e) {}
-        });
-      }
-
-      // 2. Elementos da Interface
-      const inputDataIni = document.getElementById('inputDataIni');
-      const inputHoraIni = document.getElementById('inputHoraIni');
-      const inputDataFim = document.getElementById('inputDataFim');
-      const inputHoraFim = document.getElementById('inputHoraFim');
-      const btnProcessar = document.getElementById('btnProcessar');
-      const msgAlerta = document.getElementById('msgAlerta');
-
-      const painelResultados = document.getElementById('painelResultados');
-      const badgeStatus = document.getElementById('badgeStatus');
-      const iconeStatus = document.getElementById('iconeStatus');
-      const textoStatus = document.getElementById('textoStatus');
-      const dispHorasDecimais = document.getElementById('dispHorasDecimais');
-      const dispMinutos = document.getElementById('dispMinutos');
-      const dispPeriodo = document.getElementById('dispPeriodo');
-      const dispImpacto = document.getElementById('dispImpacto');
-      const dispDescricaoAcao = document.getElementById('dispDescricaoAcao');
-
-      // Presets
-      const btnPresetFalha = document.getElementById('btnPresetFalha');
-      const btnPresetFca = document.getElementById('btnPresetFca');
-      const btnPresetRotina = document.getElementById('btnPresetRotina');
-
-      function formatarDataISO(d) {
-        const ano = d.getFullYear();
-        const mes = String(d.getMonth() + 1).padStart(2, '0');
-        const dia = String(d.getDate()).padStart(2, '0');
-        return `${ano}-${mes}-${dia}`;
-      }
-
-      function processar() {
-        try {
-          msgAlerta.classList.add('hidden');
-
-          const dIniVal = inputDataIni.value;
-          const hIniVal = inputHoraIni.value;
-          const dFimVal = inputDataFim.value;
-          const hFimVal = inputHoraFim.value;
-
-          const res = CalculadoraParadas.calcularDowntime({
-            dataInicio: dIniVal,
-            horaInicio: hIniVal,
-            dataFim: dFimVal,
-            horaFim: hFimVal,
-          });
-
-          // Atualiza o card de resultados
-          painelResultados.style.borderTopColor = res.severidade.cor;
-          badgeStatus.style.backgroundColor = `${res.severidade.cor}22`;
-          badgeStatus.style.color = res.severidade.cor;
-          badgeStatus.style.border = `1px solid ${res.severidade.cor}55`;
-          iconeStatus.textContent = res.severidade.icone;
-          textoStatus.textContent = res.severidade.textoStatus;
-
-          dispHorasDecimais.textContent = res.horasDecimaisFormatadas;
-          dispMinutos.textContent = `⏱️ Total: ${res.minutosTotais} minutos (${res.duracaoFormatada})`;
-          dispPeriodo.textContent = `${res.horaInicioFormatada} às ${res.horaFimFormatada}`;
-          dispImpacto.textContent = `${res.severidade.titulo} (${res.severidade.nivel})`;
-          dispDescricaoAcao.textContent = res.severidade.descricao;
-
-        } catch (err) {
-          msgAlerta.textContent = err.message || 'Erro ao processar parada.';
-          msgAlerta.classList.remove('hidden');
-        }
-      }
-
-      // Eventos
-      btnProcessar.addEventListener('click', processar);
-
-      // Submissão ao pressionar Enter em qualquer input
-      [inputDataIni, inputHoraIni, inputDataFim, inputHoraFim].forEach(input => {
-        input.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') processar();
-        });
-      });
-
-      // Presets
-      btnPresetFalha.addEventListener('click', () => {
-        const hoje = formatarDataISO(new Date());
-        inputDataIni.value = hoje;
-        inputHoraIni.value = '08:00';
-        inputDataFim.value = hoje;
-        inputHoraFim.value = '17:30';
-        processar();
-      });
-
-      btnPresetFca.addEventListener('click', () => {
-        const hoje = formatarDataISO(new Date());
-        inputDataIni.value = hoje;
-        inputHoraIni.value = '08:00';
-        inputDataFim.value = hoje;
-        inputHoraFim.value = '09:15';
-        processar();
-      });
-
-      btnPresetRotina.addEventListener('click', () => {
-        const hoje = formatarDataISO(new Date());
-        inputDataIni.value = hoje;
-        inputHoraIni.value = '08:00';
-        inputDataFim.value = hoje;
-        inputHoraFim.value = '08:45';
-        processar();
-      });
-
-      // Inicialização com valores padrão
-      const hoje = formatarDataISO(new Date());
-      inputDataIni.value = hoje;
-      inputHoraIni.value = '08:00';
-      inputDataFim.value = hoje;
-      inputHoraFim.value = '17:30';
-      processar();
-    });
-  </script>
+  <script src="../assets/js/tools/tool-theme.js"></script>
+  <script src="../assets/js/tools/calculadora-paradas-page.js"></script>
 </body>
 </html>

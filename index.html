@@ -10,15 +10,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
 
   <!-- Prevenção de Flash de Tema (FOIT) -->
-  <script>
-    try {
-      var savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-    } catch (e) {}
-  </script>
+  <script src="assets/js/theme-init.js"></script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile"/>
@@ -40,83 +32,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          "colors": {
-            "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
-            "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
-            "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
-            "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
-            "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
-            "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
-            "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
-            "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
-            "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
-            "background": "rgb(var(--c-background) / <alpha-value>)",
-            "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
-            "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
-            "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
-            "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
-            "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
-            "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
-            "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
-            "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
-            "on-tertiary-fixed": "rgb(var(--c-on-tertiary-fixed) / <alpha-value>)",
-            "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
-            "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
-            "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)",
-            "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
-            "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
-            "surface": "rgb(var(--c-surface) / <alpha-value>)",
-            "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
-            "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
-            "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
-            "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
-            "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
-            "outline": "rgb(var(--c-outline) / <alpha-value>)",
-            "error": "rgb(var(--c-error) / <alpha-value>)",
-            "surface-variant": "rgb(var(--c-surface-variant) / <alpha-value>)",
-            "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
-            "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
-            "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
-            "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
-            "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
-            "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
-            "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
-            "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
-            "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
-            "primary": "rgb(var(--c-primary) / <alpha-value>)",
-            "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)",
-            "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
-            "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
-            "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)"
-          },
-          "borderRadius": {
-            "DEFAULT": "0.125rem",
-            "lg": "0.25rem",
-            "xl": "0.5rem",
-            "full": "0.75rem"
-          },
-          "fontFamily": {
-            "metric-display": ["JetBrains Mono", "monospace"],
-            "body-lg": ["Inter", "sans-serif"],
-            "label-caps": ["JetBrains Mono", "monospace"],
-            "code-md": ["JetBrains Mono", "monospace"],
-            "label-sm": ["JetBrains Mono", "monospace"],
-            "body-sm": ["Inter", "sans-serif"],
-            "display-xl": ["Inter", "sans-serif"],
-            "headline-lg": ["Inter", "sans-serif"],
-            "headline-md": ["Inter", "sans-serif"],
-            "headline-sm": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
+  <script src="assets/js/tailwind.config.js"></script>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -1571,114 +1487,14 @@
       </div>
     </div>
 
-    <!-- Bloco 2: 3 Cards Hub Educacional & Ferramentas -->
+    <!-- Bloco 2: Hub Educacional (canal e apps externos; ferramentas abertas ficam em #ferramentas) -->
     <div>
       <div class="flex items-center gap-2 mb-6 font-label-caps text-xs text-outline tracking-wider uppercase">
         <span class="material-symbols-outlined text-primary text-[16px]">hub</span>
-        DISSEMINAÇÃO DE CONHECIMENTO & FERRAMENTAS INDUSTRIAIS ABERTAS //
+        DISSEMINAÇÃO DE CONHECIMENTO // CANAL & APLICAÇÕES
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Ferramenta 1: 52 Semanas -->
-        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-primary transition-all">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-label-caps text-[10px] text-primary tracking-widest px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30 uppercase">
-                PCM & GESTÃO // ISO 8601
-              </span>
-              <span class="material-symbols-outlined text-primary text-[22px]">calendar_month</span>
-            </div>
-            <h3 class="text-xl text-on-surface font-bold">
-              Calculadora de 52 Semanas
-            </h3>
-            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
-              Conversor instantâneo de datas para padrão ISO 8601 (S01–S52), dia do ano e dia da semana. Alinhado ao plano mestre de manutenção industrial e sprints.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
-            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
-            <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="ferramentas/calculadora-52-semanas.html">
-              <span>Abrir Ferramenta</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Ferramenta 2: Calculadora de Paradas -->
-        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-secondary transition-all">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-label-caps text-[10px] text-secondary tracking-widest px-2 py-0.5 rounded bg-secondary-container/20 border border-secondary/30 uppercase">
-                CONFIABILIDADE // DOWNTIME
-              </span>
-              <span class="material-symbols-outlined text-secondary text-[22px]">factory</span>
-            </div>
-            <h3 class="text-xl text-on-surface font-bold">
-              Controle de Parada & Downtime
-            </h3>
-            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
-              Cálculo de duração de paradas, conversão para horas decimais e aplicação automática da matriz de severidade (Relatório de Turno, FCA e Análise de Falha).
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
-            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
-            <a class="inline-flex items-center gap-1 font-code-md text-sm text-secondary hover:underline" href="ferramentas/calculadora-paradas.html">
-              <span>Abrir Ferramenta</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Ferramenta 3: Curva S & Tendência -->
-        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-tertiary transition-all">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-label-caps text-[10px] text-tertiary tracking-widest px-2 py-0.5 rounded bg-tertiary-container/20 border border-tertiary/30 uppercase">
-                PLANEJAMENTO // EVM
-              </span>
-              <span class="material-symbols-outlined text-tertiary text-[22px]">trending_up</span>
-            </div>
-            <h3 class="text-xl text-on-surface font-bold">
-              Gerador de Curva S (EVM)
-            </h3>
-            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
-              Curva de avanço físico acumulado (planejado × realizado) com Trava de Eficiência industrial, cálculo de SPI, desvio de cronograma e projeção de término.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
-            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
-            <a class="inline-flex items-center gap-1 font-code-md text-sm text-tertiary hover:underline" href="ferramentas/gerador-curva-s.html">
-              <span>Abrir Ferramenta</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Ferramenta 4: Séries Temporais -->
-        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-primary transition-all">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-label-caps text-[10px] text-primary tracking-widest px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30 uppercase">
-                ANALYTICS // PYTHON & ROLLING
-              </span>
-              <span class="material-symbols-outlined text-primary text-[22px]">timeline</span>
-            </div>
-            <h3 class="text-xl text-on-surface font-bold">
-              Séries Temporais com Python
-            </h3>
-            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
-              Visualização de séries temporais financeiras e de processo com cálculo de Médias Móveis Simples (MA21 e MA200) e identificação de tendências técnicas.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
-            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
-            <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="ferramentas/series-temporais.html">
-              <span>Abrir Ferramenta</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </a>
-          </div>
-        </div>
-
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- App 5: Portal dos Dados YouTube -->
         <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-secondary transition-all">
           <div>

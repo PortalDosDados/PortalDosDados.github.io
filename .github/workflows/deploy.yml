@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Verificar index.html gerado (src/ sincronizado)
+        run: node scripts/build.js --check
+
       - name: Executar Bateria de Testes
         run: node --test tests/*.test.js
 

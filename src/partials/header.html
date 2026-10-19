@@ -1,0 +1,57 @@
+
+<!-- ========================================================================= -->
+<!-- 1. NAVBAR                                                                 -->
+<!-- ========================================================================= -->
+<header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
+  <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
+    <!-- Brand Logo -->
+    <a class="flex items-center gap-2 group" href="#inicio">
+      <div class="w-8 h-8 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group-hover:cyan-glow transition-all">
+        <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">DN // DADOS.IND</span>
+        <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">CONFIABILIDADE v4.2</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-6">
+      <a class="nav-section-link text-primary font-code-md text-sm border-b-2 border-primary pb-1 transition-colors" href="#sobre">Sobre</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#projetos">Projetos</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#ferramentas">Ferramentas</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#experiencia">Experiência</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#habilidades">Habilidades</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#educacao">Educação</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#videos">Vídeos</a>
+      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#contato">Contato</a>
+    </nav>
+
+    <!-- Trailing Action Controls -->
+    <div class="flex items-center gap-2">
+      <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
+        <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+      </button>
+      <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-primary-container text-on-primary font-code-md text-sm font-semibold hover:opacity-95 active:scale-[0.98] transition-transform cyan-glow-subtle" href="#contato">
+        <span class="material-symbols-outlined text-[16px]">mail</span>
+        <span>Contato</span>
+      </a>
+      <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu de navegação" class="md:hidden w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="mobileMenuBtn">
+        <span class="material-symbols-outlined text-[20px]" id="mobileMenuIcon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav aria-label="Menu Mobile" class="hidden md:hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md px-4 py-4 space-y-1" id="mobileMenu">
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#sobre">Sobre</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#projetos">Projetos</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#ferramentas">Ferramentas</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#experiencia">Experiência</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#habilidades">Habilidades</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#educacao">Educação</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#videos">Vídeos</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-primary font-semibold hover:bg-surface-container-high transition-colors" href="#contato">Contato</a>
+  </nav>
+</header>
+

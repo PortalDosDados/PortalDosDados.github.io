@@ -1,0 +1,169 @@
+
+<!-- ========================================================================= -->
+<!-- 8. VÍDEOS & AULAS PRÁTICAS (Carrossel Interativo do Canal YouTube)        -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-surface-container-lowest border-b border-outline-variant/20 relative" id="videos">
+  <div class="max-w-7xl mx-auto px-4 md:px-12">
+    <!-- Header da Seção com Controles do Carrossel -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+      <div>
+        <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
+          <span class="material-symbols-outlined text-[16px]">smart_display</span>
+          CONTEÚDO PRÁTICO // CANAL PORTAL DOS DADOS
+        </div>
+        <h2 class="font-display-xl text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
+          Vídeos & Aulas Práticas
+        </h2>
+        <p class="font-body-lg text-sm md:text-base text-on-surface-variant max-w-2xl mt-2 leading-relaxed">
+          Aulas aplicadas de Power BI e Power Apps demonstrando o desenvolvimento real de ferramentas industriais, indicadores de manutenção e aplicativos operacionais.
+        </p>
+      </div>
+
+      <!-- Controles do Carrossel -->
+      <div class="flex items-center gap-3 self-start md:self-end">
+        <span class="font-label-caps text-xs text-outline px-3 py-1.5 rounded bg-surface-container laser-border" id="videoCounter">
+          VÍDEO 01 / 02
+        </span>
+        <button aria-label="Vídeo anterior" class="w-10 h-10 rounded bg-surface-container laser-border flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95" id="videoPrevBtn">
+          <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        </button>
+        <button aria-label="Próximo vídeo" class="w-10 h-10 rounded bg-surface-container laser-border flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95" id="videoNextBtn">
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+        <a class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded bg-surface-container laser-border font-label-caps text-xs text-primary hover:bg-primary-container/20 hover:border-primary transition-all" href="https://www.youtube.com/@Portal_dos_Dados" target="_blank" rel="noopener noreferrer">
+          <span>Canal no YouTube</span>
+          <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Pista do Carrossel (Scroll Snap Horizontal) -->
+    <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar" id="videoCarouselTrack">
+
+      <!-- CARD VÍDEO 1: Power BI do Zero (Manutenção de Frota) -->
+      <div class="min-w-[320px] sm:min-w-[440px] md:min-w-[520px] max-w-[560px] flex-shrink-0 snap-start rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all video-card">
+        <div>
+          <!-- Barra Superior do Card -->
+          <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+            <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+              <span class="material-symbols-outlined text-[16px]">play_circle</span>
+              <span>REF // VID-001-PBI-FROTA</span>
+            </div>
+            <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-primary border border-primary/30">
+              POWER BI • AULA 01
+            </span>
+          </div>
+
+          <!-- Player / Fachada de Vídeo (Click to Play) -->
+          <div class="relative aspect-video bg-black overflow-hidden group/thumb cursor-pointer video-facade" data-video-id="5IF6ByNH_hQ" data-video-title="Power BI do Zero - Aula 01 - Dashboard Manutenção de Frota" tabindex="0" role="button" aria-label="Reproduzir vídeo Power BI do Zero Aula 01">
+            <img alt="Thumbnail Power BI do Zero Aula 01 - Dashboard Manutenção de Frota" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500" decoding="async" loading="lazy" src="assets/img/videos/power-bi-do-zero-aula-1.png" onerror="this.src='https://img.youtube.com/vi/5IF6ByNH_hQ/hqdefault.jpg'" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+
+            <!-- Botão Play Central Estilizado -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 group-hover/thumb:bg-red-600 transition-all duration-300">
+                <span class="material-symbols-outlined text-[36px] ml-1">play_arrow</span>
+              </div>
+            </div>
+
+            <!-- Tag Flutuante de Dica -->
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur text-white text-[11px] font-label-caps">
+              <span class="material-symbols-outlined text-[14px] text-primary">touch_app</span>
+              <span>Clique para reproduzir</span>
+            </div>
+          </div>
+
+          <!-- Conteúdo do Card -->
+          <div class="p-6 space-y-4">
+            <h3 class="text-xl md:text-2xl text-on-surface font-bold">
+              Power BI do Zero: Dashboard de Manutenção de Frota
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+              Construção passo a passo de um dashboard gerencial de manutenção de frotas e ordens de serviço no Power BI, calculando taxa de manutenção preventiva (28.19%), volume de OS por mês e análise detalhada por árvore de decomposição.
+            </p>
+
+            <!-- Tópicos Abordados -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Modelagem Relacional</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Taxa Preventivas (28.19%)</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Árvore de Decomposição</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Power BI Service</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rodapé do Card -->
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">AULA PRÁTICA // PLAYLIST OFICIAL</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="https://www.youtube.com/watch?v=5IF6ByNH_hQ&list=PLdDl00ELa1blnoiUxODvPpyfP0cHirX0L" target="_blank" rel="noopener noreferrer">
+            <span>Abrir no YouTube</span>
+            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD VÍDEO 2: Power Apps (App Gestão de Estoque) -->
+      <div class="min-w-[320px] sm:min-w-[440px] md:min-w-[520px] max-w-[560px] flex-shrink-0 snap-start rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-secondary/50 transition-all video-card">
+        <div>
+          <!-- Barra Superior do Card -->
+          <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+            <div class="flex items-center gap-2 font-label-caps text-[11px] text-secondary">
+              <span class="material-symbols-outlined text-[16px]">play_circle</span>
+              <span>REF // VID-002-POWERAPPS-ESTOQUE</span>
+            </div>
+            <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary border border-secondary/30">
+              POWER APPS • AULA 01
+            </span>
+          </div>
+
+          <!-- Player / Fachada de Vídeo (Click to Play) -->
+          <div class="relative aspect-video bg-black overflow-hidden group/thumb cursor-pointer video-facade" data-video-id="HExTWVTRovg" data-video-title="Power Apps - Aula 01 - App Gestão de Estoque" tabindex="0" role="button" aria-label="Reproduzir vídeo Power Apps Aula 01">
+            <img alt="Thumbnail Power Apps Aula 01 - App Gestão de Estoque" class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500" decoding="async" loading="lazy" src="https://img.youtube.com/vi/HExTWVTRovg/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/HExTWVTRovg/hqdefault.jpg'" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent"></div>
+
+            <!-- Botão Play Central Estilizado -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-2xl group-hover/thumb:scale-110 group-hover/thumb:bg-red-600 transition-all duration-300">
+                <span class="material-symbols-outlined text-[36px] ml-1">play_arrow</span>
+              </div>
+            </div>
+
+            <!-- Tag Flutuante de Dica -->
+            <div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded bg-black/70 backdrop-blur text-white text-[11px] font-label-caps">
+              <span class="material-symbols-outlined text-[14px] text-secondary">touch_app</span>
+              <span>Clique para reproduzir</span>
+            </div>
+          </div>
+
+          <!-- Conteúdo do Card -->
+          <div class="p-6 space-y-4">
+            <h3 class="text-xl md:text-2xl text-on-surface font-bold">
+              Power Apps: App de Gestão e Controle de Estoque
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant leading-relaxed">
+              Desenvolvimento prático de um aplicativo corporativo em Power Apps para controle de estoque em tempo real, abrangendo criação de telas interativas, validações, cadastros e movimentações operacionais no chão de fábrica.
+            </p>
+
+            <!-- Tópicos Abordados -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Telas & Navegação</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Formulários Dinâmicos</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Entradas & Saídas</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Chão de Fábrica</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rodapé do Card -->
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">AULA PRÁTICA // YOUTUBE</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-secondary hover:underline" href="https://www.youtube.com/watch?v=HExTWVTRovg&t=7s" target="_blank" rel="noopener noreferrer">
+            <span>Abrir no YouTube</span>
+            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

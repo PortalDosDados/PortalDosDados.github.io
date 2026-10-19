@@ -1,0 +1,11 @@
+{
+  "name": "dione.github.io",
+  "private": true,
+  "description": "Portfólio de Dione Nascimento — site estático (GitHub Pages)",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build:check": "node scripts/build.js --check",
+    "test": "node scripts/build.js --check && node --test tests/*.test.js"
+  }
+}
