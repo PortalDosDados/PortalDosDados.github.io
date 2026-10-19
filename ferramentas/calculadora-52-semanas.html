@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="dark" data-theme="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Calculadora de 52 Semanas (ISO 8601) | Portal dos Dados — Dione Nascimento</title>
+  <meta name="description" content="Calculadora de 52 semanas e datas ISO 8601 para planejamento de manutenção industrial, PCM, logística e sprints."/>
+  <meta name="author" content="Dione Morrone dos Santos Nascimento"/>
+  <link rel="canonical" href="https://portaldosdados.github.io/ferramentas/calculadora-52-semanas.html"/>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
+
+  <!-- Prevenção de Flash de Tema (FOIT) -->
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos Compartilhados e Tokens de Tema -->
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
+            "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
+            "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
+            "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
+            "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
+            "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
+            "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
+            "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
+            "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
+            "background": "rgb(var(--c-background) / <alpha-value>)",
+            "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
+            "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
+            "outline": "rgb(var(--c-outline) / <alpha-value>)",
+            "error": "rgb(var(--c-error) / <alpha-value>)",
+            "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
+            "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
+            "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
+            "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
+            "surface": "rgb(var(--c-surface) / <alpha-value>)",
+            "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
+            "primary": "rgb(var(--c-primary) / <alpha-value>)",
+            "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
+            "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
+            "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
+            "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
+            "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
+            "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
+            "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
+            "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
+            "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
+            "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
+            "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
+            "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
+            "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
+            "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
+            "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
+            "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
+            "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
+            "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
+            "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)",
+            "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
+            "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
+            "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)",
+            "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
+            "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)"
+          },
+          "fontFamily": {
+            "metric-display": ["'JetBrains Mono'", "monospace"],
+            "code-md": ["'JetBrains Mono'", "monospace"],
+            "label-caps": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased blueprint-grid selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group" href="../index.html">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group-hover:cyan-glow transition-all">
+            <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">DN // DADOS.IND</span>
+            <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">FERRAMENTAS ABERTAS</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span>Voltar ao Portfólio</span>
+        </a>
+        <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
+          <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="w-full max-w-5xl mx-auto px-4 py-8 md:py-12 flex-1">
+    
+    <!-- Breadcrumb e Metadados -->
+    <div class="flex flex-wrap items-center gap-2 mb-4 font-code-md text-xs text-outline">
+      <a href="../index.html" class="hover:text-primary transition-colors">Início</a>
+      <span>/</span>
+      <span class="text-on-surface-variant">Ferramentas Industriais</span>
+      <span>/</span>
+      <span class="text-primary font-bold">Calculadora de 52 Semanas</span>
+    </div>
+
+    <!-- Header da Aplicação -->
+    <div class="mb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary-container/20 border border-primary/40 text-primary font-label-caps text-xs tracking-wider uppercase mb-3">
+        <span class="material-symbols-outlined text-[14px]">calendar_month</span>
+        PADRÃO ISO 8601 // PCM & GESTÃO DE ATIVOS
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-on-surface tracking-tight">
+        📅 Calculadora de 52 Semanas
+      </h1>
+      <p class="text-sm md:text-base text-on-surface-variant mt-2 max-w-3xl leading-relaxed">
+        Converta qualquer data instantaneamente para os padrões de negócio e planejamento industrial: semana ISO (S01–S52), dia do ano (1–366) e dia da semana. Essencial para matrizes de 52 semanas do PCM, logística e sprints.
+      </p>
+    </div>
+
+    <!-- Painel Interativo de Entrada e Resultados -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Coluna de Controles (Inputs) -->
+      <div class="lg:col-span-5 rounded-lg bg-surface-container laser-border p-6 shadow-sm">
+        <h2 class="text-base font-bold text-on-surface flex items-center gap-2 mb-4">
+          <span class="material-symbols-outlined text-primary text-[20px]">edit_calendar</span>
+          Parâmetros de Entrada
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <label for="inputData" class="block font-code-md text-xs text-on-surface-variant mb-1.5 uppercase tracking-wider">
+              Selecione a Data:
+            </label>
+            <input 
+              type="date" 
+              id="inputData" 
+              class="w-full px-3.5 py-2.5 rounded bg-surface-container-high border border-outline-variant text-on-surface font-code-md text-base focus:outline-none focus:border-primary transition-colors"
+            />
+          </div>
+
+          <!-- Atalhos rápidos -->
+          <div>
+            <span class="block font-code-md text-[11px] text-outline uppercase tracking-wider mb-2">Atalhos rápidos:</span>
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="btnHoje" class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-on-surface font-code-md text-xs transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">today</span> Hoje
+              </button>
+              <button type="button" id="btnInicioAno" class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-on-surface font-code-md text-xs transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">first_page</span> Início do Ano
+              </button>
+              <button type="button" id="btnMeioAno" class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-on-surface font-code-md text-xs transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">calendar_view_week</span> Meio do Ano
+              </button>
+              <button type="button" id="btnFimAno" class="px-3 py-1.5 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-on-surface font-code-md text-xs transition-colors flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">last_page</span> Fim do Ano
+              </button>
+            </div>
+          </div>
+
+          <div id="msgErro" class="hidden p-3 rounded bg-error-container/30 border border-error/50 text-error font-code-md text-xs"></div>
+        </div>
+
+        <!-- Resumo Rápido -->
+        <div class="mt-6 pt-4 border-t border-outline-variant/30 text-xs text-on-surface-variant font-code-md space-y-1">
+          <div class="flex justify-between">
+            <span class="text-outline">Data formatada:</span>
+            <span id="txtDataFormatada" class="text-primary font-bold">--/--/----</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-outline">Ano ISO / Calendário:</span>
+            <span id="txtAnoIso">----</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-outline">Ano Bissexto:</span>
+            <span id="txtAnoBissexto">Não</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna de Resultados (Métricas em Destaque) -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <!-- Grid de Cards de Métricas (Igual ao Streamlit st.metric) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          
+          <!-- Card 1: Semana do Ano -->
+          <div class="rounded-lg bg-surface-container laser-border p-5 border-l-4 border-l-primary flex flex-col justify-between">
+            <div class="flex items-center justify-between text-outline mb-2">
+              <span class="font-code-md text-xs uppercase tracking-wider">Semana do Ano</span>
+              <span class="material-symbols-outlined text-primary text-[18px]">view_week</span>
+            </div>
+            <div class="font-metric-display text-3xl md:text-4xl font-bold text-primary" id="resSemana">
+              S--
+            </div>
+            <div class="font-code-md text-[11px] text-on-surface-variant mt-2" id="subSemana">
+              Padrão ISO 8601
+            </div>
+          </div>
+
+          <!-- Card 2: Dia do Ano -->
+          <div class="rounded-lg bg-surface-container laser-border p-5 border-l-4 border-l-secondary flex flex-col justify-between">
+            <div class="flex items-center justify-between text-outline mb-2">
+              <span class="font-code-md text-xs uppercase tracking-wider">Dia do Ano</span>
+              <span class="material-symbols-outlined text-secondary text-[18px]">event</span>
+            </div>
+            <div class="font-metric-display text-3xl md:text-4xl font-bold text-secondary" id="resDiaAno">
+              Dia --
+            </div>
+            <div class="font-code-md text-[11px] text-on-surface-variant mt-2" id="subDiaAno">
+              de 365 dias
+            </div>
+          </div>
+
+          <!-- Card 3: Dia da Semana -->
+          <div class="rounded-lg bg-surface-container laser-border p-5 border-l-4 border-l-tertiary flex flex-col justify-between">
+            <div class="flex items-center justify-between text-outline mb-2">
+              <span class="font-code-md text-xs uppercase tracking-wider">Dia da Semana</span>
+              <span class="material-symbols-outlined text-tertiary text-[18px]">schedule</span>
+            </div>
+            <div class="font-metric-display text-xl md:text-2xl font-bold text-tertiary truncate" id="resDiaSemana">
+              ------
+            </div>
+            <div class="font-code-md text-[11px] text-on-surface-variant mt-2" id="subDiaSemana">
+              Dia útil industrial
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Barra de Progresso do Ano -->
+        <div class="rounded-lg bg-surface-container laser-border p-5">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-code-md text-xs uppercase tracking-wider text-outline flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-primary text-[16px]">timelapse</span>
+              Evolução Temporal do Ano
+            </span>
+            <span class="font-metric-display text-sm font-bold text-primary" id="txtPercentualAno">0.0%</span>
+          </div>
+          <div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden p-0.5 border border-outline-variant/30">
+            <div id="barPercentualAno" class="h-full rounded-full bg-primary transition-all duration-300" style="width: 0%"></div>
+          </div>
+          <p class="font-code-md text-[11px] text-on-surface-variant mt-2">
+            Indicador contínuo de avanço de metas anuais e rotinas preventivas de manutenção.
+          </p>
+        </div>
+
+        <!-- Nota Técnica Explicativa (Fiel ao Streamlit original) -->
+        <div class="rounded-lg bg-surface-container-high/60 border border-outline-variant/40 p-4 text-xs text-on-surface-variant space-y-2">
+          <div class="flex items-center gap-2 font-bold text-on-surface">
+            <span class="material-symbols-outlined text-primary text-[16px]">info</span>
+            Nota Técnica de Confiabilidade & PCM:
+          </div>
+          <p class="leading-relaxed">
+            De acordo com o padrão <strong>ISO 8601</strong>, a primeira semana do ano (S01) é aquela que contém a primeira quinta-feira ou o dia 4 de janeiro. Cada semana inicia rigorosamente na <strong>segunda-feira</strong> e encerra no <strong>domingo</strong>.
+          </p>
+          <p class="leading-relaxed">
+            Na indústria e na engenharia de confiabilidade, este padrão é o alicerce do <strong>Plano Mestre de 52 Semanas</strong>, garantindo que as paradas sistemáticas e ordens de manutenção (PM) tenham rastreabilidade padronizada entre SAP, MES e relatórios de BI.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-outline-variant/30 bg-surface-container-lowest/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="font-code-md text-xs text-outline">
+        PORTAL DOS DADOS // DIONE NASCIMENTO · ENGENHARIA DE MANUTENÇÃO & ANALYTICS
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script da Ferramenta e Lógica da Interface -->
+  <script src="../assets/js/tools/calculadora-52-semanas.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Alternância de Tema
+      const themeBtn = document.getElementById('themeToggleBtn');
+      const themeIcon = document.getElementById('themeIcon');
+      const htmlTag = document.documentElement;
+
+      const applyTheme = (mode) => {
+        if (mode === 'light') {
+          htmlTag.classList.remove('dark');
+          htmlTag.setAttribute('data-theme', 'light');
+          if (themeIcon) themeIcon.textContent = 'light_mode';
+        } else {
+          htmlTag.classList.add('dark');
+          htmlTag.setAttribute('data-theme', 'dark');
+          if (themeIcon) themeIcon.textContent = 'dark_mode';
+        }
+      };
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const next = htmlTag.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          applyTheme(next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+
+      // 2. Elementos da Calculadora
+      const inputData = document.getElementById('inputData');
+      const resSemana = document.getElementById('resSemana');
+      const subSemana = document.getElementById('subSemana');
+      const resDiaAno = document.getElementById('resDiaAno');
+      const subDiaAno = document.getElementById('subDiaAno');
+      const resDiaSemana = document.getElementById('resDiaSemana');
+      const subDiaSemana = document.getElementById('subDiaSemana');
+      const txtPercentualAno = document.getElementById('txtPercentualAno');
+      const barPercentualAno = document.getElementById('barPercentualAno');
+      const txtDataFormatada = document.getElementById('txtDataFormatada');
+      const txtAnoIso = document.getElementById('txtAnoIso');
+      const txtAnoBissexto = document.getElementById('txtAnoBissexto');
+      const msgErro = document.getElementById('msgErro');
+
+      // Atalhos
+      const btnHoje = document.getElementById('btnHoje');
+      const btnInicioAno = document.getElementById('btnInicioAno');
+      const btnMeioAno = document.getElementById('btnMeioAno');
+      const btnFimAno = document.getElementById('btnFimAno');
+
+      function atualizar(dataValor) {
+        try {
+          msgErro.classList.add('hidden');
+          const resultado = Calculadora52Semanas.calcular(dataValor);
+
+          // Atualiza inputs e labels
+          inputData.value = resultado.dataIsoInput;
+          resSemana.textContent = resultado.semanaFormatada;
+          subSemana.textContent = `Ano ISO: ${resultado.anoIso}`;
+
+          resDiaAno.textContent = `Dia ${resultado.diaDoAno}`;
+          subDiaAno.textContent = `de ${resultado.totalDiasAno} dias ${resultado.anoBissexto ? '(Bissexto)' : ''}`;
+
+          resDiaSemana.textContent = resultado.diaSemanaNome;
+          subDiaSemana.textContent = resultado.diaSemanaNumero === 5 || resultado.diaSemanaNumero === 6 ? 'Fim de semana' : 'Dia útil industrial';
+
+          txtPercentualAno.textContent = `${resultado.percentualAno}%`;
+          barPercentualAno.style.width = `${Math.min(resultado.percentualAno, 100)}%`;
+
+          txtDataFormatada.textContent = resultado.dataFormatada;
+          txtAnoIso.textContent = `${resultado.anoIso} (Calendário: ${resultado.data.getFullYear()})`;
+          txtAnoBissexto.textContent = resultado.anoBissexto ? 'Sim (366 dias)' : 'Não (365 dias)';
+        } catch (err) {
+          msgErro.textContent = err.message || 'Erro ao processar data.';
+          msgErro.classList.remove('hidden');
+        }
+      }
+
+      // Eventos
+      inputData.addEventListener('change', (e) => atualizar(e.target.value));
+      inputData.addEventListener('input', (e) => {
+        if (e.target.value) atualizar(e.target.value);
+      });
+
+      btnHoje.addEventListener('click', () => {
+        const hoje = new Date();
+        atualizar(hoje);
+      });
+
+      btnInicioAno.addEventListener('click', () => {
+        const ano = inputData.value ? new Date(inputData.value).getFullYear() : new Date().getFullYear();
+        atualizar(`${ano}-01-01`);
+      });
+
+      btnMeioAno.addEventListener('click', () => {
+        const ano = inputData.value ? new Date(inputData.value).getFullYear() : new Date().getFullYear();
+        atualizar(`${ano}-07-01`);
+      });
+
+      btnFimAno.addEventListener('click', () => {
+        const ano = inputData.value ? new Date(inputData.value).getFullYear() : new Date().getFullYear();
+        atualizar(`${ano}-12-31`);
+      });
+
+      // Inicializa com a data de hoje
+      atualizar(new Date());
+    });
+  </script>
+</body>
+</html>

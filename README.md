@@ -28,11 +28,27 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │   │   ├── favicon.svg          # Favicon vetorial com monograma DN
 │   │   └── videos/              # Capas e miniaturas de aulas práticas do YouTube
 │   └── js/
-│       └── app.js               # Lógica interativa: tema, filtros, carrossel e lazy player
+│       ├── app.js               # Lógica interativa: tema, filtros, carrossel e lazy player
+│       └── tools/               # Módulos matemáticos puros das ferramentas industriais
+│           ├── calculadora-52-semanas.js
+│           ├── calculadora-paradas.js
+│           ├── gerador-curva-s.js
+│           ├── series-temporais.js
+│           └── dados-cotacoes.js
 ├── data/
 │   └── content.js               # Base de dados estruturada de projetos e experiências
-├── tests/
-│   └── content.test.js          # Teste automatizado de integridade de data/content.js
+├── ferramentas/                 # Aplicações Web Industriais Interativas (Client-side)
+│   ├── calculadora-52-semanas.html # Calculadora de 52 Semanas (ISO 8601)
+│   ├── calculadora-paradas.html    # Controle de Paradas e Downtime Industrial
+│   ├── gerador-curva-s.html        # Curva S & Tendência (EVM Industrial)
+│   └── series-temporais.html       # Séries Temporais Financeiras com Médias Móveis
+├── tests/                       # Bateria de testes automatizados com node:test
+│   ├── content.test.js
+│   ├── calculadora-52-semanas.test.js
+│   ├── calculadora-paradas.test.js
+│   ├── gerador-curva-s.test.js
+│   ├── series-temporais.test.js
+│   └── ferramentas-pages.test.js
 ├── .gitattributes               # Normalização de quebras de linha
 ├── .gitignore                   # Exclusão de arquivos de SO, IDE e temporários
 ├── .nojekyll                    # Instrução para o GitHub Pages ignorar o Jekyll

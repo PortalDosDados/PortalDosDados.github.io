@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="dark" data-theme="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Controle de Parada & Downtime Industrial | Portal dos Dados — Dione Nascimento</title>
+  <meta name="description" content="Calculadora de Parada e Downtime Industrial. Converte horários de início e fim em horas decimais e aplica matriz de severidade (FCA / Análise de Falha)."/>
+  <meta name="author" content="Dione Morrone dos Santos Nascimento"/>
+  <link rel="canonical" href="https://portaldosdados.github.io/ferramentas/calculadora-paradas.html"/>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
+
+  <!-- Prevenção de Flash de Tema (FOIT) -->
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos Compartilhados e Tokens de Tema -->
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
+            "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
+            "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
+            "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
+            "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
+            "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
+            "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
+            "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
+            "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
+            "background": "rgb(var(--c-background) / <alpha-value>)",
+            "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
+            "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
+            "outline": "rgb(var(--c-outline) / <alpha-value>)",
+            "error": "rgb(var(--c-error) / <alpha-value>)",
+            "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
+            "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
+            "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
+            "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
+            "surface": "rgb(var(--c-surface) / <alpha-value>)",
+            "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
+            "primary": "rgb(var(--c-primary) / <alpha-value>)",
+            "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
+            "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
+            "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
+            "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
+            "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
+            "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
+            "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
+            "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
+            "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
+            "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
+            "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
+            "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
+            "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
+            "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
+            "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
+            "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
+            "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
+            "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
+            "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)",
+            "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
+            "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
+            "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)",
+            "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
+            "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)"
+          },
+          "fontFamily": {
+            "metric-display": ["'JetBrains Mono'", "monospace"],
+            "code-md": ["'JetBrains Mono'", "monospace"],
+            "label-caps": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased blueprint-grid selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group" href="../index.html">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group-hover:cyan-glow transition-all">
+            <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">DN // DADOS.IND</span>
+            <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">FERRAMENTAS ABERTAS</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="calculadora-52-semanas.html" class="hidden sm:inline-flex items-center gap-1 font-code-md text-xs text-on-surface-variant hover:text-primary transition-colors">
+          <span>52 Semanas</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span>Voltar ao Portfólio</span>
+        </a>
+        <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
+          <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="w-full max-w-5xl mx-auto px-4 py-8 md:py-12 flex-1">
+    
+    <!-- Breadcrumb -->
+    <div class="flex flex-wrap items-center gap-2 mb-4 font-code-md text-xs text-outline">
+      <a href="../index.html" class="hover:text-primary transition-colors">Início</a>
+      <span>/</span>
+      <span class="text-on-surface-variant">Ferramentas Industriais</span>
+      <span>/</span>
+      <span class="text-primary font-bold">Controle de Parada (Downtime)</span>
+    </div>
+
+    <!-- Header da Aplicação -->
+    <div class="mb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-secondary-container/20 border border-secondary/40 text-secondary font-label-caps text-xs tracking-wider uppercase mb-3">
+        <span class="material-symbols-outlined text-[14px]">factory</span>
+        CONFIABILIDADE OPERACIONAL // DOWNTIME & RCA
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-on-surface tracking-tight">
+        🏭 Controle de Parada Industrial
+      </h1>
+      <p class="text-sm md:text-base text-on-surface-variant mt-2 max-w-3xl leading-relaxed">
+        Digite os horários de início e término da intervenção mecânica/elétrica para calcular a duração precisa, a conversão em horas decimais e a recomendação de tratativa pela matriz de severidade industrial (Turno, FCA ou Análise de Falha).
+      </p>
+    </div>
+
+    <!-- Painel de Inputs -->
+    <div class="rounded-lg bg-surface-container laser-border p-6 shadow-sm mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Bloco Início -->
+        <div class="p-4 rounded-lg bg-surface-container-high/60 border border-outline-variant/30">
+          <div class="flex items-center gap-2 mb-3 text-red-400 font-bold font-code-md text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+            🔴 Início da Parada
+          </div>
+          <div class="space-y-3">
+            <div>
+              <label for="inputDataIni" class="block font-code-md text-xs text-on-surface-variant mb-1 uppercase">Data Início:</label>
+              <input type="date" id="inputDataIni" class="w-full px-3 py-2 rounded bg-surface-container border border-outline-variant text-on-surface font-code-md text-sm focus:outline-none focus:border-primary transition-colors" />
+            </div>
+            <div>
+              <label for="inputHoraIni" class="block font-code-md text-xs text-on-surface-variant mb-1 uppercase">Hora Início (ex: 08:00 ou 0800):</label>
+              <input type="text" id="inputHoraIni" placeholder="08:00" maxlength="5" class="w-full px-3 py-2 rounded bg-surface-container border border-outline-variant text-on-surface font-metric-display text-lg text-center font-bold tracking-wider focus:outline-none focus:border-primary transition-colors" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloco Fim -->
+        <div class="p-4 rounded-lg bg-surface-container-high/60 border border-outline-variant/30">
+          <div class="flex items-center gap-2 mb-3 text-emerald-400 font-bold font-code-md text-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            🟢 Término da Parada
+          </div>
+          <div class="space-y-3">
+            <div>
+              <label for="inputDataFim" class="block font-code-md text-xs text-on-surface-variant mb-1 uppercase">Data Fim:</label>
+              <input type="date" id="inputDataFim" class="w-full px-3 py-2 rounded bg-surface-container border border-outline-variant text-on-surface font-code-md text-sm focus:outline-none focus:border-primary transition-colors" />
+            </div>
+            <div>
+              <label for="inputHoraFim" class="block font-code-md text-xs text-on-surface-variant mb-1 uppercase">Hora Fim (ex: 17:30 ou 1730):</label>
+              <input type="text" id="inputHoraFim" placeholder="17:30" maxlength="5" class="w-full px-3 py-2 rounded bg-surface-container border border-outline-variant text-on-surface font-metric-display text-lg text-center font-bold tracking-wider focus:outline-none focus:border-primary transition-colors" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botão de Processamento e Feedback de Erro -->
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 items-center justify-between">
+        <button type="button" id="btnProcessar" class="w-full sm:w-auto px-8 py-3 rounded bg-primary-container text-on-primary font-code-md text-sm font-bold hover:opacity-95 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cyan-glow-subtle cursor-pointer">
+          <span class="material-symbols-outlined text-[18px]">settings</span>
+          <span>PROCESSAR DADOS</span>
+        </button>
+
+        <!-- Presets Rápidos -->
+        <div class="flex items-center gap-2 font-code-md text-xs text-outline">
+          <span>Exemplos:</span>
+          <button type="button" id="btnPresetFalha" class="hover:text-red-400 underline cursor-pointer">Falha Crítica (9.5h)</button>
+          <span>·</span>
+          <button type="button" id="btnPresetFca" class="hover:text-amber-400 underline cursor-pointer">FCA (1.25h)</button>
+          <span>·</span>
+          <button type="button" id="btnPresetRotina" class="hover:text-emerald-400 underline cursor-pointer">Rotina (45m)</button>
+        </div>
+      </div>
+
+      <div id="msgAlerta" class="hidden mt-4 p-3 rounded bg-error-container/30 border border-error/50 text-error font-code-md text-xs"></div>
+    </div>
+
+    <!-- Dashboard / Card de Resultados (Customizado com a Matriz de Severidade) -->
+    <div id="painelResultados" class="rounded-xl bg-surface-container laser-border p-6 md:p-8 max-w-2xl mx-auto shadow-lg transition-all border-t-8" style="border-top-color: #66bb6a;">
+      
+      <!-- Cabeçalho de Status / Ação Recomendada -->
+      <div class="text-center mb-6">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 font-code-md" id="badgeStatus">
+          <span class="material-symbols-outlined text-[14px]" id="iconeStatus">check_circle</span>
+          <span id="textoStatus">APONTAMENTO NO RELATÓRIO DE TURNO</span>
+        </span>
+        <h2 class="text-xs font-code-md text-outline uppercase tracking-wider mt-1">Duração Total Calculada</h2>
+      </div>
+
+      <!-- Display Gigante de Horas Decimais -->
+      <div class="flex items-baseline justify-center gap-3 my-4">
+        <span class="font-metric-display text-6xl md:text-7xl font-extrabold text-on-surface tracking-tight" id="dispHorasDecimais">
+          0.00
+        </span>
+        <span class="font-code-md text-lg md:text-xl text-on-surface-variant font-medium">horas</span>
+      </div>
+
+      <!-- Minutos Totais e Duração Formatada -->
+      <div class="text-center font-code-md text-sm md:text-base font-semibold text-on-surface-variant mb-6" id="dispMinutos">
+        ⏱️ Total: 0 minutos
+      </div>
+
+      <!-- Divisor Estilizado -->
+      <hr class="border-outline-variant/30 my-6" />
+
+      <!-- Metadados do Período -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-code-md text-on-surface-variant">
+        <div class="p-3 rounded bg-surface-container-high/60 border border-outline-variant/20">
+          <span class="text-outline block mb-1">Período Registrado:</span>
+          <span id="dispPeriodo" class="text-on-surface font-bold">08:00 às 17:30</span>
+        </div>
+        <div class="p-3 rounded bg-surface-container-high/60 border border-outline-variant/20">
+          <span class="text-outline block mb-1">Impacto de Confiabilidade:</span>
+          <span id="dispImpacto" class="text-on-surface font-bold">Rotina Operacional</span>
+        </div>
+      </div>
+
+      <!-- Descrição da Ação Operacional -->
+      <div class="mt-4 p-3.5 rounded bg-surface-container-lowest/80 border border-outline-variant/30 text-xs text-on-surface-variant leading-relaxed" id="dispDescricaoAcao">
+        Interrupção operacional de rotina (<= 1,0 h). Registro padrão de passagem de turno e log de eventos.
+      </div>
+    </div>
+
+    <!-- Guia da Matriz de Escalabilidade Industrial -->
+    <div class="mt-12 rounded-lg bg-surface-container-high/40 border border-outline-variant/30 p-6">
+      <h3 class="text-sm font-bold text-on-surface uppercase tracking-wider font-code-md flex items-center gap-2 mb-4">
+        <span class="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+        Matriz de Escalabilidade & Tratativa de Falhas (Confiabilidade Siderúrgica)
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 rounded bg-surface-container border-l-4 border-l-[#66bb6a]">
+          <div class="font-bold text-emerald-400 font-code-md mb-1">Duração &le; 1,0 h</div>
+          <div class="font-semibold text-on-surface mb-1">Relatório de Turno</div>
+          <p class="text-on-surface-variant leading-relaxed">Apontamento padrão no log da operação com motivo de parada e componente afetado.</p>
+        </div>
+        <div class="p-4 rounded bg-surface-container border-l-4 border-l-[#ffa726]">
+          <div class="font-bold text-amber-400 font-code-md mb-1">1,0 h &lt; Duração &le; 1,5 h</div>
+          <div class="font-semibold text-on-surface mb-1">Análise FCA</div>
+          <p class="text-on-surface-variant leading-relaxed">Registro estruturado: Fato (o que parou), Causa (motivo imediato) e Ação (bloqueio da reincidência).</p>
+        </div>
+        <div class="p-4 rounded bg-surface-container border-l-4 border-l-[#ef5350]">
+          <div class="font-bold text-red-400 font-code-md mb-1">Duração &gt; 1,5 h</div>
+          <div class="font-semibold text-on-surface mb-1">Análise de Falha (RCA)</div>
+          <p class="text-on-surface-variant leading-relaxed">Abertura de investigação formal de confiabilidade (Ishikawa, 5 Porquês, Árvore de Falhas e Plano 5W2H).</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-outline-variant/30 bg-surface-container-lowest/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="font-code-md text-xs text-outline">
+        PORTAL DOS DADOS // DIONE NASCIMENTO · ENGENHARIA DE MANUTENÇÃO & ANALYTICS
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/tools/calculadora-paradas.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Alternância de Tema
+      const themeBtn = document.getElementById('themeToggleBtn');
+      const themeIcon = document.getElementById('themeIcon');
+      const htmlTag = document.documentElement;
+
+      const applyTheme = (mode) => {
+        if (mode === 'light') {
+          htmlTag.classList.remove('dark');
+          htmlTag.setAttribute('data-theme', 'light');
+          if (themeIcon) themeIcon.textContent = 'light_mode';
+        } else {
+          htmlTag.classList.add('dark');
+          htmlTag.setAttribute('data-theme', 'dark');
+          if (themeIcon) themeIcon.textContent = 'dark_mode';
+        }
+      };
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const next = htmlTag.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          applyTheme(next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+
+      // 2. Elementos da Interface
+      const inputDataIni = document.getElementById('inputDataIni');
+      const inputHoraIni = document.getElementById('inputHoraIni');
+      const inputDataFim = document.getElementById('inputDataFim');
+      const inputHoraFim = document.getElementById('inputHoraFim');
+      const btnProcessar = document.getElementById('btnProcessar');
+      const msgAlerta = document.getElementById('msgAlerta');
+
+      const painelResultados = document.getElementById('painelResultados');
+      const badgeStatus = document.getElementById('badgeStatus');
+      const iconeStatus = document.getElementById('iconeStatus');
+      const textoStatus = document.getElementById('textoStatus');
+      const dispHorasDecimais = document.getElementById('dispHorasDecimais');
+      const dispMinutos = document.getElementById('dispMinutos');
+      const dispPeriodo = document.getElementById('dispPeriodo');
+      const dispImpacto = document.getElementById('dispImpacto');
+      const dispDescricaoAcao = document.getElementById('dispDescricaoAcao');
+
+      // Presets
+      const btnPresetFalha = document.getElementById('btnPresetFalha');
+      const btnPresetFca = document.getElementById('btnPresetFca');
+      const btnPresetRotina = document.getElementById('btnPresetRotina');
+
+      function formatarDataISO(d) {
+        const ano = d.getFullYear();
+        const mes = String(d.getMonth() + 1).padStart(2, '0');
+        const dia = String(d.getDate()).padStart(2, '0');
+        return `${ano}-${mes}-${dia}`;
+      }
+
+      function processar() {
+        try {
+          msgAlerta.classList.add('hidden');
+
+          const dIniVal = inputDataIni.value;
+          const hIniVal = inputHoraIni.value;
+          const dFimVal = inputDataFim.value;
+          const hFimVal = inputHoraFim.value;
+
+          const res = CalculadoraParadas.calcularDowntime({
+            dataInicio: dIniVal,
+            horaInicio: hIniVal,
+            dataFim: dFimVal,
+            horaFim: hFimVal,
+          });
+
+          // Atualiza o card de resultados
+          painelResultados.style.borderTopColor = res.severidade.cor;
+          badgeStatus.style.backgroundColor = `${res.severidade.cor}22`;
+          badgeStatus.style.color = res.severidade.cor;
+          badgeStatus.style.border = `1px solid ${res.severidade.cor}55`;
+          iconeStatus.textContent = res.severidade.icone;
+          textoStatus.textContent = res.severidade.textoStatus;
+
+          dispHorasDecimais.textContent = res.horasDecimaisFormatadas;
+          dispMinutos.textContent = `⏱️ Total: ${res.minutosTotais} minutos (${res.duracaoFormatada})`;
+          dispPeriodo.textContent = `${res.horaInicioFormatada} às ${res.horaFimFormatada}`;
+          dispImpacto.textContent = `${res.severidade.titulo} (${res.severidade.nivel})`;
+          dispDescricaoAcao.textContent = res.severidade.descricao;
+
+        } catch (err) {
+          msgAlerta.textContent = err.message || 'Erro ao processar parada.';
+          msgAlerta.classList.remove('hidden');
+        }
+      }
+
+      // Eventos
+      btnProcessar.addEventListener('click', processar);
+
+      // Submissão ao pressionar Enter em qualquer input
+      [inputDataIni, inputHoraIni, inputDataFim, inputHoraFim].forEach(input => {
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') processar();
+        });
+      });
+
+      // Presets
+      btnPresetFalha.addEventListener('click', () => {
+        const hoje = formatarDataISO(new Date());
+        inputDataIni.value = hoje;
+        inputHoraIni.value = '08:00';
+        inputDataFim.value = hoje;
+        inputHoraFim.value = '17:30';
+        processar();
+      });
+
+      btnPresetFca.addEventListener('click', () => {
+        const hoje = formatarDataISO(new Date());
+        inputDataIni.value = hoje;
+        inputHoraIni.value = '08:00';
+        inputDataFim.value = hoje;
+        inputHoraFim.value = '09:15';
+        processar();
+      });
+
+      btnPresetRotina.addEventListener('click', () => {
+        const hoje = formatarDataISO(new Date());
+        inputDataIni.value = hoje;
+        inputHoraIni.value = '08:00';
+        inputDataFim.value = hoje;
+        inputHoraFim.value = '08:45';
+        processar();
+      });
+
+      // Inicialização com valores padrão
+      const hoje = formatarDataISO(new Date());
+      inputDataIni.value = hoje;
+      inputHoraIni.value = '08:00';
+      inputDataFim.value = hoje;
+      inputHoraFim.value = '17:30';
+      processar();
+    });
+  </script>
+</body>
+</html>

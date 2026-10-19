@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html class="dark" data-theme="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Curva S & Tendência (EVM Industrial) | Portal dos Dados — Dione Nascimento</title>
+  <meta name="description" content="Gerador de Curva S e Tendência para controle físico de projetos e paradas industriais. Cálculo de SPI, desvio e projeção de término com metodologia EVM."/>
+  <meta name="author" content="Dione Morrone dos Santos Nascimento"/>
+  <link rel="canonical" href="https://portaldosdados.github.io/ferramentas/gerador-curva-s.html"/>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
+
+  <!-- Prevenção de Flash de Tema (FOIT) -->
+  <script>
+    try {
+      var savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos Compartilhados e Tokens de Tema -->
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+
+  <!-- Chart.js para Renderização da Curva S -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
+            "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
+            "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
+            "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
+            "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
+            "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
+            "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
+            "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
+            "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
+            "background": "rgb(var(--c-background) / <alpha-value>)",
+            "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
+            "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
+            "outline": "rgb(var(--c-outline) / <alpha-value>)",
+            "error": "rgb(var(--c-error) / <alpha-value>)",
+            "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
+            "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
+            "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
+            "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
+            "surface": "rgb(var(--c-surface) / <alpha-value>)",
+            "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
+            "primary": "rgb(var(--c-primary) / <alpha-value>)",
+            "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
+            "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
+            "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
+            "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
+            "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
+            "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
+            "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
+            "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
+            "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
+            "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
+            "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
+            "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
+            "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
+            "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
+            "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
+            "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
+            "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
+            "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
+            "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)",
+            "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
+            "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
+            "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)",
+            "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
+            "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)"
+          },
+          "fontFamily": {
+            "metric-display": ["'JetBrains Mono'", "monospace"],
+            "code-md": ["'JetBrains Mono'", "monospace"],
+            "label-caps": ["Inter", "sans-serif"],
+            "headline-lg": ["Inter", "sans-serif"],
+            "body-md": ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased blueprint-grid selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group" href="../index.html">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group-hover:cyan-glow transition-all">
+            <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">DN // DADOS.IND</span>
+            <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">FERRAMENTAS ABERTAS</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="calculadora-52-semanas.html" class="hidden sm:inline-flex items-center gap-1 font-code-md text-xs text-on-surface-variant hover:text-primary transition-colors">
+          <span>52 Semanas</span>
+        </a>
+        <a href="calculadora-paradas.html" class="hidden sm:inline-flex items-center gap-1 font-code-md text-xs text-on-surface-variant hover:text-primary transition-colors">
+          <span>Paradas</span>
+        </a>
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span>Voltar ao Portfólio</span>
+        </a>
+        <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
+          <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="w-full max-w-6xl mx-auto px-4 py-8 md:py-12 flex-1">
+    
+    <!-- Breadcrumb -->
+    <div class="flex flex-wrap items-center gap-2 mb-4 font-code-md text-xs text-outline">
+      <a href="../index.html" class="hover:text-primary transition-colors">Início</a>
+      <span>/</span>
+      <span class="text-on-surface-variant">Ferramentas Industriais</span>
+      <span>/</span>
+      <span class="text-primary font-bold">Gerador de Curva S (EVM)</span>
+    </div>
+
+    <!-- Header da Aplicação -->
+    <div class="mb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-tertiary-container/20 border border-tertiary/40 text-tertiary font-label-caps text-xs tracking-wider uppercase mb-3">
+        <span class="material-symbols-outlined text-[14px]">trending_up</span>
+        PLANEJAMENTO DE PROJETOS // ENGENHARIA DE CUSTOS & EVM
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-on-surface tracking-tight">
+        📈 Acompanhamento de Projetos (Curva S)
+      </h1>
+      <p class="text-sm md:text-base text-on-surface-variant mt-2 max-w-3xl leading-relaxed">
+        Transformando dados de engenharia em <strong>Inteligência Preditiva</strong>. Monitore o avanço físico acumulado (planejado × realizado), calcule o SPI (Índice de Desempenho) e estime o desvio de término e o tempo extra necessário.
+      </p>
+    </div>
+
+    <!-- Barra de Ferramentas / Ações Rápidas -->
+    <div class="flex flex-wrap items-center justify-between gap-4 p-4 rounded-lg bg-surface-container laser-border mb-8">
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button" id="btnBaixarModelo" class="px-3.5 py-2 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-on-surface font-code-md text-xs flex items-center gap-1.5 transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[16px] text-primary">download</span>
+          <span>Baixar Modelo CSV</span>
+        </button>
+        <label for="inputFileCSV" class="px-3.5 py-2 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-on-surface font-code-md text-xs flex items-center gap-1.5 transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[16px] text-secondary">upload_file</span>
+          <span>Carregar Cronograma (CSV)</span>
+          <input type="file" id="inputFileCSV" accept=".csv,.txt" class="hidden" />
+        </label>
+        <button type="button" id="btnRestaurarPadrao" class="px-3.5 py-2 rounded bg-surface-container-high hover:bg-surface-bright laser-border text-outline hover:text-on-surface font-code-md text-xs flex items-center gap-1.5 transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[16px]">restart_alt</span>
+          <span>Restaurar Exemplo</span>
+        </button>
+      </div>
+
+      <div class="text-xs font-code-md text-outline">
+        Base: <span id="txtTotalHoras" class="text-primary font-bold">18.0h</span> de escopo total
+      </div>
+    </div>
+
+    <!-- Painel de KPIs (EVM Dashboard) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      
+      <!-- Card 1: Eficiência (SPI) -->
+      <div class="rounded-lg bg-surface-container laser-border p-5 border-l-4 border-l-primary flex flex-col justify-between">
+        <div class="flex items-center justify-between text-outline mb-2">
+          <span class="font-code-md text-xs uppercase tracking-wider">Eficiência (SPI)</span>
+          <span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+        </div>
+        <div class="font-metric-display text-4xl font-extrabold text-primary" id="kpiSpi">
+          0.91
+        </div>
+        <div class="font-code-md text-xs text-on-surface-variant mt-2" id="kpiSpiDesc">
+          Avanço Realizado vs Planejado
+        </div>
+      </div>
+
+      <!-- Card 2: Desvio Estimado -->
+      <div class="rounded-lg bg-surface-container laser-border p-5 border-l-4 border-l-amber-500 flex flex-col justify-between" id="cardDesvio">
+        <div class="flex items-center justify-between text-outline mb-2">
+          <span class="font-code-md text-xs uppercase tracking-wider">Desvio Estimado (Forecast)</span>
+          <span class="material-symbols-outlined text-amber-400 text-[18px]">forecast</span>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-metric-display text-3xl md:text-4xl font-extrabold text-on-surface" id="kpiDesvio">
+            +9.67%
+          </span>
+          <span class="font-code-md text-sm text-outline" id="kpiGapHoras">(+1.7h)</span>
+        </div>
+        <div class="font-code-md text-xs text-on-surface-variant mt-2" id="kpiDesvioDesc">
+          Tempo extra necessário para término
+        </div>
+      </div>
+
+      <!-- Card 3: Status Geral -->
+      <div class="rounded-lg bg-surface-container laser-border p-5 border-l-4 border-l-amber-500 flex flex-col justify-between" id="cardStatus">
+        <div class="flex items-center justify-between text-outline mb-2">
+          <span class="font-code-md text-xs uppercase tracking-wider">Status Geral</span>
+          <span class="material-symbols-outlined text-amber-400 text-[18px]" id="kpiStatusIcon">warning</span>
+        </div>
+        <div class="font-code-md text-xl md:text-2xl font-bold" id="kpiStatusText" style="color: #ffa726;">
+          ⚠️ POTENCIAL ATRASO
+        </div>
+        <div class="font-code-md text-xs text-on-surface-variant mt-2" id="kpiProjecaoHoras">
+          Projeção: 19.7h totais
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Área do Gráfico Interativo da Curva S -->
+    <div class="rounded-lg bg-surface-container laser-border p-6 shadow-sm mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-on-surface flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">show_chart</span>
+            Curva S de Avanço Físico Acumulado
+          </h2>
+          <p class="text-xs text-on-surface-variant mt-0.5">
+            Comparativo de linha de base planejada (verde) vs realizado computado com trava de eficiência (ciano).
+          </p>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-code-md">
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#00CC96]"></span> Planejado</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-[#00d4ff]"></span> Realizado</span>
+        </div>
+      </div>
+
+      <!-- Canvas do Gráfico -->
+      <div class="relative w-full h-72 sm:h-96">
+        <canvas id="graficoCurvaS"></canvas>
+      </div>
+    </div>
+
+    <!-- Tabela Detalhada do Cronograma -->
+    <div class="rounded-lg bg-surface-container laser-border p-6 shadow-sm mb-8">
+      <h3 class="text-base font-bold text-on-surface mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[18px]">table_rows</span>
+        Quadro de Atividades & Avanço Físico
+      </h3>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left font-code-md text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-outline-variant/40 text-outline uppercase tracking-wider bg-surface-container-high/50">
+              <th class="p-3">Atividade</th>
+              <th class="p-3 text-right">Planejado (h)</th>
+              <th class="p-3 text-right">Realizado (h)</th>
+              <th class="p-3 text-right">Trava Efic. (h)</th>
+              <th class="p-3 text-right">% Plan. Acum</th>
+              <th class="p-3 text-right">% Real. Acum</th>
+              <th class="p-3 text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody id="corpoTabelaAtividades" class="divide-y divide-outline-variant/20">
+            <!-- Inserido dinamicamente via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Painel Educacional (Guia de Interpretação e Decisão) -->
+    <details class="rounded-lg bg-surface-container-high/40 border border-outline-variant/30 p-6 text-xs text-on-surface-variant">
+      <summary class="font-bold text-sm text-on-surface uppercase tracking-wider font-code-md flex items-center gap-2 cursor-pointer select-none">
+        <span class="material-symbols-outlined text-primary text-[18px]">school</span>
+        🎓 Guia de Interpretação & Metodologia EVM (Engenharia de Confiabilidade)
+      </summary>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 pt-4 border-t border-outline-variant/30">
+        <div>
+          <h4 class="font-bold text-on-surface text-sm mb-2 text-primary">📖 Leitura da Curva S</h4>
+          <p class="leading-relaxed mb-2">
+            A Curva S é a representação visual da "saúde" física da parada ou projeto.
+          </p>
+          <ul class="list-disc list-inside space-y-1">
+            <li>🟢 <strong>Linha Verde:</strong> Baseline planejada original.</li>
+            <li>🔵 <strong>Linha Ciano:</strong> Execução real em campo.</li>
+            <li><strong>Regra de Ouro:</strong> Se a linha realizada estiver ABAIXO da planejada, o projeto está <em>atrasado</em>.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-on-surface text-sm mb-2 text-secondary">🧭 Indicadores & Fórmulas EVM</h4>
+          <p class="leading-relaxed mb-2">
+            Cálculo linear de valor agregado para previsão confiável:
+          </p>
+          <div class="p-2.5 rounded bg-surface-container-lowest font-code-md text-[11px] space-y-1 mb-2">
+            <div>SPI = % Realizado / % Planejado</div>
+            <div>Desvio % = (100 / SPI) - 100</div>
+            <div>Horas Totais = Planejado / SPI</div>
+          </div>
+          <p class="leading-relaxed">
+            <strong>Trava de Eficiência:</strong> Atividades que consumiram mais horas do que o previsto só agregam fisicamente o escopo planejado (min(real, planejado)).
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-on-surface text-sm mb-2 text-tertiary">🧠 Tomada de Decisão</h4>
+          <ul class="space-y-2 leading-relaxed">
+            <li><strong>SPI &ge; 1.00 (Verde):</strong> Execução no prazo com ritmo adequado.</li>
+            <li><strong>SPI 0.90 – 0.99 (Amarelo):</strong> Atenção a gargalos operacionais e bloqueios.</li>
+            <li><strong>SPI &lt; 0.90 (Vermelho):</strong> Crítico. Hora extra isolada não resolve; revisar método e recursos.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-outline-variant/30 bg-surface-container-lowest/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="font-code-md text-xs text-outline">
+        PORTAL DOS DADOS // DIONE NASCIMENTO · ENGENHARIA DE MANUTENÇÃO & ANALYTICS
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/tools/gerador-curva-s.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Alternância de Tema
+      const themeBtn = document.getElementById('themeToggleBtn');
+      const themeIcon = document.getElementById('themeIcon');
+      const htmlTag = document.documentElement;
+
+      const applyTheme = (mode) => {
+        if (mode === 'light') {
+          htmlTag.classList.remove('dark');
+          htmlTag.setAttribute('data-theme', 'light');
+          if (themeIcon) themeIcon.textContent = 'light_mode';
+        } else {
+          htmlTag.classList.add('dark');
+          htmlTag.setAttribute('data-theme', 'dark');
+          if (themeIcon) themeIcon.textContent = 'dark_mode';
+        }
+        if (chartInstance) renderizarGrafico(ultimoResultado);
+      };
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const next = htmlTag.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          applyTheme(next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+
+      // 2. Elementos da Interface
+      const kpiSpi = document.getElementById('kpiSpi');
+      const kpiDesvio = document.getElementById('kpiDesvio');
+      const kpiGapHoras = document.getElementById('kpiGapHoras');
+      const kpiStatusText = document.getElementById('kpiStatusText');
+      const kpiStatusIcon = document.getElementById('kpiStatusIcon');
+      const kpiProjecaoHoras = document.getElementById('kpiProjecaoHoras');
+      const cardDesvio = document.getElementById('cardDesvio');
+      const cardStatus = document.getElementById('cardStatus');
+      const txtTotalHoras = document.getElementById('txtTotalHoras');
+      const corpoTabela = document.getElementById('corpoTabelaAtividades');
+      const btnBaixarModelo = document.getElementById('btnBaixarModelo');
+      const inputFileCSV = document.getElementById('inputFileCSV');
+      const btnRestaurarPadrao = document.getElementById('btnRestaurarPadrao');
+
+      let chartInstance = null;
+      let ultimoResultado = null;
+      let dadosAtuais = GeradorCurvaS.DADOS_MODELO_PADRAO;
+
+      function renderizarGrafico(res) {
+        const ctx = document.getElementById('graficoCurvaS');
+        if (!ctx) return;
+
+        const isDark = htmlTag.getAttribute('data-theme') !== 'light';
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(0, 0, 0, 0.06)';
+        const textColor = isDark ? '#9eabbb' : '#576574';
+
+        const labels = res.pontosGrafico.map(p => p.marco);
+        const dataPlan = res.pontosGrafico.map(p => p.planejado);
+        const dataReal = res.pontosGrafico.map(p => p.realizado);
+
+        if (chartInstance) {
+          chartInstance.destroy();
+        }
+
+        chartInstance = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Avanço Planejado (%)',
+                data: dataPlan,
+                borderColor: '#00CC96',
+                backgroundColor: 'rgba(0, 204, 150, 0.1)',
+                borderWidth: 3,
+                tension: 0.35,
+                fill: false,
+                pointBackgroundColor: '#00CC96',
+                pointRadius: 5,
+                pointHoverRadius: 7,
+              },
+              {
+                label: 'Avanço Realizado (%)',
+                data: dataReal,
+                borderColor: '#00d4ff',
+                backgroundColor: 'rgba(0, 212, 255, 0.15)',
+                borderWidth: 3,
+                tension: 0.25,
+                fill: false,
+                pointBackgroundColor: '#00d4ff',
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                spanGaps: false,
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                backgroundColor: isDark ? '#1a2230' : '#ffffff',
+                titleColor: isDark ? '#ffffff' : '#111827',
+                bodyColor: isDark ? '#cbd5e1' : '#334155',
+                borderColor: isDark ? '#334155' : '#cbd5e1',
+                borderWidth: 1,
+                callbacks: {
+                  label: function(ctx) {
+                    return `${ctx.dataset.label}: ${ctx.raw !== null ? ctx.raw + '%' : 'Não realizado'}`;
+                  }
+                }
+              }
+            },
+            scales: {
+              y: {
+                min: 0,
+                max: 100,
+                grid: { color: gridColor },
+                ticks: {
+                  color: textColor,
+                  callback: val => val + '%',
+                  font: { family: "'JetBrains Mono', monospace", size: 10 }
+                }
+              },
+              x: {
+                grid: { color: gridColor },
+                ticks: {
+                  color: textColor,
+                  font: { family: "'JetBrains Mono', monospace", size: 10 }
+                }
+              }
+            }
+          }
+        });
+      }
+
+      function atualizarInterface(itens) {
+        try {
+          const res = GeradorCurvaS.processarCurvaS(itens);
+          ultimoResultado = res;
+
+          // KPIs
+          kpiSpi.textContent = res.spiFormatado;
+          kpiDesvio.textContent = res.desvioEstimadoFormatado;
+          kpiGapHoras.textContent = `(${res.gapHorasFormatado})`;
+          kpiStatusText.textContent = res.statusText;
+          kpiStatusText.style.color = res.corStatus;
+          kpiProjecaoHoras.textContent = `Projeção: ${res.estimativaHorasTotal}h totais`;
+          txtTotalHoras.textContent = `${res.totalDuracaoPlanejada}h`;
+
+          cardDesvio.style.borderLeftColor = res.desvioEstimado > 0 ? '#ef5350' : '#66bb6a';
+          cardStatus.style.borderLeftColor = res.corStatus;
+          kpiStatusIcon.style.color = res.corStatus;
+
+          // Tabela
+          corpoTabela.innerHTML = '';
+          res.tabela.forEach(item => {
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-surface-container-high/40 transition-colors';
+
+            const statusItem = item.duracaoRealizada === null
+              ? '<span class="px-2 py-0.5 rounded bg-surface-container-high text-outline text-[10px]">Pendente</span>'
+              : item.duracaoRealizada > item.duracaoPlanejada
+              ? '<span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 text-[10px]">Atrasada</span>'
+              : '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px]">Concluída</span>';
+
+            tr.innerHTML = `
+              <td class="p-3 font-semibold text-on-surface">${item.atividade}</td>
+              <td class="p-3 text-right">${item.duracaoPlanejada.toFixed(1)}h</td>
+              <td class="p-3 text-right font-bold text-on-surface">${item.duracaoRealizada !== null ? item.duracaoRealizada.toFixed(1) + 'h' : '--'}</td>
+              <td class="p-3 text-right text-outline">${item.progressoComputado.toFixed(1)}h</td>
+              <td class="p-3 text-right text-emerald-400">${item.pctPlanAcum.toFixed(1)}%</td>
+              <td class="p-3 text-right font-bold text-primary">${item.pctRealAcum !== null ? item.pctRealAcum.toFixed(1) + '%' : '--'}</td>
+              <td class="p-3 text-center">${statusItem}</td>
+            `;
+            corpoTabela.appendChild(tr);
+          });
+
+          // Gráfico
+          renderizarGrafico(res);
+
+        } catch (err) {
+          alert('Erro ao processar dados da Curva S: ' + err.message);
+        }
+      }
+
+      // Baixar Modelo CSV
+      btnBaixarModelo.addEventListener('click', () => {
+        const csvContent = GeradorCurvaS.gerarCSVModelo();
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'modelo_curva_s.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      // Carregar arquivo CSV
+      inputFileCSV.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            const parsed = GeradorCurvaS.parseCSV(event.target.result);
+            dadosAtuais = parsed;
+            atualizarInterface(dadosAtuais);
+          } catch (err) {
+            alert('Falha ao ler o arquivo CSV: ' + err.message);
+          }
+        };
+        reader.readAsText(file);
+      });
+
+      // Restaurar Exemplo
+      btnRestaurarPadrao.addEventListener('click', () => {
+        dadosAtuais = GeradorCurvaS.DADOS_MODELO_PADRAO;
+        atualizarInterface(dadosAtuais);
+      });
+
+      // Inicialização
+      atualizarInterface(dadosAtuais);
+    });
+  </script>
+</body>
+</html>

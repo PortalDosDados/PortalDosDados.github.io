@@ -2,7 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://portaldosdados.github.io/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://portaldosdados.github.io/ferramentas/calculadora-52-semanas.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portaldosdados.github.io/ferramentas/calculadora-paradas.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portaldosdados.github.io/ferramentas/gerador-curva-s.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portaldosdados.github.io/ferramentas/series-temporais.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

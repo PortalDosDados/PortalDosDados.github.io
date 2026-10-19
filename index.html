@@ -1440,15 +1440,115 @@
     <div>
       <div class="flex items-center gap-2 mb-6 font-label-caps text-xs text-outline tracking-wider uppercase">
         <span class="material-symbols-outlined text-primary text-[16px]">hub</span>
-        DISSEMINAÇÃO DE CONHECIMENTO & FERRAMENTAS ABERTAS //
+        DISSEMINAÇÃO DE CONHECIMENTO & FERRAMENTAS INDUSTRIAIS ABERTAS //
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- App 1: Portal dos Dados -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Ferramenta 1: 52 Semanas -->
+        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-primary transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-label-caps text-[10px] text-primary tracking-widest px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30 uppercase">
+                PCM & GESTÃO // ISO 8601
+              </span>
+              <span class="material-symbols-outlined text-primary text-[22px]">calendar_month</span>
+            </div>
+            <h3 class="text-xl text-on-surface font-bold">
+              Calculadora de 52 Semanas
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
+              Conversor instantâneo de datas para padrão ISO 8601 (S01–S52), dia do ano e dia da semana. Alinhado ao plano mestre de manutenção industrial e sprints.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
+            <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="ferramentas/calculadora-52-semanas.html">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Ferramenta 2: Calculadora de Paradas -->
         <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-secondary transition-all">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="font-label-caps text-[10px] text-secondary tracking-widest px-2 py-0.5 rounded bg-secondary-container/20 border border-secondary/30">
+              <span class="font-label-caps text-[10px] text-secondary tracking-widest px-2 py-0.5 rounded bg-secondary-container/20 border border-secondary/30 uppercase">
+                CONFIABILIDADE // DOWNTIME
+              </span>
+              <span class="material-symbols-outlined text-secondary text-[22px]">factory</span>
+            </div>
+            <h3 class="text-xl text-on-surface font-bold">
+              Controle de Parada & Downtime
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
+              Cálculo de duração de paradas, conversão para horas decimais e aplicação automática da matriz de severidade (Relatório de Turno, FCA e Análise de Falha).
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
+            <a class="inline-flex items-center gap-1 font-code-md text-sm text-secondary hover:underline" href="ferramentas/calculadora-paradas.html">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Ferramenta 3: Curva S & Tendência -->
+        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-tertiary transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-label-caps text-[10px] text-tertiary tracking-widest px-2 py-0.5 rounded bg-tertiary-container/20 border border-tertiary/30 uppercase">
+                PLANEJAMENTO // EVM
+              </span>
+              <span class="material-symbols-outlined text-tertiary text-[22px]">trending_up</span>
+            </div>
+            <h3 class="text-xl text-on-surface font-bold">
+              Gerador de Curva S (EVM)
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
+              Curva de avanço físico acumulado (planejado × realizado) com Trava de Eficiência industrial, cálculo de SPI, desvio de cronograma e projeção de término.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
+            <a class="inline-flex items-center gap-1 font-code-md text-sm text-tertiary hover:underline" href="ferramentas/gerador-curva-s.html">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Ferramenta 4: Séries Temporais -->
+        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-primary transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-label-caps text-[10px] text-primary tracking-widest px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30 uppercase">
+                ANALYTICS // PYTHON & ROLLING
+              </span>
+              <span class="material-symbols-outlined text-primary text-[22px]">timeline</span>
+            </div>
+            <h3 class="text-xl text-on-surface font-bold">
+              Séries Temporais com Python
+            </h3>
+            <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
+              Visualização de séries temporais financeiras e de processo com cálculo de Médias Móveis Simples (MA21 e MA200) e identificação de tendências técnicas.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+            <span class="font-code-md text-xs text-outline">CLIENT-SIDE WEB</span>
+            <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="ferramentas/series-temporais.html">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 5: Portal dos Dados YouTube -->
+        <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-secondary transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-label-caps text-[10px] text-secondary tracking-widest px-2 py-0.5 rounded bg-secondary-container/20 border border-secondary/30 uppercase">
                 COMUNIDADE & VÍDEOS
               </span>
               <span class="material-symbols-outlined text-secondary text-[22px]">smart_display</span>
@@ -1457,7 +1557,7 @@
               Canal "Portal dos Dados"
             </h3>
             <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
-              Canal no YouTube dedicado à análise de dados industriais, Power BI, Python, SQL e gestão da manutenção, conectando conceitos teóricos à prática de fábrica.
+              Canal no YouTube dedicado à análise de dados industriais, Power BI, Python, SQL e gestão da manutenção, conectando teoria à prática de fábrica.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
@@ -1469,27 +1569,27 @@
           </div>
         </div>
 
-        <!-- App 3: Streamlit App -->
+        <!-- App 6: Streamlit Original -->
         <div class="rounded-lg bg-surface-container laser-border p-6 flex flex-col justify-between hover:border-tertiary transition-all">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="font-label-caps text-[10px] text-tertiary tracking-widest px-2 py-0.5 rounded bg-tertiary-container/20 border border-tertiary/30">
-                APLICAÇÃO EM NUVEM
+              <span class="font-label-caps text-[10px] text-tertiary tracking-widest px-2 py-0.5 rounded bg-tertiary-container/20 border border-tertiary/30 uppercase">
+                LEGADO EM PYTHON
               </span>
               <span class="material-symbols-outlined text-tertiary text-[22px]">terminal</span>
             </div>
             <h3 class="text-xl text-on-surface font-bold">
-              App Portal dos Dados (Streamlit)
+              App Streamlit Original
             </h3>
             <p class="text-xs md:text-sm text-on-surface-variant mt-3 leading-relaxed">
-              Plataforma em nuvem desenvolvida em Python para cálculos operacionais de confiabilidade, simulações analíticas de equipamentos e apoio à tomada de decisão.
+              Repositório e plataforma original desenvolvida em Python Streamlit com o conjunto completo de protótipos analíticos.
             </p>
           </div>
           <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
             <span class="font-code-md text-xs text-tertiary">STREAMLIT CLOUD</span>
             <a class="inline-flex items-center gap-1 font-code-md text-sm text-tertiary hover:underline" href="https://portaldosdados-streamlit-portal-dos-dad-dione-nascimento-s9sdso.streamlit.app/" target="_blank" rel="noopener noreferrer">
-              <span>Acessar Aplicação</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              <span>Acessar Streamlit</span>
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
             </a>
           </div>
         </div>
