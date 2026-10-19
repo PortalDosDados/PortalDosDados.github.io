@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Destaque Ativo de Seção na Navbar (ScrollSpy)
   const navLinks = document.querySelectorAll('.nav-section-link');
-  const observedSections = ['sobre', 'projetos', 'experiencia', 'habilidades', 'educacao', 'videos', 'contato']
+  const observedSections = ['sobre', 'projetos', 'ferramentas', 'experiencia', 'habilidades', 'educacao', 'videos', 'contato']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
