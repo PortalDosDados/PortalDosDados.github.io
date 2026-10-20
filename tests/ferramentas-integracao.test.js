@@ -191,54 +191,6 @@ describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
     assert.ok(elements['kpiDesvio'].textContent.includes('%'), 'KPI Desvio deve exibir percentual');
   });
 
-  test('Séries Temporais: Carga de cotações B3, médias móveis MA21/MA200 e Chart.js', () => {
-    const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/series-temporais.html'), 'utf8');
-    const { mockDocument, elements, documentListeners } = createSimpleDOM(html);
-
-    let chartCreated = false;
-    class MockChart {
-      constructor(ctx, config) {
-        chartCreated = true;
-        this.ctx = ctx;
-        this.config = config;
-      }
-      destroy() {}
-    }
-
-    const context = {
-      document: mockDocument,
-      Chart: MockChart,
-      console,
-      Date,
-      Math,
-      String,
-      Number,
-      setTimeout,
-      clearTimeout,
-      localStorage: { getItem: () => 'dark', setItem: () => {} },
-      CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
-    };
-    context.window = context;
-    context.globalThis = context;
-
-    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/dados-cotacoes.js'), 'utf8'), context);
-    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/series-temporais.js'), 'utf8'), context);
-
-    elements['selectTicker'].value = 'BBAS3.SA';
-    elements['inputDataInicio'].value = '2023-01-01';
-    elements['inputDataFim'].value = '2024-10-15';
-
-    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/series-temporais-page.js'), 'utf8'), context);
-
-    documentListeners['DOMContentLoaded'].forEach(fn => fn());
-
-    assert.ok(chartCreated, 'Gráfico Chart.js deve ser instanciado');
-    assert.equal(elements['txtTituloTicker'].textContent, 'BBAS3.SA');
-    assert.ok(elements['kpiPrecoFinal'].textContent.includes('R$'));
-    assert.ok(elements['kpiMA21'].textContent.includes('R$'));
-    assert.ok(elements['kpiMA200'].textContent.includes('R$'));
-  });
-
   test('Matriz FMEA Industrial: Interatividade, adição de linha, KPIs e gráficos Chart.js', () => {
     const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/matriz-fmea.html'), 'utf8');
     const { mockDocument, elements, documentListeners } = createSimpleDOM(html);

@@ -35,8 +35,6 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │           ├── calculadora-52-semanas.js        # Módulo matemático puro
 │           ├── calculadora-paradas.js           # Módulo matemático puro
 │           ├── gerador-curva-s.js               # Módulo matemático puro
-│           ├── series-temporais.js              # Módulo matemático puro
-│           ├── dados-cotacoes.js                # Base de cotações (BBAS3.SA)
 │           ├── *-page.js                        # Lógica de interface de cada página (DOM)
 │           ├── tool-theme.js                    # Alternância de tema compartilhada (emite 'themechange')
 │           └── tailwind.config.tools.js         # Tema Tailwind compartilhado das ferramentas
@@ -46,14 +44,12 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │   ├── calculadora-52-semanas.html # Calculadora de 52 Semanas (ISO 8601)
 │   ├── calculadora-paradas.html    # Controle de Paradas e Downtime Industrial
 │   ├── gerador-curva-s.html        # Curva S & Tendência (EVM Industrial)
-│   └── series-temporais.html       # Séries Temporais Financeiras com Médias Móveis
 ├── tests/                       # Bateria de testes automatizados com node:test
 │   ├── build.test.js            # index.html sincronizado com src/ e sem partials órfãos
 │   ├── content.test.js
 │   ├── calculadora-52-semanas.test.js
 │   ├── calculadora-paradas.test.js
 │   ├── gerador-curva-s.test.js
-│   ├── series-temporais.test.js
 │   ├── ferramentas-pages.test.js
 │   ├── ferramentas-integracao.test.js # Testes de ciclo completo e interatividade das ferramentas
 │   └── paginas-refs.test.js     # Referências locais válidas e sem <script>/<style> inline

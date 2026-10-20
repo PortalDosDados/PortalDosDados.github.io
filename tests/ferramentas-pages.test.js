@@ -25,12 +25,6 @@ const FERRAMENTAS = [
     tituloEsperado: 'Curva S',
   },
   {
-    nome: 'Séries Temporais',
-    arquivo: 'ferramentas/series-temporais.html',
-    scriptEsperado: '../assets/js/tools/series-temporais.js',
-    tituloEsperado: 'Séries Temporais',
-  },
-  {
     nome: 'Matriz FMEA Industrial',
     arquivo: 'ferramentas/matriz-fmea.html',
     scriptEsperado: '../assets/js/tools/fmea.js',
