@@ -30,6 +30,12 @@ const FERRAMENTAS = [
     scriptEsperado: '../assets/js/tools/series-temporais.js',
     tituloEsperado: 'Séries Temporais',
   },
+  {
+    nome: 'Matriz FMEA Industrial',
+    arquivo: 'ferramentas/matriz-fmea.html',
+    scriptEsperado: '../assets/js/tools/fmea.js',
+    tituloEsperado: 'Matriz FMEA',
+  },
 ];
 
 describe('Integridade das Páginas Web das Ferramentas Industriais (ferramentas/*.html)', () => {

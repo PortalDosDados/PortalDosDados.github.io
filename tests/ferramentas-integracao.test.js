@@ -65,7 +65,17 @@ function createSimpleDOM(html) {
       }
     },
     createElement() {
-      return { setAttribute() {}, style: {}, classList: { add() {} } };
+      return {
+        setAttribute() {},
+        getAttribute() { return null; },
+        style: {},
+        classList: { add() {}, remove() {} },
+        addEventListener() {},
+        querySelector() { return null; },
+        querySelectorAll() { return []; },
+        appendChild() {},
+        innerHTML: ''
+      };
     }
   };
 
@@ -85,6 +95,8 @@ describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
       Math,
       String,
       Number,
+      setTimeout,
+      clearTimeout,
       localStorage: { getItem: () => 'dark', setItem: () => {} },
       CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
     };
@@ -117,6 +129,8 @@ describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
       Math,
       String,
       Number,
+      setTimeout,
+      clearTimeout,
       localStorage: { getItem: () => 'dark', setItem: () => {} },
       CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
     };
@@ -159,6 +173,8 @@ describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
       Math,
       String,
       Number,
+      setTimeout,
+      clearTimeout,
       localStorage: { getItem: () => 'dark', setItem: () => {} },
       CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
     };
@@ -197,6 +213,8 @@ describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
       Math,
       String,
       Number,
+      setTimeout,
+      clearTimeout,
       localStorage: { getItem: () => 'dark', setItem: () => {} },
       CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
     };
@@ -219,6 +237,59 @@ describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
     assert.ok(elements['kpiPrecoFinal'].textContent.includes('R$'));
     assert.ok(elements['kpiMA21'].textContent.includes('R$'));
     assert.ok(elements['kpiMA200'].textContent.includes('R$'));
+  });
+
+  test('Matriz FMEA Industrial: Interatividade, adição de linha, KPIs e gráficos Chart.js', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/matriz-fmea.html'), 'utf8');
+    const { mockDocument, elements, documentListeners } = createSimpleDOM(html);
+
+    let chartsCreated = 0;
+    class MockChart {
+      constructor(ctx, config) {
+        chartsCreated++;
+        this.ctx = ctx;
+        this.config = config;
+      }
+      destroy() {}
+    }
+
+    const storageMap = {};
+    const context = {
+      document: mockDocument,
+      Chart: MockChart,
+      console,
+      Date,
+      Math,
+      String,
+      Number,
+      setTimeout,
+      clearTimeout,
+      localStorage: {
+        getItem: (k) => storageMap[k] || null,
+        setItem: (k, v) => { storageMap[k] = String(v); }
+      },
+      CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
+    };
+    context.window = context;
+    context.globalThis = context;
+
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/fmea.js'), 'utf8'), context);
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/fmea-page.js'), 'utf8'), context);
+
+    documentListeners['DOMContentLoaded'].forEach(fn => fn());
+
+    assert.ok(chartsCreated >= 2, 'Gráficos Chart.js (Pareto e Criticidade) devem ser instanciados');
+    assert.equal(elements['kpiTotalModos'].textContent, '5', 'Deve iniciar com 5 modos do exemplo industrial');
+    assert.equal(elements['kpiModosCriticos'].textContent, '3', 'Deve identificar 3 modos críticos iniciais');
+    assert.ok(elements['kpiReducaoGlobal'].textContent.includes('%'), 'KPI de redução global deve conter %');
+
+    // Testar adição de nova linha
+    elements['btnAdicionarLinha'].click();
+    assert.equal(elements['kpiTotalModos'].textContent, '6', 'Total deve passar para 6 após adicionar modo');
+
+    // Testar restauração de exemplo
+    elements['btnRestaurarExemplo'].click();
+    assert.equal(elements['kpiTotalModos'].textContent, '5', 'Deve voltar para 5 após restaurar exemplo');
   });
 
 });
