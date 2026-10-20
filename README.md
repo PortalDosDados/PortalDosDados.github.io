@@ -91,7 +91,7 @@ Faça commit do `index.html` gerado junto com as alterações em `src/`, pois o 
 
 - **Frontend & Layout:** HTML5 semântico, Tailwind CSS com tema *Industrial Tech* customizado.
 - **Tipografia & Ícones:** Inter, JetBrains Mono e Google Material Symbols Outlined.
-- **Integrações de Dados & TO:** Power BI (DAX), Python (Pandas/Streamlit), SQL (PostgreSQL/MySQL), Power Apps, Power Automate, Pentaho (PDI), Google Apps Script, SAP, MES e SGI.
+- **Integrações de Dados & TO:** Power BI (DAX), Python (Pandas), SQL (PostgreSQL/MySQL), Power Apps, Power Automate, Pentaho (PDI), Google Apps Script, SAP, MES e SGI.
 - **Hospedagem & CI/CD:** GitHub Pages automatizado via GitHub Actions (`.github/workflows/deploy.yml`).
 
 ---
@@ -161,4 +161,3 @@ Distribuído sob a licença **MIT**. Consulte [`LICENSE`](LICENSE) para mais inf
 - **LinkedIn:** [linkedin.com/in/dione-nascimento-37287a233](https://www.linkedin.com/in/dione-nascimento-37287a233/)
 - **GitHub:** [github.com/PortalDosDados](https://github.com/PortalDosDados)
 - **YouTube:** [youtube.com/@Portal_dos_Dados](https://www.youtube.com/@Portal_dos_Dados)
-- **App Streamlit:** [portaldosdados-streamlit.app](https://portaldosdados-streamlit-portal-dos-dad-dione-nascimento-s9sdso.streamlit.app/)

@@ -80,11 +80,11 @@ const PORTFOLIO = {
         problem:
           'Extração e tratamento manual recorrente de dados operacionais do sistema MES para cálculo da disponibilidade dos equipamentos industriais.',
         solution:
-          'Pipeline automatizado para extração e tratamento dos dados do sistema MES, com desenvolvimento de interface operacional em Python/Streamlit e geração de relatórios com visualização em tela e exportação para Excel.',
+          'Pipeline automatizado para extração e tratamento dos dados do sistema MES, com desenvolvimento de interface operacional em Python e geração de relatórios com visualização em tela e exportação para Excel.',
         result:
           'Redução de aproximadamente 10 horas/mês em atividades operacionais repetitivas, padronizando métricas de disponibilidade com precisão.',
         highlight: '−10 h/mês',
-        tech: ['Python', 'Pandas', 'Streamlit', 'MES', 'Excel'],
+        tech: ['Python', 'Pandas', 'MES', 'Excel'],
         context: 'ArcelorMittal Pecém',
       },
       {
@@ -212,7 +212,7 @@ const PORTFOLIO = {
         group: 'Programação / Automação',
         icon: 'code',
         items: [
-          'Python (Pandas, Streamlit, scripts)',
+          'Python (Pandas, scripts)',
           'Flutter & Dart (Mobile)',
           'Supabase (BaaS & PostgreSQL)',
           'Power Apps',
@@ -334,12 +334,6 @@ const PORTFOLIO = {
         description: 'Canal dedicado à disseminação de conhecimento sobre dados industriais, gestão da manutenção e tomada de decisão baseada em dados.',
         url: 'https://www.youtube.com/@Portal_dos_Dados',
         icon: 'video',
-      },
-      {
-        title: 'Página / App Portal dos Dados (Streamlit)',
-        description: 'Aplicações analíticas operacionais e interativas desenvolvidas em Python para dados industriais.',
-        url: 'https://portaldosdados-streamlit-portal-dos-dad-dione-nascimento-s9sdso.streamlit.app/',
-        icon: 'code',
       },
     ],
   },
