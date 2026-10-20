@@ -55,6 +55,7 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │   ├── gerador-curva-s.test.js
 │   ├── series-temporais.test.js
 │   ├── ferramentas-pages.test.js
+│   ├── ferramentas-integracao.test.js # Testes de ciclo completo e interatividade das ferramentas
 │   └── paginas-refs.test.js     # Referências locais válidas e sem <script>/<style> inline
 ├── .gitattributes               # Normalização de quebras de linha
 ├── .gitignore                   # Exclusão de arquivos de SO, IDE e temporários
@@ -140,6 +141,7 @@ Os testes cobrem:
 - **`tests/build.test.js`**: Garante que `index.html` está sincronizado com `src/` e que nenhum partial ficou órfão.
 - **`tests/paginas-refs.test.js`**: Garante que scripts/estilos locais referenciados existem e que as páginas não têm `<script>`/`<style>` inline (exceto JSON-LD).
 - **`tests/ferramentas-pages.test.js`** e testes de cada ferramenta: estrutura semântica das páginas e cálculos dos módulos.
+- **`tests/ferramentas-integracao.test.js`**: Ciclo completo de interação com o DOM, inicialização automática, clique de botões/presets e renderização com Chart.js.
 
 ---
 

@@ -1,0 +1,224 @@
+const { test, describe } = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+
+const ROOT_DIR = path.resolve(__dirname, '..');
+
+function createSimpleDOM(html) {
+  const elements = {};
+  
+  const idRegex = /id=["']([^"']+)["']/g;
+  let match;
+  while ((match = idRegex.exec(html)) !== null) {
+    const id = match[1];
+    elements[id] = {
+      id,
+      textContent: '',
+      value: '',
+      className: '',
+      style: {},
+      classList: {
+        add: () => {},
+        remove: () => {},
+        contains: () => false
+      },
+      listeners: {},
+      addEventListener(event, fn) {
+        if (!this.listeners[event]) this.listeners[event] = [];
+        this.listeners[event].push(fn);
+      },
+      dispatchEvent(event) {
+        if (this.listeners[event.type]) {
+          this.listeners[event.type].forEach(fn => fn(event));
+        }
+      },
+      click() {
+        this.dispatchEvent({ type: 'click', target: this });
+      },
+      setAttribute(name, val) { this[name] = val; },
+      getAttribute(name) { return this[name] || null; },
+      appendChild() {},
+      removeChild() {},
+      innerHTML: '',
+    };
+  }
+
+  const documentListeners = {};
+  const mockDocument = {
+    getElementById(id) {
+      return elements[id] || null;
+    },
+    documentElement: {
+      classList: { add: () => {}, remove: () => {} },
+      setAttribute: () => {},
+      getAttribute: (attr) => attr === 'data-theme' ? 'dark' : null
+    },
+    addEventListener(event, fn) {
+      if (!documentListeners[event]) documentListeners[event] = [];
+      documentListeners[event].push(fn);
+    },
+    dispatchEvent(event) {
+      if (documentListeners[event.type]) {
+        documentListeners[event.type].forEach(fn => fn(event));
+      }
+    },
+    createElement() {
+      return { setAttribute() {}, style: {}, classList: { add() {} } };
+    }
+  };
+
+  return { mockDocument, elements, documentListeners };
+}
+
+describe('Testes de Integração e Funcionalidade Real das Ferramentas', () => {
+
+  test('Calculadora de 52 Semanas: DOMContentLoaded, eventos e cálculos ISO 8601', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/calculadora-52-semanas.html'), 'utf8');
+    const { mockDocument, elements, documentListeners } = createSimpleDOM(html);
+
+    const context = {
+      document: mockDocument,
+      console,
+      Date,
+      Math,
+      String,
+      Number,
+      localStorage: { getItem: () => 'dark', setItem: () => {} },
+      CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
+    };
+    context.window = context;
+    context.globalThis = context;
+
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/calculadora-52-semanas.js'), 'utf8'), context);
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/calculadora-52-semanas-page.js'), 'utf8'), context);
+
+    documentListeners['DOMContentLoaded'].forEach(fn => fn());
+
+    elements['btnHoje'].click();
+    assert.match(elements['resSemana'].textContent, /^S\d{2}$/);
+    assert.match(elements['resDiaAno'].textContent, /^Dia \d+/);
+    assert.ok(elements['resDiaSemana'].textContent.length > 0);
+
+    elements['btnInicioAno'].click();
+    assert.equal(elements['resSemana'].textContent, 'S01');
+    assert.equal(elements['resDiaAno'].textContent, 'Dia 1');
+  });
+
+  test('Calculadora de Paradas: Interatividade, presets e classificação de downtime', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/calculadora-paradas.html'), 'utf8');
+    const { mockDocument, elements, documentListeners } = createSimpleDOM(html);
+
+    const context = {
+      document: mockDocument,
+      console,
+      Date,
+      Math,
+      String,
+      Number,
+      localStorage: { getItem: () => 'dark', setItem: () => {} },
+      CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
+    };
+    context.window = context;
+    context.globalThis = context;
+
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/calculadora-paradas.js'), 'utf8'), context);
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/calculadora-paradas-page.js'), 'utf8'), context);
+
+    documentListeners['DOMContentLoaded'].forEach(fn => fn());
+
+    elements['btnPresetFalha'].click();
+    assert.equal(elements['textoStatus'].textContent, 'REALIZAR ANÁLISE DE FALHA');
+    assert.equal(elements['dispHorasDecimais'].textContent, '9.50');
+
+    elements['btnPresetRotina'].click();
+    assert.equal(elements['textoStatus'].textContent, 'APONTAMENTO NO RELATÓRIO DE TURNO');
+    assert.equal(elements['dispHorasDecimais'].textContent, '0.75');
+  });
+
+  test('Gerador de Curva S: Renderização de KPIs, tabela e gráfico Chart.js', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/gerador-curva-s.html'), 'utf8');
+    const { mockDocument, elements, documentListeners } = createSimpleDOM(html);
+
+    let chartCreated = false;
+    class MockChart {
+      constructor(ctx, config) {
+        chartCreated = true;
+        this.ctx = ctx;
+        this.config = config;
+      }
+      destroy() {}
+    }
+
+    const context = {
+      document: mockDocument,
+      Chart: MockChart,
+      console,
+      Date,
+      Math,
+      String,
+      Number,
+      localStorage: { getItem: () => 'dark', setItem: () => {} },
+      CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
+    };
+    context.window = context;
+    context.globalThis = context;
+
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/gerador-curva-s.js'), 'utf8'), context);
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/gerador-curva-s-page.js'), 'utf8'), context);
+
+    documentListeners['DOMContentLoaded'].forEach(fn => fn());
+
+    assert.ok(chartCreated, 'Gráfico Chart.js deve ser instanciado');
+    assert.ok(elements['kpiSpi'].textContent.length > 0, 'KPI SPI deve ser calculado');
+    assert.ok(elements['kpiDesvio'].textContent.includes('%'), 'KPI Desvio deve exibir percentual');
+  });
+
+  test('Séries Temporais: Carga de cotações B3, médias móveis MA21/MA200 e Chart.js', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'ferramentas/series-temporais.html'), 'utf8');
+    const { mockDocument, elements, documentListeners } = createSimpleDOM(html);
+
+    let chartCreated = false;
+    class MockChart {
+      constructor(ctx, config) {
+        chartCreated = true;
+        this.ctx = ctx;
+        this.config = config;
+      }
+      destroy() {}
+    }
+
+    const context = {
+      document: mockDocument,
+      Chart: MockChart,
+      console,
+      Date,
+      Math,
+      String,
+      Number,
+      localStorage: { getItem: () => 'dark', setItem: () => {} },
+      CustomEvent: function(type, opts) { this.type = type; this.detail = opts ? opts.detail : null; }
+    };
+    context.window = context;
+    context.globalThis = context;
+
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/dados-cotacoes.js'), 'utf8'), context);
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/series-temporais.js'), 'utf8'), context);
+
+    elements['selectTicker'].value = 'BBAS3.SA';
+    elements['inputDataInicio'].value = '2023-01-01';
+    elements['inputDataFim'].value = '2024-10-15';
+
+    vm.runInNewContext(fs.readFileSync(path.join(ROOT_DIR, 'assets/js/tools/series-temporais-page.js'), 'utf8'), context);
+
+    documentListeners['DOMContentLoaded'].forEach(fn => fn());
+
+    assert.ok(chartCreated, 'Gráfico Chart.js deve ser instanciado');
+    assert.equal(elements['txtTituloTicker'].textContent, 'BBAS3.SA');
+    assert.ok(elements['kpiPrecoFinal'].textContent.includes('R$'));
+    assert.ok(elements['kpiMA21'].textContent.includes('R$'));
+    assert.ok(elements['kpiMA200'].textContent.includes('R$'));
+  });
+
+});
