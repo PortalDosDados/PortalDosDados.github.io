@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="dark" data-theme="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Painel Docente & Gestão da Turma | Portal dos Dados — Dione Nascimento</title>
+  <meta name="description" content="Painel de Gestão do Professor: Acompanhamento de tentativas, aproveitamento e diagnósticos da turma no Portal do Aluno."/>
+  <meta name="author" content="Dione Morrone dos Santos Nascimento"/>
+  <link rel="canonical" href="https://portaldosdados.github.io/ferramentas/portal-professor.html"/>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
+
+  <!-- Prevenção de Flash de Tema (FOIT) -->
+  <script src="../assets/js/theme-init.js"></script>
+
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos Compartilhados e Tokens de Tema -->
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tools/tailwind.config.tools.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased blueprint-grid selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group" href="../index.html">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group-hover:cyan-glow transition-all">
+            <span class="material-symbols-outlined text-[18px]">school</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">PAINEL // DOCENTE</span>
+            <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">GESTÃO PEDAGÓGICA</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="portal-do-aluno.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px] text-primary">sports_esports</span>
+          <span>Visão do Aluno</span>
+        </a>
+
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span>Voltar ao Portfólio</span>
+        </a>
+
+        <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded-lg bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
+          <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 flex-1">
+    
+    <!-- Cabeçalho do Painel -->
+    <div class="mb-8 border-b border-outline-variant/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary/10 border border-primary/30 text-primary font-code-md text-xs uppercase tracking-wider mb-2">
+          <span>Relatório de Desempenho da Turma</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">
+          Acompanhamento Pedagógico · Lógica de Programação
+        </h1>
+        <p class="text-on-surface-variant text-sm mt-1">
+          Curso Técnico em Informática · Monitoramento de engajamento, autoavaliações e índices de proficiência.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btnAtualizar" type="button" class="px-3.5 py-2 rounded-xl bg-surface-container-high laser-border font-code-md text-xs text-on-surface hover:text-primary transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">refresh</span>
+          <span>Atualizar Dados</span>
+        </button>
+        <button id="btnExportarCSV" type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary font-code-md text-xs font-semibold hover:bg-primary-container hover:text-on-primary-container shadow-md transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">download</span>
+          <span>Exportar CSV (Excel)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- KPIs da Turma -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined text-2xl">groups</span>
+        </div>
+        <div>
+          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Alunos Cadastrados</div>
+          <div id="totalAlunos" class="text-2xl font-black font-code-md text-on-surface">0</div>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+          <span class="material-symbols-outlined text-2xl">replay</span>
+        </div>
+        <div>
+          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Tentativas Realizadas</div>
+          <div id="totalTentativas" class="text-2xl font-black font-code-md text-on-surface">0</div>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+          <span class="material-symbols-outlined text-2xl">trending_up</span>
+        </div>
+        <div>
+          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Aproveitamento Médio</div>
+          <div id="mediaTurma" class="text-2xl font-black font-code-md text-on-surface">0%</div>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+          <span class="material-symbols-outlined text-2xl">military_tech</span>
+        </div>
+        <div>
+          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Nível Sênior (>= 90%)</div>
+          <div id="qtdSeniors" class="text-2xl font-black font-code-md text-emerald-400">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela de Alunos e Desempenho -->
+    <div class="p-6 rounded-2xl bg-surface-container border border-outline-variant/30 mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+        <div>
+          <h2 class="text-base font-bold text-on-surface">Registro Individual de Estudantes</h2>
+          <p class="text-xs text-on-surface-variant">Histórico de recordes, tentativas e último nível pedagógico atingido.</p>
+        </div>
+        <div class="relative w-full sm:w-64">
+          <span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+          <input 
+            type="text" 
+            id="filtroBusca" 
+            placeholder="Buscar por matrícula ou nome..." 
+            class="w-full pl-9 pr-3.5 py-2 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary"
+          />
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-surface-container-high text-on-surface-variant font-code-md uppercase text-[10px] border-b border-outline-variant/30">
+            <tr>
+              <th class="p-3">Matrícula</th>
+              <th class="p-3">Estudante</th>
+              <th class="p-3 text-center">Tentativas</th>
+              <th class="p-3 text-right">High Score</th>
+              <th class="p-3 text-right">Maior %</th>
+              <th class="p-3 text-center">Último Nível</th>
+              <th class="p-3 text-right">Data/Hora</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaRelatorioCorpo">
+            <!-- Renderizado via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-outline-variant/30 bg-surface-container-lowest/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="font-code-md text-xs text-outline">
+        PORTAL DOS DADOS // DIONE NASCIMENTO · ENGENHARIA DE SOFTWARE & DOCÊNCIA TÉCNICA
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../data/portal-cursos.js"></script>
+  <script src="../assets/js/tools/portal-aluno-supabase.js"></script>
+  <script src="../assets/js/tools/tool-theme.js"></script>
+  <script src="../assets/js/tools/portal-professor-page.js"></script>
+</body>
+</html>

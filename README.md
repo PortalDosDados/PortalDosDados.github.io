@@ -35,21 +35,35 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │           ├── calculadora-52-semanas.js        # Módulo matemático puro
 │           ├── calculadora-paradas.js           # Módulo matemático puro
 │           ├── gerador-curva-s.js               # Módulo matemático puro
+│           ├── fmea.js                          # Módulo matemático puro (FMEA & RPN)
+│           ├── portal-aluno-engine.js           # Motor de pontuação arcade, estrelas e humor pedagógico
+│           ├── portal-aluno-supabase.js         # Camada de persistência (Supabase REST + LocalStorage)
+│           ├── portal-aluno-page.js             # Controlador da trilha do aluno e sintetizador de som
+│           ├── portal-professor-page.js         # Painel docente com métricas da turma e exportação CSV
 │           ├── *-page.js                        # Lógica de interface de cada página (DOM)
 │           ├── tool-theme.js                    # Alternância de tema compartilhada (emite 'themechange')
 │           └── tailwind.config.tools.js         # Tema Tailwind compartilhado das ferramentas
 ├── data/
 │   └── content.js               # Base de dados estruturada de projetos e experiências
+│   ├── portal-cursos.js         # Catálogo de cursos técnicos, UCs e matrizes de proficiência
+│   └── questoes/                # Bancos de questões pedagógicas para autoavaliação
+│       └── informatica-logica.js # Banco de questões de Lógica de Programação
 ├── ferramentas/                 # Aplicações Web Industriais Interativas (Client-side)
 │   ├── calculadora-52-semanas.html # Calculadora de 52 Semanas (ISO 8601)
 │   ├── calculadora-paradas.html    # Controle de Paradas e Downtime Industrial
 │   ├── gerador-curva-s.html        # Curva S & Tendência (EVM Industrial)
+│   ├── matriz-fmea.html            # Matriz FMEA Industrial & RPN
+│   ├── portal-do-aluno.html        # Portal do Aluno: Trilha Gamificada (Técnico em Informática)
+│   └── portal-professor.html       # Painel Docente: Monitoramento e Relatórios da Turma
 ├── tests/                       # Bateria de testes automatizados com node:test
 │   ├── build.test.js            # index.html sincronizado com src/ e sem partials órfãos
 │   ├── content.test.js
 │   ├── calculadora-52-semanas.test.js
 │   ├── calculadora-paradas.test.js
 │   ├── gerador-curva-s.test.js
+│   ├── fmea.test.js
+│   ├── portal-aluno-engine.test.js # Testes do motor de gamificação e regras pedagógicas
+│   ├── portal-questoes.test.js     # Testes de integridade do catálogo e questões
 │   ├── ferramentas-pages.test.js
 │   ├── ferramentas-integracao.test.js # Testes de ciclo completo e interatividade das ferramentas
 │   └── paginas-refs.test.js     # Referências locais válidas e sem <script>/<style> inline
@@ -138,6 +152,8 @@ Os testes cobrem:
 - **`tests/paginas-refs.test.js`**: Garante que scripts/estilos locais referenciados existem e que as páginas não têm `<script>`/`<style>` inline (exceto JSON-LD).
 - **`tests/ferramentas-pages.test.js`** e testes de cada ferramenta: estrutura semântica das páginas e cálculos dos módulos.
 - **`tests/ferramentas-integracao.test.js`**: Ciclo completo de interação com o DOM, inicialização automática, clique de botões/presets e renderização com Chart.js.
+- **`tests/portal-aluno-engine.test.js`**: Valida a pontuação arcade, bônus de combos, agilidade, estrelas e diagnósticos temáticos de humor (Juninho a Sênior).
+- **`tests/portal-questoes.test.js`**: Valida a integridade do catálogo de cursos técnicos, checkpoints ativos e banco de 15 questões pedagógicas com gabarito e explicações.
 
 ---
 

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="dark" data-theme="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Portal do Aluno · Trilha Gamificada | Portal dos Dados — Dione Nascimento</title>
+  <meta name="description" content="Portal do Aluno: Trilha técnica gamificada no estilo arcade e Duolingo. Autoavaliação interativa para o curso Técnico em Informática - Lógica de Programação."/>
+  <meta name="author" content="Dione Morrone dos Santos Nascimento"/>
+  <link rel="canonical" href="https://portaldosdados.github.io/ferramentas/portal-do-aluno.html"/>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml"/>
+
+  <!-- Prevenção de Flash de Tema (FOIT) -->
+  <script src="../assets/js/theme-init.js"></script>
+
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Estilos Compartilhados e Tokens de Tema -->
+  <link rel="stylesheet" href="../assets/css/main.css"/>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="../assets/js/tools/tailwind.config.tools.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased blueprint-grid selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+
+  <!-- NAVBAR -->
+  <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
+      <div class="flex items-center gap-3">
+        <a class="flex items-center gap-2 group" href="../index.html">
+          <div class="w-8 h-8 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary group-hover:cyan-glow transition-all">
+            <span class="material-symbols-outlined text-[18px]">sports_esports</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">PORTAL // ALUNO</span>
+            <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">TRILHA TÉCNICA ARCADE</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="btnRanking" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px] text-amber-400">leaderboard</span>
+          <span class="hidden sm:inline">Placar Arcade</span>
+        </button>
+
+        <button id="btnMute" type="button" class="w-9 h-9 rounded-lg bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary transition-all" title="Som Arcade">
+          <span class="material-symbols-outlined text-[18px]" id="iconeMute">volume_up</span>
+        </button>
+
+        <button id="btnAbrirPerfil" type="button" class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-surface-container-high laser-border hover:border-primary transition-all">
+          <span id="avatarDisplay" class="text-lg">👾</span>
+          <div class="hidden sm:flex flex-col text-left">
+            <span id="nomeAlunoDisplay" class="font-code-md text-[11px] font-bold text-on-surface max-w-[100px] truncate">Aluno</span>
+            <span id="matriculaDisplay" class="text-[9px] font-code-md text-on-surface-variant">Entrar</span>
+          </div>
+        </button>
+
+        <a href="portal-professor.html" class="hidden md:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-high laser-border font-code-md text-xs text-on-surface-variant hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">school</span>
+          <span>Área Docente</span>
+        </a>
+
+        <a href="../index.html" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+          <span class="hidden sm:inline">Voltar</span>
+        </a>
+
+        <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded-lg bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
+          <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 flex-1">
+    
+    <!-- Hero / Banner da Trilha -->
+    <div class="mb-8 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-surface-container via-surface-container-high to-surface-container border border-primary/30 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 text-8xl opacity-10 select-none pointer-events-none">🎮</div>
+      <div class="relative z-10 max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary/10 border border-primary/30 text-primary font-code-md text-xs uppercase tracking-wider mb-3">
+          <span class="material-symbols-outlined text-[14px]">terminal</span>
+          <span>Curso: Técnico em Informática</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight mb-2">
+          Mapa de Missões & Autoavaliação Técnica
+        </h1>
+        <p class="text-on-surface-variant text-sm sm:text-base leading-relaxed mb-4">
+          Pratique a lógica, teste seus conhecimentos e conquiste pontuação estilo arcade. Sem bloqueios: o objetivo é você se autoavaliar e superar seu próprio recorde!
+        </p>
+        <div class="flex flex-wrap items-center gap-3 text-xs font-code-md text-on-surface-variant">
+          <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> 15 Questões no Piloto</span>
+          <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-amber-400 text-[16px]">stars</span> 4 Níveis com Humor</span>
+          <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-400 text-[16px]">offline_pin</span> Funciona Offline</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Checkpoints / Mapa do Curso -->
+    <div class="mb-10">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-outline-variant/30">
+        <div>
+          <h2 class="text-lg font-bold text-on-surface">Unidades Curriculares da Trilha</h2>
+          <p class="text-xs text-on-surface-variant">Escolha o módulo ativo para iniciar sua sessão de desafios.</p>
+        </div>
+      </div>
+
+      <!-- Grid de Checkpoints -->
+      <div id="gridCheckpoints" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- Tabela de Níveis de Humor Educativo -->
+    <div class="p-6 rounded-2xl bg-surface-container border border-outline-variant/30">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="material-symbols-outlined text-primary text-xl">psychology</span>
+        <h3 class="font-bold text-sm text-on-surface uppercase tracking-wide">Como Funciona a Autoavaliação por Score?</h3>
+      </div>
+      <p class="text-xs text-on-surface-variant mb-4 leading-relaxed">
+        Ao terminar a unidade, o sistema calcula sua precisão, velocidade e combos para determinar sua pontuação arcade e o diagnóstico do seu momento técnico:
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/20">
+          <div class="flex items-center gap-1.5 font-bold text-primary mb-1">
+            <span>☕</span>
+            <span>Juninho (0% a 49%)</span>
+          </div>
+          <p class="text-on-surface-variant text-[11px] leading-relaxed">O café ainda não bateu! Revise a teoria e jogue novamente para subir de nível.</p>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/20">
+          <div class="flex items-center gap-1.5 font-bold text-amber-400 mb-1">
+            <span>🐛</span>
+            <span>Júnior (50% a 69%)</span>
+          </div>
+          <p class="text-on-surface-variant text-[11px] leading-relaxed">No caminho certo! Resolve os bugs, mas ainda consulta o Stack Overflow direto.</p>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/20">
+          <div class="flex items-center gap-1.5 font-bold text-cyan-400 mb-1">
+            <span>🚀</span>
+            <span>Pleno (70% a 89%)</span>
+          </div>
+          <p class="text-on-surface-variant text-[11px] leading-relaxed">Sabe o que faz! Código limpo, roda liso e não quebra a produção na sexta-feira.</p>
+        </div>
+        <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/20">
+          <div class="flex items-center gap-1.5 font-bold text-emerald-400 mb-1">
+            <span>🧙‍♂️</span>
+            <span>Sênior (90% a 100%)</span>
+          </div>
+          <p class="text-on-surface-variant text-[11px] leading-relaxed">Hackeou o sistema! Nível Matrix ativado. O compilador te respeita.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL DE LOGIN / IDENTIFICAÇÃO DO ALUNO -->
+    <div id="modalPerfil" class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm hidden items-center justify-center p-4">
+      <div class="w-full max-w-md bg-surface-container border border-primary/40 rounded-2xl p-6 shadow-2xl">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/30">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-xl">badge</span>
+            <h3 class="font-bold text-base text-on-surface">Identificação do Aluno</h3>
+          </div>
+          <button id="btnFecharPerfil" type="button" class="w-8 h-8 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+
+        <form id="formPerfil" class="space-y-4">
+          <div>
+            <label for="inputMatricula" class="block font-code-md text-xs font-semibold text-on-surface mb-1">
+              Matrícula ou Código do Aluno <span class="text-primary">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="inputMatricula" 
+              required
+              placeholder="Ex: INFO2026-042" 
+              class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary"
+            />
+            <p class="text-[10px] text-on-surface-variant mt-1">Utilizado para salvar seus recordes e histórico de tentativas.</p>
+          </div>
+
+          <div>
+            <label for="inputNome" class="block font-code-md text-xs font-semibold text-on-surface mb-1">
+              Nome ou Apelido de Exibição
+            </label>
+            <input 
+              type="text" 
+              id="inputNome" 
+              placeholder="Ex: Lucas Dev" 
+              class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary"
+            />
+          </div>
+
+          <div>
+            <label class="block font-code-md text-xs font-semibold text-on-surface mb-1.5">
+              Escolha seu Avatar Arcade
+            </label>
+            <div id="gridAvatares" class="grid grid-cols-5 gap-2">
+              <!-- Avatares dinâmicos -->
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 pt-2">
+            <input type="checkbox" id="checkExibirRanking" checked class="rounded bg-surface-container-high border-outline-variant/40 text-primary focus:ring-0 w-4 h-4"/>
+            <label for="checkExibirRanking" class="text-xs text-on-surface-variant cursor-pointer select-none">
+              Exibir meu apelido no placar geral de recordes da turma
+            </label>
+          </div>
+
+          <div class="pt-4 flex items-center justify-between gap-3 border-t border-outline-variant/30">
+            <button id="btnSairConta" type="button" class="hidden text-xs font-code-md text-rose-400 hover:text-rose-300 transition-colors">
+              Trocar de Aluno
+            </button>
+            <button type="submit" class="ml-auto px-5 py-2 rounded-xl bg-primary text-on-primary font-code-md text-xs font-semibold hover:bg-primary-container hover:text-on-primary-container shadow-md transition-all">
+              Salvar e Jogar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL DE DESAFIO ARCADE (QUIZ) -->
+    <div id="modalDesafio" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+      <div class="w-full max-w-2xl bg-surface-container border border-primary/40 rounded-2xl p-5 sm:p-8 shadow-2xl relative my-auto">
+        
+        <!-- Header do Desafio -->
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/30">
+          <div class="flex items-center gap-2">
+            <span id="badgeTemaQuestao" class="px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/30 text-primary font-code-md text-[11px] font-bold uppercase tracking-wider">
+              Lógica
+            </span>
+            <span id="badgeCombo" class="px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-400 font-code-md text-[11px] font-bold">
+              ⚡ Em ritmo
+            </span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1 font-code-md text-xs text-on-surface-variant">
+              <span class="material-symbols-outlined text-[16px]">timer</span>
+              <span id="cronometroTexto">00:00</span>
+            </div>
+            <button id="btnFecharDesafio" type="button" class="w-8 h-8 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors" title="Pausar / Sair">
+              <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Barra de Progresso Superior -->
+        <div class="mb-5">
+          <div class="flex justify-between items-center text-[10px] font-code-md text-on-surface-variant mb-1.5">
+            <span>Progresso da Unidade</span>
+            <span id="badgeProgressoTexto">Questão 1 de 15</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-surface-container-highest overflow-hidden">
+            <div id="barraProgresso" class="h-full bg-primary transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Enunciado e Código -->
+        <div class="mb-6">
+          <h2 id="textoEnunciado" class="text-base sm:text-lg font-bold text-on-surface leading-snug mb-3">
+            Enunciado da questão...
+          </h2>
+          <div id="blocoCodigoContainer" class="hidden rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-4 font-code-md text-xs text-cyan-300 overflow-x-auto selection:bg-primary">
+            <pre><code id="blocoCodigo"></code></pre>
+          </div>
+        </div>
+
+        <!-- Alternativas -->
+        <div id="containerAlternativas" class="space-y-2.5 mb-6">
+          <!-- Botoes das alternativas gerados dinamicamente -->
+        </div>
+
+        <!-- Caixa de Feedback Pedagógico (Aparece após resposta) -->
+        <div id="containerFeedback" class="hidden p-4 rounded-xl border border-outline-variant/30 bg-surface-container-high transition-all">
+          <div class="flex items-center gap-2 mb-2">
+            <span id="iconeFeedback" class="material-symbols-outlined text-2xl">check_circle</span>
+            <h4 id="tituloFeedback" class="font-bold text-sm">Feedback</h4>
+          </div>
+          <p id="textoFeedback" class="text-xs text-on-surface leading-relaxed mb-4"></p>
+          <button id="btnProximaQuestao" type="button" class="w-full py-2.5 rounded-xl bg-primary text-on-primary font-code-md text-xs font-bold hover:bg-primary-container hover:text-on-primary-container shadow-md transition-all flex items-center justify-center gap-2">
+            <span>Continuar</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MODAL DE RESULTADO / VITÓRIA ARCADE -->
+    <div id="modalResultado" class="fixed inset-0 z-50 bg-background/90 backdrop-blur-md hidden items-center justify-center p-4">
+      <div class="w-full max-w-lg bg-surface-container border border-primary/40 rounded-2xl p-6 sm:p-8 shadow-2xl text-center">
+        
+        <div class="text-4xl mb-2">🏆</div>
+        <h2 class="text-2xl font-black text-on-surface tracking-tight mb-1">Missão Concluída!</h2>
+        <p class="text-xs text-on-surface-variant font-code-md mb-4">Unidade: Lógica de Programação</p>
+
+        <!-- Estrelas -->
+        <div id="estrelasContainer" class="flex justify-center items-center gap-1 mb-5">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <!-- Placar de Pontos e Porcentagem -->
+        <div class="p-4 rounded-xl bg-surface-container-high border border-outline-variant/30 mb-5">
+          <div class="text-[10px] font-code-md text-on-surface-variant uppercase tracking-wider mb-1">Pontuação Final Arcade</div>
+          <div id="scoreFinalTexto" class="text-3xl font-extrabold text-primary font-code-md mb-1">0 pts</div>
+          <div id="percentualFinalTexto" class="text-xs text-on-surface-variant font-code-md">0% de acertos</div>
+          <div id="alertaNovoRecorde" class="hidden mt-2 text-xs font-code-md font-bold text-amber-400 flex items-center justify-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">military_tech</span>
+            <span>NOVO RECORDE PESSOAL ATINGIDO!</span>
+          </div>
+        </div>
+
+        <!-- Diagnóstico de Proficiência com Humor -->
+        <div class="p-4 rounded-xl bg-primary/5 border border-primary/20 text-left mb-6">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span id="badgeProficiencia" class="text-2xl">🚀</span>
+            <h4 id="tituloProficiencia" class="font-bold text-sm text-primary">Nível</h4>
+          </div>
+          <p id="descricaoProficiencia" class="text-xs text-on-surface-variant leading-relaxed"></p>
+        </div>
+
+        <!-- Ações -->
+        <div class="flex flex-col sm:flex-row items-center gap-3">
+          <button id="btnJogarNovamente" type="button" class="w-full sm:flex-1 py-2.5 rounded-xl bg-primary text-on-primary font-code-md text-xs font-bold hover:bg-primary-container hover:text-on-primary-container shadow-md transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">replay</span>
+            <span>Jogar Novamente</span>
+          </button>
+          <button id="btnVerRankingResultado" type="button" class="w-full sm:flex-1 py-2.5 rounded-xl bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-all flex items-center justify-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-amber-400">leaderboard</span>
+            <span>Ver Placar Geral</span>
+          </button>
+        </div>
+        <button id="btnFecharResultado" type="button" class="mt-4 text-xs font-code-md text-outline hover:text-on-surface transition-colors">
+          Fechar e Voltar ao Mapa
+        </button>
+
+      </div>
+    </div>
+
+    <!-- MODAL DE RANKING / PLACAR FLIPERAMA -->
+    <div id="modalRanking" class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm hidden items-center justify-center p-4">
+      <div class="w-full max-w-xl bg-surface-container border border-primary/40 rounded-2xl p-6 shadow-2xl">
+        <div class="flex items-center justify-between mb-4 pb-3 border-b border-outline-variant/30">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-amber-400 text-2xl">trophy</span>
+            <div>
+              <h3 class="font-bold text-base text-on-surface">Placar de Recordes (High Scores)</h3>
+              <p class="text-[11px] font-code-md text-on-surface-variant">Lógica de Programação · Técnico em Informática</p>
+            </div>
+          </div>
+          <button id="btnFecharRanking" type="button" class="w-8 h-8 rounded-lg hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+
+        <div class="overflow-x-auto max-h-80 overflow-y-auto mb-4">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-surface-container-high text-on-surface-variant font-code-md uppercase text-[10px] sticky top-0">
+              <tr>
+                <th class="p-3">Pos</th>
+                <th class="p-3">Piloto</th>
+                <th class="p-3 text-right">Score</th>
+                <th class="p-3 text-right">Acertos</th>
+              </tr>
+            </thead>
+            <tbody id="listaRankingCorpo">
+              <!-- Renderizado via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="p-3 rounded-xl bg-surface-container-high text-[11px] font-code-md text-on-surface-variant text-center">
+          🕹️ Jogue quantas vezes quiser para bater seu recorde e subir posições!
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-outline-variant/30 bg-surface-container-lowest/80 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="font-code-md text-xs text-outline">
+        PORTAL DOS DADOS // DIONE NASCIMENTO · EDUCAÇÃO TÉCNICA INDUSTRIAL & ANALYTICS
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../data/portal-cursos.js"></script>
+  <script src="../data/questoes/informatica-logica.js"></script>
+  <script src="../assets/js/tools/portal-aluno-engine.js"></script>
+  <script src="../assets/js/tools/portal-aluno-supabase.js"></script>
+  <script src="../assets/js/tools/tool-theme.js"></script>
+  <script src="../assets/js/tools/portal-aluno-page.js"></script>
+</body>
+</html>
