@@ -1,6 +1,6 @@
 const { test, describe } = require('node:test');
 const assert = require('node:assert/strict');
-const engine = require('../assets/js/tools/portal-aluno-engine.js');
+const engine = require('../assets/js/portal/portal-aluno-engine.js');
 const portalCursos = require('../data/portal-cursos.js');
 const questoesLogica = require('../data/questoes/informatica-logica.js');
 

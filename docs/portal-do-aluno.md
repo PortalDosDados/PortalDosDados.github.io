@@ -24,10 +24,10 @@ Aplicação web client-side no estilo Duolingo / Arcade para autoavaliação e f
 ## 5. Estrutura de Arquivos
 - `data/portal-cursos.js`: Catálogo de cursos, UCs e mensagens de proficiência com humor.
 - `data/questoes/informatica-logica.js`: Banco de 15 questões pedagógicas com dicas e explicações.
-- `assets/js/tools/portal-aluno-engine.js`: Motor puro com cálculos de score, combo, agilidade, estrelas e proficiência.
-- `assets/js/tools/portal-aluno-supabase.js`: Camada de persistência (Supabase + LocalStorage).
-- `assets/js/tools/portal-aluno-page.js`: Controlador da interface do aluno e sintetizador de som.
-- `assets/js/tools/portal-professor-page.js`: Painel docente com KPIs, busca e exportação CSV.
-- `ferramentas/portal-do-aluno.html`: Interface do aluno no tema Industrial Tech.
-- `ferramentas/portal-professor.html`: Painel do professor.
+- `assets/js/portal/portal-aluno-engine.js`: Motor puro com cálculos de score, combo, agilidade, estrelas e proficiência.
+- `assets/js/portal/portal-aluno-supabase.js`: Camada de persistência (Supabase + LocalStorage).
+- `assets/js/portal/portal-aluno-page.js`: Controlador da interface do aluno e sintetizador de som.
+- `assets/js/portal/portal-professor-page.js`: Painel docente com KPIs, busca e exportação CSV.
+- `portal/index.html`: Interface do aluno no tema Industrial Tech (URL: `/portal/`).
+- `portal/professor.html`: Painel do professor.
 - `tests/portal-aluno-engine.test.js` & `tests/portal-questoes.test.js`: Testes automatizados com `node --test`.

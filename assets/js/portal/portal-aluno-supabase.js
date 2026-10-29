@@ -1,5 +1,5 @@
 /**
- * assets/js/tools/portal-aluno-supabase.js
+ * assets/js/portal/portal-aluno-supabase.js
  * Camada de persistência, autenticação e ranking do Portal do Aluno.
  * Suporta Supabase REST API direta com fallback transparente e resiliente em localStorage.
  * Exportação universal (Browser e Node.js).

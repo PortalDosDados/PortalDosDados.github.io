@@ -1,5 +1,5 @@
 /**
- * assets/js/tools/portal-aluno-page.js
+ * assets/js/portal/portal-aluno-page.js
  * Controlador de Interface, Fluxo de Login, Trilha e Sons Arcade do Portal do Aluno.
  * Totalmente desacoplado de dependências externas (< 500 linhas).
  */

@@ -1,5 +1,5 @@
 /**
- * assets/js/tools/portal-professor-page.js
+ * assets/js/portal/portal-professor-page.js
  * Controlador do Painel Docente: métricas da turma, relatórios e exportação CSV.
  */
 

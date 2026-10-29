@@ -382,8 +382,509 @@
     </div>
   </div>
 </section>
-<!-- @include partials/projetos.html -->
-<!-- @include partials/portal-aluno-destaque.html -->
+
+<!-- ========================================================================= -->
+<!-- 4. ESTUDOS DE CASO / PROJETOS EM DESTAQUE (2x2 Grid)                      -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 border-b border-outline-variant/20 relative" id="projetos">
+  <div class="max-w-7xl mx-auto px-4 md:px-12">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
+          <span class="material-symbols-outlined text-[16px]">terminal</span>
+          IMPACTO REAL EM ENGENHARIA // CASOS DE SUCESSO
+        </div>
+        <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+          Soluções Industriais que Geram Resultados
+        </h2>
+        <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
+          Projetos aplicados na mitigação de falhas mecânicas, saneamento de dados de ativos e integração corporativa com SAP, MES e Power BI.
+        </p>
+      </div>
+
+      <!-- Filtros Rápidos -->
+      <div class="flex flex-wrap items-center gap-2" id="projectFilterContainer">
+        <button class="px-3 py-1 rounded bg-primary-container text-on-primary font-label-caps text-[11px] font-semibold filter-btn active" data-cat="all">Todos</button>
+        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="bi">Power BI</button>
+        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="python">Python & Automação</button>
+        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="mobile">Mobile & Flutter</button>
+      </div>
+    </div>
+
+    <!-- 2x2 Bento Project Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="projectsGrid">
+      <!-- CARD 1: Avine -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="bi">
+        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">monitoring</span>
+            <span>REF // 001-CUSTOS-AVINE</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">POWER BI • MYSQL • EXCEL</span>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+            Dashboard de Custos de Manutenção — Avine
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Projeto de BI interrompido com dados descentralizados e bases espalhadas entre MySQL e planilhas Excel manuais sem governança.
+              </p>
+            </div>
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Mapeamento e saneamento das bases, consolidação das regras de negócio e migração para MySQL como fonte centralizada, eliminando planilhas manuais.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-tertiary font-bold">+Confiança</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Métricas Precisas</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-primary font-bold">100%</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Base Centralizada</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-on-surface font-bold">Ágil</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Ciclo de Relatório</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">STATUS: CONSULTORIA ATIVA</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
+            <span>Conversar sobre a solução</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 2: Portal de Indicadores ArcelorMittal -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="bi">
+        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
+            <span>REF // 002-PORTAL-AM</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-primary border border-primary/30">POWER BI • SAP PM • MES • SGI</span>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+            Portal de Indicadores de Manutenção — ArcelorMittal
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Indicadores multi-origem complexos dispersos em sistemas industriais legados (SAP, MES e SGI), demandando relatórios manuais e com baixa governança.
+              </p>
+            </div>
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Padronização, modelagem dimensional e publicação de dashboards executivos em Power BI integrados diretamente para as reuniões diárias da liderança.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-tertiary font-bold">SAP/MES</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Integração Total</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-primary font-bold">1 Painel</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Visão Unificada</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-on-surface font-bold">Diário</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Decisão em Tempo Hábil</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">STATUS: PRODUÇÃO CORPORATIVA</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
+            <span>Conversar sobre a solução</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 3: PM Mobit -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="mobile">
+        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">smartphone</span>
+            <span>REF // 003-PM-MOBIT</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • SUPABASE • POSTGRESQL</span>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+            Aplicativo Mobile para Gestão de Manutenção em Campo (PM Mobit)
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Rotinas de inspeção de equipamentos críticos e apontamentos em campo realizados manualmente em papel, gerando baixa rastreabilidade, lentidão e atrasos no controle de SLA.
+              </p>
+            </div>
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Desenvolvimento de aplicação móvel corporativa em Flutter e Dart integrada ao Supabase (Auth, Database e Storage). Digitalização de checklists com evidências fotográficas, abertura automática de ordens corretivas ao detectar não conformidades, controle rigoroso de SLA e dashboard analítico de produtividade e indicadores operacionais em tempo real.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-tertiary font-bold">100%</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Fluxo Digital &amp; Fotos</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-primary font-bold">Auto</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Disparo de Corretivas</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-on-surface font-bold">SLA &amp; KPIs</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Auditoria em Tempo Real</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">STATUS: IMPLANTADO &amp; OPERACIONAL</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
+            <span>Conversar sobre a solução</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 4: Disponibilidade ArcelorMittal -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
+        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">schedule</span>
+            <span>REF // 004-DISP-MES</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • MES • EXCEL</span>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+            Aplicativo para Cálculo da Disponibilidade dos Equipamentos — ArcelorMittal
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Extração e tratamento manual recorrente de dados operacionais brutos do sistema MES para cálculo da disponibilidade dos equipamentos, gerando lentidão e sobrecarga operacional.
+              </p>
+            </div>
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Desenvolvimento de pipeline automatizado para extração e tratamento dos dados do sistema MES, com interface operacional ágil em Python e relatórios com visualização em tela e exportação para Excel.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-tertiary font-bold">−10 hrs</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Poupadas / Mês</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-primary font-bold">MES Direto</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Cálculo Rápido</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-on-surface font-bold">Excel/UI</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Exportação Padronizada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">STATUS: OPERACIONALIZADO</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
+            <span>Conversar sobre a solução</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 5: Inconsistências Contábeis ArcelorMittal -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
+        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+            <span>REF // 005-CONTABIL-AM</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • PANDAS • EXCEL • REGRAS</span>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+            Automação em Python para Inconsistências Contábeis — ArcelorMittal
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Integração e conferência manual de dados entre múltiplas planilhas Excel, com alto risco de classificações incorretas entre custos fixos e variáveis.
+              </p>
+            </div>
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Desenvolvimento de script em Python integrando dados de múltiplas planilhas, com tratamento, padronização, transformação e regras automáticas de validação contábil para relatórios gerenciais.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-tertiary font-bold">−4 hrs</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Poupadas / Mês</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-primary font-bold">100%</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Dados Auditados</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-on-surface font-bold">Precisão</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Custo Fixo/Variável</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">STATUS: AUDITORIA AUTOMÁTICA</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
+            <span>Conversar sobre a solução</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 6: Inconsistências em Requisições de Compra ArcelorMittal -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
+        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">shopping_cart_checkout</span>
+            <span>REF // 006-COMPRAS-AM</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • POWER BI • CENTROS DE CUSTO</span>
+        </div>
+
+        <div class="p-6 space-y-4">
+          <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+            Automação em Python para Requisições de Compra — ArcelorMittal
+          </h3>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Divergências de centros de custo e erros de classificação em requisições de compras descobertos tardiamente, gerando retrabalho operacional e desvios contábeis.
+              </p>
+            </div>
+            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Automação em Python integrando e validando dados de múltiplas fontes para correção proativa de desvios, associada a dashboard gerencial em Power BI para monitoramento contínuo.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-tertiary font-bold">−4 hrs</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Poupadas / Mês</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-primary font-bold">Real-Time</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Visão Power BI</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-lg text-on-surface font-bold">Conformidade</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Processos de Compra</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-outline">STATUS: PRODUÇÃO CORPORATIVA</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
+            <span>Conversar sobre a solução</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3.5 PORTAL DO ALUNO // DESTAQUE EM GAMIFICAÇÃO TÉCNICA                   -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 border-b border-outline-variant/20 relative bg-surface-container-lowest/50" id="portal-aluno">
+  <div class="max-w-7xl mx-auto px-4 md:px-12">
+    
+    <div class="rounded-2xl bg-gradient-to-br from-surface-container via-surface-container-high to-surface-container border border-primary/40 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+      <!-- Elemento Decorativo Arcade de Fundo -->
+      <div class="absolute -right-6 -bottom-6 text-9xl opacity-5 select-none pointer-events-none">🎮</div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        
+        <!-- Coluna da Esquerda: Informações e Proposta de Valor -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-code-md text-xs uppercase tracking-widest font-bold">
+            <span class="material-symbols-outlined text-[16px]">sports_esports</span>
+            <span>PLATAFORMA EDUCACIONAL // GAMIFICAÇÃO TÉCNICA</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-on-surface tracking-tight">
+            Portal do Aluno · Trilha Técnica Arcade
+          </h2>
+
+          <p class="text-on-surface-variant text-sm sm:text-base leading-relaxed">
+            Ambiente interativo no estilo Duolingo e fliperama retrô para alunos de cursos técnicos praticarem e se autoavaliarem na prática. Sem barreiras punitivas: o estudante foca na superação dos seus próprios recordes e recebe feedback imediato a cada questão.
+          </p>
+
+          <!-- Badges de Recursos -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/30 flex items-center gap-3">
+              <span class="text-2xl">⚡</span>
+              <div>
+                <div class="font-code-md text-xs font-bold text-on-surface">Piloto Ativo</div>
+                <div class="text-[11px] text-on-surface-variant">Lógica de Programação</div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/30 flex items-center gap-3">
+              <span class="text-2xl">🕹️</span>
+              <div>
+                <div class="font-code-md text-xs font-bold text-on-surface">Autoavaliação</div>
+                <div class="text-[11px] text-on-surface-variant">Score & Combos Arcade</div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/30 flex items-center gap-3">
+              <span class="text-2xl">📊</span>
+              <div>
+                <div class="font-code-md text-xs font-bold text-on-surface">Gestão Docente</div>
+                <div class="text-[11px] text-on-surface-variant">Relatórios & Export CSV</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botões de Ação -->
+          <div class="pt-4 flex flex-wrap items-center gap-4">
+            <a href="portal/index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-code-md text-sm font-bold hover:bg-primary-container hover:text-on-primary-container shadow-lg cyan-glow transition-all">
+              <span class="material-symbols-outlined text-[18px]">play_circle</span>
+              <span>Entrar no Portal do Aluno</span>
+            </a>
+
+            <a href="portal/professor.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-surface-container-high laser-border text-on-surface font-code-md text-sm hover:text-primary transition-all">
+              <span class="material-symbols-outlined text-[18px]">school</span>
+              <span>Acessar Painel do Professor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Card Preview Visual da Trilha -->
+        <div class="lg:col-span-5">
+          <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/40 p-5 shadow-inner">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant/20 font-code-md text-xs">
+              <span class="text-primary font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Curso: TÉCNICO EM INFORMÁTICA
+              </span>
+              <span class="text-on-surface-variant">15 Questões</span>
+            </div>
+
+            <!-- Mini Mapa Visual -->
+            <div class="space-y-2.5">
+              <div class="p-3 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-xl">⚡</span>
+                  <div>
+                    <div class="font-bold text-xs text-on-surface">Módulo 01: Lógica de Programação</div>
+                    <div class="text-[10px] text-primary font-code-md">Variáveis, Condicionais, Laços e Vetores</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-code-md px-2 py-0.5 rounded bg-primary text-on-primary font-bold">ATIVO</span>
+              </div>
+
+              <div class="p-3 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 flex items-center justify-between opacity-60">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-xl">🗄️</span>
+                  <div>
+                    <div class="font-bold text-xs text-on-surface">Módulo 02: Banco de Dados</div>
+                    <div class="text-[10px] text-on-surface-variant font-code-md">Modelagem e SQL</div>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+              </div>
+
+              <div class="p-3 rounded-lg bg-surface-container-high/60 border border-outline-variant/20 flex items-center justify-between opacity-60">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-xl">🌐</span>
+                  <div>
+                    <div class="font-bold text-xs text-on-surface">Módulo 03: Redes de Computadores</div>
+                    <div class="text-[10px] text-on-surface-variant font-code-md">Topologias e Protocolos</div>
+                  </div>
+                </div>
+                <span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-outline-variant/20 text-center font-code-md text-[11px] text-on-surface-variant">
+              🕹️ Identifique-se com sua matrícula para salvar recordes!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <!-- ========================================================================= -->
 <!-- 4.1 FERRAMENTAS INDUSTRIAIS ABERTAS (Aplicações Web Nativas)                -->

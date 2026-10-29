@@ -7,6 +7,7 @@ const ROOT_DIR = path.resolve(__dirname, '..');
 const PAGINAS = [
   'index.html',
   ...fs.readdirSync(path.join(ROOT_DIR, 'ferramentas')).filter((f) => f.endsWith('.html')).map((f) => `ferramentas/${f}`),
+  ...fs.readdirSync(path.join(ROOT_DIR, 'portal')).filter((f) => f.endsWith('.html')).map((f) => `portal/${f}`),
 ];
 
 describe('Referências locais e ausência de código inline nas páginas', () => {

@@ -36,13 +36,14 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │           ├── calculadora-paradas.js           # Módulo matemático puro
 │           ├── gerador-curva-s.js               # Módulo matemático puro
 │           ├── fmea.js                          # Módulo matemático puro (FMEA & RPN)
-│           ├── portal-aluno-engine.js           # Motor de pontuação arcade, estrelas e humor pedagógico
-│           ├── portal-aluno-supabase.js         # Camada de persistência (Supabase REST + LocalStorage)
-│           ├── portal-aluno-page.js             # Controlador da trilha do aluno e sintetizador de som
-│           ├── portal-professor-page.js         # Painel docente com métricas da turma e exportação CSV
 │           ├── *-page.js                        # Lógica de interface de cada página (DOM)
 │           ├── tool-theme.js                    # Alternância de tema compartilhada (emite 'themechange')
 │           └── tailwind.config.tools.js         # Tema Tailwind compartilhado das ferramentas
+│       └── portal/                              # Módulos do Portal do Aluno & Painel Docente
+│           ├── portal-aluno-engine.js           # Motor de pontuação arcade, estrelas e humor pedagógico
+│           ├── portal-aluno-supabase.js         # Camada de persistência (Supabase REST + LocalStorage)
+│           ├── portal-aluno-page.js             # Controlador da trilha do aluno e sintetizador de som
+│           └── portal-professor-page.js         # Painel docente com métricas da turma e exportação CSV
 ├── data/
 │   └── content.js               # Base de dados estruturada de projetos e experiências
 │   ├── portal-cursos.js         # Catálogo de cursos técnicos, UCs e matrizes de proficiência
@@ -52,9 +53,10 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 │   ├── calculadora-52-semanas.html # Calculadora de 52 Semanas (ISO 8601)
 │   ├── calculadora-paradas.html    # Controle de Paradas e Downtime Industrial
 │   ├── gerador-curva-s.html        # Curva S & Tendência (EVM Industrial)
-│   ├── matriz-fmea.html            # Matriz FMEA Industrial & RPN
-│   ├── portal-do-aluno.html        # Portal do Aluno: Trilha Gamificada (Técnico em Informática)
-│   └── portal-professor.html       # Painel Docente: Monitoramento e Relatórios da Turma
+│   └── matriz-fmea.html            # Matriz FMEA Industrial & RPN
+├── portal/                      # Portal do Aluno (Trilha Gamificada & Docência)
+│   ├── index.html               # Portal do Aluno: Trilha Gamificada (Técnico em Informática)
+│   └── professor.html           # Painel Docente: Monitoramento e Relatórios da Turma
 ├── tests/                       # Bateria de testes automatizados com node:test
 │   ├── build.test.js            # index.html sincronizado com src/ e sem partials órfãos
 │   ├── content.test.js

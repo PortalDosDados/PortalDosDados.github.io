@@ -30,18 +30,6 @@ const FERRAMENTAS = [
     scriptEsperado: '../assets/js/tools/fmea.js',
     tituloEsperado: 'Matriz FMEA',
   },
-  {
-    nome: 'Portal do Aluno (Trilha Gamificada)',
-    arquivo: 'ferramentas/portal-do-aluno.html',
-    scriptEsperado: '../assets/js/tools/portal-aluno-page.js',
-    tituloEsperado: 'Portal do Aluno',
-  },
-  {
-    nome: 'Painel Docente & Gestão da Turma',
-    arquivo: 'ferramentas/portal-professor.html',
-    scriptEsperado: '../assets/js/tools/portal-professor-page.js',
-    tituloEsperado: 'Painel Docente',
-  },
 ];
 
 describe('Integridade das Páginas Web das Ferramentas Industriais (ferramentas/*.html)', () => {

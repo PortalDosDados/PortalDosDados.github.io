@@ -1,5 +1,5 @@
 /**
- * assets/js/tools/portal-aluno-engine.js
+ * assets/js/portal/portal-aluno-engine.js
  * Motor puro de cálculo pedagógico e gamificação do Portal do Aluno.
  * Totalmente desacoplado do DOM, com exportação universal (Node.js e Browser).
  */

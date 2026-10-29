@@ -25,7 +25,7 @@ function render(file, stack = []) {
   const content = fs.readFileSync(file, 'utf8');
   const eol = content.includes('\r\n') ? '\r\n' : '\n';
   return content
-    .split(eol)
+    .split(/\r?\n/)
     .map((line) => {
       const match = INCLUDE_RE.exec(line);
       if (!match) return line;
