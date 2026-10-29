@@ -43,6 +43,14 @@
       </div>
 
       <div class="flex items-center gap-2 sm:gap-3">
+        <div id="docenteBadgePill" class="hidden items-center gap-2 px-2.5 py-1.5 rounded-lg bg-surface-container-high laser-border text-xs font-code-md">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-on-surface font-semibold hidden sm:inline">Docente Ativo</span>
+          <button id="btnSairDocente" type="button" class="text-on-surface-variant hover:text-rose-400 transition-colors p-0.5 ml-1" title="Encerrar Sessão Docente">
+            <span class="material-symbols-outlined text-[16px]">logout</span>
+          </button>
+        </div>
+
         <a href="index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high laser-border text-on-surface font-code-md text-xs hover:text-primary transition-colors">
           <span class="material-symbols-outlined text-[16px] text-primary">sports_esports</span>
           <span>Visão do Aluno</span>
@@ -63,111 +71,172 @@
   <!-- CONTEÚDO PRINCIPAL -->
   <main class="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 flex-1">
     
-    <!-- Cabeçalho do Painel -->
-    <div class="mb-8 border-b border-outline-variant/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
-      <div>
-        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary/10 border border-primary/30 text-primary font-code-md text-xs uppercase tracking-wider mb-2">
-          <span>Relatório de Desempenho da Turma</span>
+    <!-- 1. TELA DE AUTENTICAÇÃO DOCENTE (GATE DE ACESSO) -->
+    <div id="secaoLoginDocente" class="max-w-md mx-auto py-12">
+      <div class="rounded-2xl bg-surface-container border border-primary/40 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-4 cyan-glow">
+          <span class="material-symbols-outlined text-2xl">admin_panel_settings</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">
-          Acompanhamento Pedagógico · Lógica de Programação
-        </h1>
-        <p class="text-on-surface-variant text-sm mt-1">
-          Curso Técnico em Informática · Monitoramento de engajamento, autoavaliações e índices de proficiência.
+
+        <h1 class="text-xl font-extrabold text-on-surface">Painel Docente // Acesso Restrito</h1>
+        <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">
+          Área de gestão pedagógica. Digite a Chave de Acesso do Professor para desbloquear o relatório de notas, diagnósticos e exportação CSV.
         </p>
-      </div>
 
-      <div class="flex items-center gap-2">
-        <button id="btnAtualizar" type="button" class="px-3.5 py-2 rounded-xl bg-surface-container-high laser-border font-code-md text-xs text-on-surface hover:text-primary transition-all flex items-center gap-1.5">
-          <span class="material-symbols-outlined text-[16px]">refresh</span>
-          <span>Atualizar Dados</span>
-        </button>
-        <button id="btnExportarCSV" type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary font-code-md text-xs font-semibold hover:bg-primary-container hover:text-on-primary-container shadow-md transition-all flex items-center gap-1.5">
-          <span class="material-symbols-outlined text-[16px]">download</span>
-          <span>Exportar CSV (Excel)</span>
-        </button>
+        <form id="formLoginDocente" class="mt-6 space-y-4">
+          <div>
+            <label for="chaveDocente" class="block font-code-md text-xs font-semibold text-on-surface mb-1">
+              Chave de Acesso Docente <span class="text-primary">*</span>
+            </label>
+            <div class="relative">
+              <input 
+                type="password" 
+                id="chaveDocente" 
+                required
+                placeholder="Digite a chave docente..." 
+                class="w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary transition-colors"
+              />
+              <button type="button" id="btnToggleVisibilidadeChave" class="absolute right-2.5 top-2.5 text-on-surface-variant hover:text-primary transition-colors p-0.5" title="Mostrar/Ocultar Chave">
+                <span class="material-symbols-outlined text-[18px]" id="iconeOlhoChave">visibility</span>
+              </button>
+            </div>
+            <p id="msgErroDocente" class="hidden text-rose-400 font-code-md text-[11px] mt-1.5 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">error</span>
+              <span>Chave de acesso incorreta. Verifique e tente novamente.</span>
+            </p>
+          </div>
+
+          <div class="p-3 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 text-[11px] font-code-md text-on-surface-variant">
+            💡 <span class="font-semibold text-primary">Chave Padrão para Avaliação:</span> <code class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface font-bold">prof2026</code>
+          </div>
+
+          <button type="submit" id="btnEntrarDocente" class="w-full py-3 rounded-xl bg-primary text-on-primary font-code-md text-sm font-bold hover:bg-primary-container hover:text-on-primary-container shadow-lg cyan-glow transition-all flex items-center justify-center gap-2">
+            <span>Autenticar e Acessar Painel</span>
+            <span class="material-symbols-outlined text-[18px]">lock_open</span>
+          </button>
+        </form>
       </div>
     </div>
 
-    <!-- KPIs da Turma -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
-        <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-          <span class="material-symbols-outlined text-2xl">groups</span>
-        </div>
+    <!-- 2. PAINEL DOCENTE COMPLETO (LIBERADO APENAS APÓS AUTENTICAÇÃO) -->
+    <div id="painelDocenteConteudo" class="hidden space-y-8">
+      
+      <!-- Cabeçalho do Painel -->
+      <div class="border-b border-outline-variant/30 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Alunos Cadastrados</div>
-          <div id="totalAlunos" class="text-2xl font-black font-code-md text-on-surface">0</div>
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-primary/10 border border-primary/30 text-primary font-code-md text-xs uppercase tracking-wider mb-2">
+            <span>Relatório de Desempenho da Turma</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">
+            Acompanhamento Pedagógico · Lógica de Programação
+          </h2>
+          <p class="text-on-surface-variant text-sm mt-1">
+            Curso Técnico em Informática · Monitoramento de engajamento, autoavaliações e índices de proficiência.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="btnAtualizar" type="button" class="px-3.5 py-2 rounded-xl bg-surface-container-high laser-border font-code-md text-xs text-on-surface hover:text-primary transition-all flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">refresh</span>
+            <span>Atualizar Dados</span>
+          </button>
+          <button id="btnExportarCSV" type="button" class="px-4 py-2 rounded-xl bg-primary text-on-primary font-code-md text-xs font-semibold hover:bg-primary-container hover:text-on-primary-container shadow-md transition-all flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">download</span>
+            <span>Exportar CSV (Excel)</span>
+          </button>
         </div>
       </div>
 
-      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
-        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-          <span class="material-symbols-outlined text-2xl">replay</span>
+      <!-- KPIs da Turma -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-2xl">groups</span>
+          </div>
+          <div>
+            <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Alunos Cadastrados</div>
+            <div id="totalAlunos" class="text-2xl font-black font-code-md text-on-surface">0</div>
+          </div>
         </div>
-        <div>
-          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Tentativas Realizadas</div>
-          <div id="totalTentativas" class="text-2xl font-black font-code-md text-on-surface">0</div>
+
+        <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <span class="material-symbols-outlined text-2xl">replay</span>
+          </div>
+          <div>
+            <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Tentativas Realizadas</div>
+            <div id="totalTentativas" class="text-2xl font-black font-code-md text-on-surface">0</div>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+            <span class="material-symbols-outlined text-2xl">trending_up</span>
+          </div>
+          <div>
+            <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Aproveitamento Médio</div>
+            <div id="mediaTurma" class="text-2xl font-black font-code-md text-on-surface">0%</div>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <span class="material-symbols-outlined text-2xl">military_tech</span>
+          </div>
+          <div>
+            <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Nível Sênior (>= 90%)</div>
+            <div id="qtdSeniors" class="text-2xl font-black font-code-md text-emerald-400">0</div>
+          </div>
         </div>
       </div>
 
-      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-          <span class="material-symbols-outlined text-2xl">trending_up</span>
+      <!-- Tabela de Alunos e Desempenho -->
+      <div class="p-6 rounded-2xl bg-surface-container border border-outline-variant/30">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <div>
+            <h3 class="text-base font-bold text-on-surface">Registro Individual de Estudantes</h3>
+            <p class="text-xs text-on-surface-variant">Histórico de recordes, tentativas e último nível pedagógico atingido.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <select 
+              id="filtroTurma" 
+              class="px-3 py-2 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary cursor-pointer"
+            >
+              <option value="todas">Todas as Turmas</option>
+            </select>
+            <div class="relative w-full sm:w-64">
+              <span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+              <input 
+                type="text" 
+                id="filtroBusca" 
+                placeholder="Buscar por matrícula ou nome..." 
+                class="w-full pl-9 pr-3.5 py-2 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary"
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Aproveitamento Médio</div>
-          <div id="mediaTurma" class="text-2xl font-black font-code-md text-on-surface">0%</div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-surface-container-high text-on-surface-variant font-code-md uppercase text-[10px] border-b border-outline-variant/30">
+              <tr>
+                <th class="p-3">Turma</th>
+                <th class="p-3">Matrícula</th>
+                <th class="p-3">Estudante</th>
+                <th class="p-3 text-center">Tentativas</th>
+                <th class="p-3 text-right">High Score</th>
+                <th class="p-3 text-right">Maior %</th>
+                <th class="p-3 text-center">Último Nível</th>
+                <th class="p-3 text-right">Data/Hora</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaRelatorioCorpo">
+              <!-- Renderizado via JS -->
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <div class="p-5 rounded-2xl bg-surface-container border border-outline-variant/30 flex items-center gap-4">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-          <span class="material-symbols-outlined text-2xl">military_tech</span>
-        </div>
-        <div>
-          <div class="font-code-md text-[11px] text-on-surface-variant uppercase">Nível Sênior (>= 90%)</div>
-          <div id="qtdSeniors" class="text-2xl font-black font-code-md text-emerald-400">0</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tabela de Alunos e Desempenho -->
-    <div class="p-6 rounded-2xl bg-surface-container border border-outline-variant/30 mb-8">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-        <div>
-          <h2 class="text-base font-bold text-on-surface">Registro Individual de Estudantes</h2>
-          <p class="text-xs text-on-surface-variant">Histórico de recordes, tentativas e último nível pedagógico atingido.</p>
-        </div>
-        <div class="relative w-full sm:w-64">
-          <span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
-          <input 
-            type="text" 
-            id="filtroBusca" 
-            placeholder="Buscar por matrícula ou nome..." 
-            class="w-full pl-9 pr-3.5 py-2 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary"
-          />
-        </div>
-      </div>
-
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs">
-          <thead class="bg-surface-container-high text-on-surface-variant font-code-md uppercase text-[10px] border-b border-outline-variant/30">
-            <tr>
-              <th class="p-3">Matrícula</th>
-              <th class="p-3">Estudante</th>
-              <th class="p-3 text-center">Tentativas</th>
-              <th class="p-3 text-right">High Score</th>
-              <th class="p-3 text-right">Maior %</th>
-              <th class="p-3 text-center">Último Nível</th>
-              <th class="p-3 text-right">Data/Hora</th>
-            </tr>
-          </thead>
-          <tbody id="tabelaRelatorioCorpo">
-            <!-- Renderizado via JS -->
-          </tbody>
-        </table>
-      </div>
     </div>
 
   </main>

@@ -50,4 +50,19 @@ describe('Integridade das Páginas do Portal do Aluno (portal/*.html)', () => {
       assert.ok(fs.existsSync(scriptFullPath), `Script referenciado não existe no disco: ${scriptRelativo}`);
     });
   });
+
+  test('Página do aluno deve possuir formulário de login com Turma e importar sintetizador de áudio', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'portal/index.html'), 'utf8');
+    assert.ok(html.includes('id="formLoginDireto"'), 'Deve conter form de login do aluno');
+    assert.ok(html.includes('id="loginTurma"'), 'Deve conter select de turma para o aluno');
+    assert.ok(html.includes('id="loginMatricula"'), 'Deve conter input de matrícula');
+    assert.ok(html.includes('portal-audio.js'), 'Deve importar o script de áudio arcade');
+  });
+
+  test('Página do professor deve possuir gate de autenticação com chave e filtro por turma', () => {
+    const html = fs.readFileSync(path.join(ROOT_DIR, 'portal/professor.html'), 'utf8');
+    assert.ok(html.includes('id="secaoLoginDocente"'), 'Deve conter seção de login docente');
+    assert.ok(html.includes('id="chaveDocente"'), 'Deve conter campo de chave docente');
+    assert.ok(html.includes('id="filtroTurma"'), 'Deve conter filtro de turmas no painel');
+  });
 });

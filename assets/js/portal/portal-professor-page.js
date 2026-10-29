@@ -1,6 +1,7 @@
 /**
  * assets/js/portal/portal-professor-page.js
- * Controlador do Painel Docente: métricas da turma, relatórios e exportação CSV.
+ * Controlador do Painel Docente: autenticação por chave, métricas da turma,
+ * filtros por turma/busca e exportação CSV.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,12 +18,24 @@ document.addEventListener('DOMContentLoaded', function () {
   const cursoId = 'informatica';
   const unidadeId = 'logica_programacao';
 
-  // Elementos do DOM
   const dom = {
+    // Autenticação Docente
+    secaoLoginDocente: document.getElementById('secaoLoginDocente'),
+    formLoginDocente: document.getElementById('formLoginDocente'),
+    chaveDocente: document.getElementById('chaveDocente'),
+    btnToggleVisibilidadeChave: document.getElementById('btnToggleVisibilidadeChave'),
+    iconeOlhoChave: document.getElementById('iconeOlhoChave'),
+    msgErroDocente: document.getElementById('msgErroDocente'),
+    docenteBadgePill: document.getElementById('docenteBadgePill'),
+    btnSairDocente: document.getElementById('btnSairDocente'),
+
+    // Painel Protegido
+    painelDocenteConteudo: document.getElementById('painelDocenteConteudo'),
     totalAlunos: document.getElementById('totalAlunos'),
     totalTentativas: document.getElementById('totalTentativas'),
     mediaTurma: document.getElementById('mediaTurma'),
     qtdSeniors: document.getElementById('qtdSeniors'),
+    filtroTurma: document.getElementById('filtroTurma'),
     filtroBusca: document.getElementById('filtroBusca'),
     tabelaCorpo: document.getElementById('tabelaRelatorioCorpo'),
     btnExportarCSV: document.getElementById('btnExportarCSV'),
@@ -31,10 +44,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let dadosAtuais = [];
 
+  function atualizarVisibilidadeAutenticacao() {
+    const autenticado = Storage.isDocenteAutenticado();
+    if (autenticado) {
+      if (dom.secaoLoginDocente) dom.secaoLoginDocente.classList.add('hidden');
+      if (dom.painelDocenteConteudo) dom.painelDocenteConteudo.classList.remove('hidden');
+      if (dom.docenteBadgePill) {
+        dom.docenteBadgePill.classList.remove('hidden');
+        dom.docenteBadgePill.classList.add('flex');
+      }
+      carregarRelatorio();
+    } else {
+      if (dom.secaoLoginDocente) dom.secaoLoginDocente.classList.remove('hidden');
+      if (dom.painelDocenteConteudo) dom.painelDocenteConteudo.classList.add('hidden');
+      if (dom.docenteBadgePill) {
+        dom.docenteBadgePill.classList.add('hidden');
+        dom.docenteBadgePill.classList.remove('flex');
+      }
+      if (dom.chaveDocente) dom.chaveDocente.value = '';
+    }
+  }
+
   function carregarRelatorio() {
     dadosAtuais = Storage.obterRelatorioProfessor(cursoId, unidadeId);
+    popularFiltroTurmas(dadosAtuais);
     calcularKPIs(dadosAtuais);
     renderizarTabela(dadosAtuais);
+  }
+
+  function popularFiltroTurmas(dados) {
+    if (!dom.filtroTurma) return;
+    const turmaSelecionada = dom.filtroTurma.value;
+    const turmasSet = new Set();
+    if (Array.isArray(Cursos.turmas)) {
+      Cursos.turmas.forEach(function (t) { turmasSet.add(t); });
+    }
+    dados.forEach(function (d) {
+      if (d.turma) turmasSet.add(d.turma);
+    });
+
+    dom.filtroTurma.innerHTML = '<option value="todas">Todas as Turmas</option>';
+    turmasSet.forEach(function (turma) {
+      const opt = document.createElement('option');
+      opt.value = turma;
+      opt.textContent = turma;
+      if (turma === turmaSelecionada) opt.selected = true;
+      dom.filtroTurma.appendChild(opt);
+    });
   }
 
   function calcularKPIs(dados) {
@@ -61,11 +117,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function renderizarTabela(dados) {
     const termo = (dom.filtroBusca ? dom.filtroBusca.value : '').toLowerCase().trim();
+    const turmaFiltro = dom.filtroTurma ? dom.filtroTurma.value : 'todas';
+
     const filtrados = dados.filter(function (d) {
+      const matchTurma = turmaFiltro === 'todas' || d.turma === turmaFiltro;
+      if (!matchTurma) return false;
       if (!termo) return true;
       return (
         d.matricula.toLowerCase().includes(termo) ||
         d.nomeExibicao.toLowerCase().includes(termo) ||
+        (d.turma && d.turma.toLowerCase().includes(termo)) ||
         d.ultimoNivel.toLowerCase().includes(termo)
       );
     });
@@ -73,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (filtrados.length === 0) {
       dom.tabelaCorpo.innerHTML = `
         <tr>
-          <td colspan="7" class="p-8 text-center text-on-surface-variant font-code-md text-xs">
+          <td colspan="8" class="p-8 text-center text-on-surface-variant font-code-md text-xs">
             Nenhum registro encontrado para os critérios de busca.
           </td>
         </tr>
@@ -96,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const tr = document.createElement('tr');
       tr.className = 'border-b border-outline-variant/20 hover:bg-surface-container-high/40 transition-colors';
       tr.innerHTML = `
+        <td class="p-3 font-code-md text-xs text-on-surface-variant font-medium">${aluno.turma || '-'}</td>
         <td class="p-3 font-code-md text-xs font-semibold text-primary">${aluno.matricula}</td>
         <td class="p-3 font-semibold text-xs text-on-surface">${aluno.nomeExibicao}</td>
         <td class="p-3 text-center font-code-md text-xs">${aluno.tentativasTotal}</td>
@@ -118,9 +180,10 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    const cabecalho = ['Matrícula', 'Nome/Apelido', 'Total Tentativas', 'Maior Score', 'Maior %', 'Último Nível', 'Última Tentativa'];
+    const cabecalho = ['Turma', 'Matrícula', 'Nome/Apelido', 'Total Tentativas', 'Maior Score', 'Maior %', 'Último Nível', 'Última Tentativa'];
     const linhas = dadosAtuais.map(function (d) {
       return [
+        `"${d.turma || 'Turma A'}"`,
         `"${d.matricula}"`,
         `"${d.nomeExibicao}"`,
         d.tentativasTotal,
@@ -143,9 +206,48 @@ document.addEventListener('DOMContentLoaded', function () {
     URL.revokeObjectURL(url);
   }
 
-  // Listeners
+  // Listeners de Autenticação Docente
+  if (dom.formLoginDocente) {
+    dom.formLoginDocente.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const chave = dom.chaveDocente ? dom.chaveDocente.value : '';
+      const autenticou = Storage.autenticarDocente(chave);
+      if (autenticou) {
+        if (dom.msgErroDocente) dom.msgErroDocente.classList.add('hidden');
+        atualizarVisibilidadeAutenticacao();
+      } else {
+        if (dom.msgErroDocente) dom.msgErroDocente.classList.remove('hidden');
+        if (dom.chaveDocente) dom.chaveDocente.focus();
+      }
+    });
+  }
+
+  if (dom.btnToggleVisibilidadeChave && dom.chaveDocente) {
+    dom.btnToggleVisibilidadeChave.addEventListener('click', function () {
+      const isPassword = dom.chaveDocente.type === 'password';
+      dom.chaveDocente.type = isPassword ? 'text' : 'password';
+      if (dom.iconeOlhoChave) {
+        dom.iconeOlhoChave.textContent = isPassword ? 'visibility_off' : 'visibility';
+      }
+    });
+  }
+
+  if (dom.btnSairDocente) {
+    dom.btnSairDocente.addEventListener('click', function () {
+      Storage.encerrarSessaoDocente();
+      atualizarVisibilidadeAutenticacao();
+    });
+  }
+
+  // Listeners de Relatório e Filtros
   if (dom.filtroBusca) {
     dom.filtroBusca.addEventListener('input', function () {
+      renderizarTabela(dadosAtuais);
+    });
+  }
+
+  if (dom.filtroTurma) {
+    dom.filtroTurma.addEventListener('change', function () {
       renderizarTabela(dadosAtuais);
     });
   }
@@ -159,5 +261,5 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Inicialização
-  carregarRelatorio();
+  atualizarVisibilidadeAutenticacao();
 });

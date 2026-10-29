@@ -141,6 +141,28 @@
 
             <form id="formLoginDireto" class="space-y-4">
               <div>
+                <label for="loginTurma" class="block font-code-md text-xs font-semibold text-on-surface mb-1">
+                  Turma / Turno <span class="text-primary">*</span>
+                </label>
+                <select 
+                  id="loginTurma" 
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary transition-colors cursor-pointer"
+                >
+                  <option value="Turma A (Manhã)">Turma A (Manhã)</option>
+                  <option value="Turma B (Tarde)">Turma B (Tarde)</option>
+                  <option value="Turma C (Noite)">Turma C (Noite)</option>
+                  <option value="Turma EAD / Sábado">Turma EAD / Sábado</option>
+                  <option value="Outra">Outra Turma / Personalizada...</option>
+                </select>
+                <input 
+                  type="text" 
+                  id="loginTurmaCustom" 
+                  placeholder="Digite o código da sua turma (ex: INFO-2026.1)..." 
+                  class="hidden mt-2 w-full px-3.5 py-2 rounded-xl bg-surface-container-high border border-outline-variant/40 text-on-surface font-code-md text-xs focus:outline-none focus:border-primary transition-colors"
+                />
+              </div>
+
+              <div>
                 <label for="loginMatricula" class="block font-code-md text-xs font-semibold text-on-surface mb-1">
                   Matrícula ou Código do Aluno <span class="text-primary">*</span>
                 </label>
@@ -202,9 +224,12 @@
       <!-- Banner de Boas-Vindas do Aluno Logado -->
       <div class="p-6 rounded-2xl bg-gradient-to-r from-surface-container via-surface-container-high to-surface-container border border-primary/30 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div class="inline-flex items-center gap-1.5 text-xs font-code-md text-primary font-bold uppercase mb-1">
-            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Piloto Liberado</span>
+          <div class="inline-flex items-center gap-2 mb-1 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 text-xs font-code-md text-primary font-bold uppercase">
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Piloto Liberado</span>
+            </span>
+            <span id="alunoTurmaBanner" class="px-2 py-0.5 rounded bg-surface-container-highest laser-border font-code-md text-[10px] font-bold text-on-surface-variant">Turma</span>
           </div>
           <h2 class="text-xl sm:text-2xl font-extrabold text-on-surface">
             Pronto para o Desafio, <span id="alunoNomeBanner" class="text-primary">Estudante</span>?
@@ -415,6 +440,7 @@
   <script src="../data/questoes/informatica-logica.js"></script>
   <script src="../assets/js/portal/portal-aluno-engine.js"></script>
   <script src="../assets/js/portal/portal-aluno-supabase.js"></script>
+  <script src="../assets/js/portal/portal-audio.js"></script>
   <script src="../assets/js/tools/tool-theme.js"></script>
   <script src="../assets/js/portal/portal-aluno-page.js"></script>
 </body>

@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const Questoes = window.QUESTOES_LOGICA;
   const Engine = window.PortalAlunoEngine;
   const Storage = window.PortalAlunoSupabase;
+  const Audio = window.PortalAudio;
 
   if (!Cursos || !Questoes || !Engine || !Storage) {
     console.error('Dependências do Portal do Aluno não carregadas.');
@@ -49,6 +50,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Seção Inicial (Deslogado)
     secaoBoasVindas: $('secaoBoasVindas'),
     formLoginDireto: $('formLoginDireto'),
+    loginTurma: $('loginTurma'),
+    loginTurmaCustom: $('loginTurmaCustom'),
     loginMatricula: $('loginMatricula'),
     loginNome: $('loginNome'),
     gridAvataresLogin: $('gridAvataresLogin'),
@@ -57,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Seção das Trilhas (Logado)
     secaoTrilhas: $('secaoTrilhas'),
     alunoNomeBanner: $('alunoNomeBanner'),
+    alunoTurmaBanner: $('alunoTurmaBanner'),
     btnAbrirRankingTopo: $('btnAbrirRankingTopo'),
     btnTrocarAluno: $('btnTrocarAluno'),
     gridCheckpoints: $('gridCheckpoints'),
@@ -98,52 +102,10 @@ document.addEventListener('DOMContentLoaded', function () {
     listaRankingCorpo: $('listaRankingCorpo'),
   };
 
-  // Sintetizador Nativo Web Audio
-  function obterAudioContext() {
-    if (!estado.audioCtx && typeof window.AudioContext !== 'undefined') {
-      estado.audioCtx = new window.AudioContext();
-    }
-    if (estado.audioCtx && estado.audioCtx.state === 'suspended') {
-      estado.audioCtx.resume();
-    }
-    return estado.audioCtx;
-  }
-
-  function emitirTom(frequencia, tipo, duracao, delay, volume) {
-    if (!estado.somAtivo) return;
-    try {
-      const ctx = obterAudioContext();
-      if (!ctx) return;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      const t = ctx.currentTime + (delay || 0);
-      osc.type = tipo;
-      osc.frequency.setValueAtTime(frequencia, t);
-      gain.gain.setValueAtTime(volume || 0.15, t);
-      gain.gain.exponentialRampToValueAtTime(0.001, t + duracao);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(t);
-      osc.stop(t + duracao);
-    } catch (e) { /* silencioso */ }
-  }
-
-  function somAcerto() {
-    emitirTom(523.25, 'sine', 0.1, 0, 0.15);
-    emitirTom(659.25, 'sine', 0.15, 0.08, 0.18);
-    emitirTom(783.99, 'sine', 0.25, 0.16, 0.2);
-  }
-
-  function somErro() {
-    emitirTom(260, 'sawtooth', 0.15, 0, 0.12);
-    emitirTom(196, 'sawtooth', 0.25, 0.1, 0.15);
-  }
-
-  function somVitoria() {
-    [523.25, 659.25, 783.99, 1046.5].forEach(function (f, i) {
-      emitirTom(f, 'triangle', 0.2, i * 0.1, 0.2);
-    });
-  }
+  // Efeitos Sonoros Arcade
+  function somAcerto() { if (Audio) Audio.acerto(); }
+  function somErro() { if (Audio) Audio.erro(); }
+  function somVitoria() { if (Audio) Audio.vitoria(); }
 
   // Controle de Visualização (Deslogado vs Logado)
   function alternarTelasFluxo() {
@@ -160,8 +122,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       dom.avatarDisplay.textContent = avatarObj.icone;
       dom.nomeAlunoDisplay.textContent = estado.aluno.nomeExibicao;
-      dom.matriculaDisplay.textContent = estado.aluno.matricula;
+      dom.matriculaDisplay.textContent = `${estado.aluno.matricula} · ${estado.aluno.turma || 'Turma A'}`;
       dom.alunoNomeBanner.textContent = estado.aluno.nomeExibicao;
+      if (dom.alunoTurmaBanner) {
+        dom.alunoTurmaBanner.textContent = estado.aluno.turma || 'Turma A (Manhã)';
+      }
 
       renderizarCheckpoints();
     } else {
@@ -374,6 +339,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const registroInfo = await Storage.registrarTentativa({
       matricula: estado.aluno.matricula,
+      nomeExibicao: estado.aluno.nomeExibicao,
+      turma: estado.aluno.turma || 'Turma A (Manhã)',
       cursoId: estado.cursoAtual.id,
       unidadeId: estado.unidadeAtual.id,
       score: resultado.score,
@@ -444,10 +411,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Event Listeners
+  if (dom.loginTurma) {
+    dom.loginTurma.addEventListener('change', function () {
+      const isCustom = dom.loginTurma.value === 'Outra';
+      if (dom.loginTurmaCustom) {
+        dom.loginTurmaCustom.classList.toggle('hidden', !isCustom);
+        if (isCustom) dom.loginTurmaCustom.focus();
+      }
+    });
+  }
+
   dom.formLoginDireto.addEventListener('submit', async function (e) {
     e.preventDefault();
     const matricula = dom.loginMatricula.value.trim();
     const nome = dom.loginNome.value.trim();
+    let turma = dom.loginTurma ? dom.loginTurma.value : 'Turma A (Manhã)';
+    if (turma === 'Outra' && dom.loginTurmaCustom) {
+      turma = dom.loginTurmaCustom.value.trim() || 'Turma Personalizada';
+    }
     const avatarInput = dom.formLoginDireto.querySelector('input[name="avatarLoginSelect"]:checked');
     if (!matricula) {
       alert('Informe sua matrícula ou código.');
@@ -456,6 +437,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const alunoSalvo = await Storage.entrarOuCadastrarAluno({
       matricula: matricula,
       nomeExibicao: nome,
+      turma: turma,
       avatarId: avatarInput ? avatarInput.value : 'dev_pixel',
       exibirRanking: dom.checkRankingLogin.checked,
     });
@@ -506,9 +488,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   dom.btnMute.addEventListener('click', function () {
-    estado.somAtivo = !estado.somAtivo;
-    dom.iconeMute.textContent = estado.somAtivo ? 'volume_up' : 'volume_off';
-    dom.btnMute.title = estado.somAtivo ? 'Som Arcade Ativo' : 'Som Mudo';
+    const ativo = Audio ? Audio.toggle() : false;
+    dom.iconeMute.textContent = ativo ? 'volume_up' : 'volume_off';
+    dom.btnMute.title = ativo ? 'Som Arcade Ativo' : 'Som Mudo';
   });
 
   // Inicialização

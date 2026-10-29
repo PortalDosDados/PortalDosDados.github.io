@@ -123,6 +123,12 @@ const PORTAL_CURSOS = {
       descricao: 'Focado em atingir o High Score e colocar 3 letras no placar.',
     },
   ],
+  turmas: [
+    'Turma A (Manhã)',
+    'Turma B (Tarde)',
+    'Turma C (Noite)',
+    'Turma EAD / Sábado',
+  ],
 };
 
 if (typeof window !== 'undefined') {

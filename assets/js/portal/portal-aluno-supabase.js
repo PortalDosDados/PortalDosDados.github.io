@@ -26,7 +26,11 @@
     ALUNOS: 'portal_aluno_cadastros',
     TENTATIVAS: 'portal_aluno_tentativas',
     RECORDES: 'portal_aluno_recordes',
+    DOCENTE_AUTH: 'portal_docente_autenticado',
   };
+
+  const CHAVE_DOCENTE_PADRAO = 'prof2026';
+  const memoriaFallback = {};
 
   /**
    * Inicializa credenciais do Supabase.
@@ -50,7 +54,9 @@
    */
   function lerStorage(chave, valorPadrao) {
     if (typeof localStorage === 'undefined') {
-      return valorPadrao;
+      return memoriaFallback[chave] !== undefined
+        ? JSON.parse(JSON.stringify(memoriaFallback[chave]))
+        : valorPadrao;
     }
     try {
       const item = localStorage.getItem(chave);
@@ -65,7 +71,10 @@
    * Helper seguro para escrita no localStorage.
    */
   function salvarStorage(chave, valor) {
-    if (typeof localStorage === 'undefined') return;
+    if (typeof localStorage === 'undefined') {
+      memoriaFallback[chave] = JSON.parse(JSON.stringify(valor));
+      return;
+    }
     try {
       localStorage.setItem(chave, JSON.stringify(valor));
     } catch (e) {
@@ -106,6 +115,7 @@
   async function entrarOuCadastrarAluno(dados) {
     const matriculaLimpa = String(dados.matricula || '').trim().toUpperCase();
     const nomeLimpo = String(dados.nomeExibicao || '').trim() || ('Aluno ' + matriculaLimpa);
+    const turmaLimpa = String(dados.turma || '').trim() || 'Turma A (Manhã)';
     const avatarId = dados.avatarId || 'dev_pixel';
     const exibirRanking = dados.exibirRanking !== false;
 
@@ -116,6 +126,7 @@
     const alunoObj = {
       matricula: matriculaLimpa,
       nomeExibicao: nomeLimpo,
+      turma: turmaLimpa,
       avatarId: avatarId,
       exibirRanking: exibirRanking,
       atualizadoEm: new Date().toISOString(),
@@ -191,6 +202,8 @@
     const agora = new Date().toISOString();
     const registro = {
       matricula: tentativa.matricula,
+      nomeExibicao: tentativa.nomeExibicao || '',
+      turma: tentativa.turma || 'Turma A (Manhã)',
       cursoId: tentativa.cursoId,
       unidadeId: tentativa.unidadeId,
       score: tentativa.score || 0,
@@ -328,6 +341,7 @@
       linhas.push({
         matricula: aluno.matricula,
         nomeExibicao: aluno.nomeExibicao,
+        turma: aluno.turma || (ultimaTentativa ? ultimaTentativa.turma : 'Turma A (Manhã)'),
         avatarId: aluno.avatarId,
         tentativasTotal: rec.tentativasTotal,
         maiorScore: rec.maiorScore,
@@ -342,6 +356,68 @@
     return linhas;
   }
 
+  /**
+   * Valida a chave de acesso do docente.
+   * @param {string} chave 
+   * @returns {boolean}
+   */
+  function validarChaveDocente(chave) {
+    if (!chave || typeof chave !== 'string') return false;
+    const chaveConfigurada = lerStorage('portal_chave_docente', CHAVE_DOCENTE_PADRAO);
+    return chave.trim() === String(chaveConfigurada).trim();
+  }
+
+  /**
+   * Autentica o docente salvando a sessão no sessionStorage.
+   * @param {string} chave 
+   * @returns {boolean}
+   */
+  function autenticarDocente(chave) {
+    const valido = validarChaveDocente(chave);
+    if (valido) {
+      if (typeof sessionStorage !== 'undefined') {
+        try {
+          sessionStorage.setItem(CHAVES_STORAGE.DOCENTE_AUTH, 'true');
+        } catch (e) {
+          console.warn('Erro ao salvar sessionStorage do docente:', e);
+        }
+      } else {
+        memoriaFallback[CHAVES_STORAGE.DOCENTE_AUTH] = 'true';
+      }
+    }
+    return valido;
+  }
+
+  /**
+   * Verifica se o docente está com sessão ativa.
+   * @returns {boolean}
+   */
+  function isDocenteAutenticado() {
+    if (typeof sessionStorage === 'undefined') {
+      return memoriaFallback[CHAVES_STORAGE.DOCENTE_AUTH] === 'true';
+    }
+    try {
+      return sessionStorage.getItem(CHAVES_STORAGE.DOCENTE_AUTH) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /**
+   * Encerra a sessão do docente.
+   */
+  function encerrarSessaoDocente() {
+    if (typeof sessionStorage !== 'undefined') {
+      try {
+        sessionStorage.removeItem(CHAVES_STORAGE.DOCENTE_AUTH);
+      } catch (e) {
+        console.warn('Erro ao limpar sessionStorage do docente:', e);
+      }
+    } else {
+      delete memoriaFallback[CHAVES_STORAGE.DOCENTE_AUTH];
+    }
+  }
+
   return {
     inicializar: inicializar,
     obterSessaoAtual: obterSessaoAtual,
@@ -352,6 +428,11 @@
     registrarTentativa: registrarTentativa,
     obterRankingTurma: obterRankingTurma,
     obterRelatorioProfessor: obterRelatorioProfessor,
+    validarChaveDocente: validarChaveDocente,
+    autenticarDocente: autenticarDocente,
+    isDocenteAutenticado: isDocenteAutenticado,
+    encerrarSessaoDocente: encerrarSessaoDocente,
+    CHAVE_DOCENTE_PADRAO: CHAVE_DOCENTE_PADRAO,
     CHAVES_STORAGE: CHAVES_STORAGE,
   };
 });
