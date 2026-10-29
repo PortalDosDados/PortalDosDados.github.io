@@ -1,6 +1,6 @@
 /**
  * assets/js/tools/portal-aluno-page.js
- * Controlador de Interface, Interatividade e Sons Arcade do Portal do Aluno.
+ * Controlador de Interface, Fluxo de Login, Trilha e Sons Arcade do Portal do Aluno.
  * Totalmente desacoplado de dependências externas (< 500 linhas).
  */
 
@@ -36,22 +36,32 @@ document.addEventListener('DOMContentLoaded', function () {
   // Elementos do DOM
   const $ = function (id) { return document.getElementById(id); };
   const dom = {
-    btnAbrirPerfil: $('btnAbrirPerfil'),
-    btnRanking: $('btnRanking'),
-    btnMute: $('btnMute'),
-    iconeMute: $('iconeMute'),
+    // Header & User Pill
+    containerUserPill: $('containerUserPill'),
     avatarDisplay: $('avatarDisplay'),
     nomeAlunoDisplay: $('nomeAlunoDisplay'),
     matriculaDisplay: $('matriculaDisplay'),
+    btnSairNavbar: $('btnSairNavbar'),
+    btnRanking: $('btnRanking'),
+    btnMute: $('btnMute'),
+    iconeMute: $('iconeMute'),
+
+    // Seção Inicial (Deslogado)
+    secaoBoasVindas: $('secaoBoasVindas'),
+    formLoginDireto: $('formLoginDireto'),
+    loginMatricula: $('loginMatricula'),
+    loginNome: $('loginNome'),
+    gridAvataresLogin: $('gridAvataresLogin'),
+    checkRankingLogin: $('checkRankingLogin'),
+
+    // Seção das Trilhas (Logado)
+    secaoTrilhas: $('secaoTrilhas'),
+    alunoNomeBanner: $('alunoNomeBanner'),
+    btnAbrirRankingTopo: $('btnAbrirRankingTopo'),
+    btnTrocarAluno: $('btnTrocarAluno'),
     gridCheckpoints: $('gridCheckpoints'),
-    modalPerfil: $('modalPerfil'),
-    formPerfil: $('formPerfil'),
-    inputMatricula: $('inputMatricula'),
-    inputNome: $('inputNome'),
-    gridAvatares: $('gridAvatares'),
-    checkExibirRanking: $('checkExibirRanking'),
-    btnFecharPerfil: $('btnFecharPerfil'),
-    btnSairConta: $('btnSairConta'),
+
+    // Modal de Desafio Arcade
     modalDesafio: $('modalDesafio'),
     btnFecharDesafio: $('btnFecharDesafio'),
     barraProgresso: $('barraProgresso'),
@@ -68,6 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
     tituloFeedback: $('tituloFeedback'),
     textoFeedback: $('textoFeedback'),
     btnProximaQuestao: $('btnProximaQuestao'),
+
+    // Modal de Resultado (Surpresa do Nível com Humor)
     modalResultado: $('modalResultado'),
     estrelasContainer: $('estrelasContainer'),
     scoreFinalTexto: $('scoreFinalTexto'),
@@ -79,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
     btnJogarNovamente: $('btnJogarNovamente'),
     btnVerRankingResultado: $('btnVerRankingResultado'),
     btnFecharResultado: $('btnFecharResultado'),
+
+    // Modal Ranking
     modalRanking: $('modalRanking'),
     btnFecharRanking: $('btnFecharRanking'),
     listaRankingCorpo: $('listaRankingCorpo'),
@@ -131,20 +145,59 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Renderização da Interface
-  function atualizarHeaderAluno() {
+  // Controle de Visualização (Deslogado vs Logado)
+  function alternarTelasFluxo() {
     if (estado.aluno) {
+      // Aluno autenticado: Mostra trilhas e esconde boas-vindas
+      dom.secaoBoasVindas.classList.add('hidden');
+      dom.secaoTrilhas.classList.remove('hidden');
+      dom.containerUserPill.classList.remove('hidden');
+      dom.containerUserPill.classList.add('flex');
+
       const avatarObj = Cursos.avatares.find(function (a) {
         return a.id === estado.aluno.avatarId;
       }) || Cursos.avatares[0];
+
       dom.avatarDisplay.textContent = avatarObj.icone;
       dom.nomeAlunoDisplay.textContent = estado.aluno.nomeExibicao;
-      dom.matriculaDisplay.textContent = 'Matrícula: ' + estado.aluno.matricula;
+      dom.matriculaDisplay.textContent = estado.aluno.matricula;
+      dom.alunoNomeBanner.textContent = estado.aluno.nomeExibicao;
+
+      renderizarCheckpoints();
     } else {
-      dom.avatarDisplay.textContent = '👤';
-      dom.nomeAlunoDisplay.textContent = 'Identifique-se';
-      dom.matriculaDisplay.textContent = 'Clique para entrar';
+      // Deslogado: Mostra boas-vindas e form de login direto
+      dom.secaoBoasVindas.classList.remove('hidden');
+      dom.secaoTrilhas.classList.add('hidden');
+      dom.containerUserPill.classList.add('hidden');
+      dom.containerUserPill.classList.remove('flex');
+
+      renderizarSeletorAvataresLogin();
     }
+  }
+
+  function renderizarSeletorAvataresLogin() {
+    dom.gridAvataresLogin.innerHTML = '';
+    const avatarPadrao = Cursos.avatares[0].id;
+
+    Cursos.avatares.forEach(function (av, idx) {
+      const isSelected = idx === 0;
+      const label = document.createElement('label');
+      label.className = `cursor-pointer p-2.5 rounded-xl border text-center transition-all ${
+        isSelected ? 'bg-primary/10 border-primary shadow-sm text-primary' : 'bg-surface-container-high border-outline-variant/30 hover:border-outline'
+      }`;
+      label.innerHTML = `
+        <input type="radio" name="avatarLoginSelect" value="${av.id}" class="sr-only" ${isSelected ? 'checked' : ''}/>
+        <div class="text-2xl mb-1">${av.icone}</div>
+        <div class="text-[10px] font-code-md font-semibold truncate">${av.nome}</div>
+      `;
+      label.addEventListener('click', function () {
+        dom.gridAvataresLogin.querySelectorAll('label').forEach(function (l) {
+          l.className = 'cursor-pointer p-2.5 rounded-xl border text-center transition-all bg-surface-container-high border-outline-variant/30 hover:border-outline';
+        });
+        label.className = 'cursor-pointer p-2.5 rounded-xl border text-center transition-all bg-primary/10 border-primary shadow-sm text-primary';
+      });
+      dom.gridAvataresLogin.appendChild(label);
+    });
   }
 
   function renderizarCheckpoints() {
@@ -198,60 +251,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     dom.gridCheckpoints.querySelectorAll('.btn-iniciar-uc').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        if (!estado.aluno) {
-          abrirModalPerfil();
-          return;
-        }
         iniciarDesafio();
       });
     });
   }
 
-  function abrirModalPerfil() {
-    renderizarSeletorAvatares();
-    if (estado.aluno) {
-      dom.inputMatricula.value = estado.aluno.matricula;
-      dom.inputNome.value = estado.aluno.nomeExibicao;
-      dom.checkExibirRanking.checked = estado.aluno.exibirRanking !== false;
-      dom.btnSairConta.classList.remove('hidden');
-    } else {
-      dom.inputMatricula.value = '';
-      dom.inputNome.value = '';
-      dom.checkExibirRanking.checked = true;
-      dom.btnSairConta.classList.add('hidden');
-    }
-    dom.modalPerfil.classList.remove('hidden');
-    dom.modalPerfil.classList.add('flex');
-  }
-
-  function fecharModalPerfil() {
-    dom.modalPerfil.classList.add('hidden');
-    dom.modalPerfil.classList.remove('flex');
-  }
-
-  function renderizarSeletorAvatares() {
-    dom.gridAvatares.innerHTML = '';
-    const avatarAtivo = estado.aluno ? estado.aluno.avatarId : Cursos.avatares[0].id;
-    Cursos.avatares.forEach(function (av) {
-      const label = document.createElement('label');
-      label.className = `cursor-pointer p-2.5 rounded-xl border text-center transition-all ${
-        av.id === avatarAtivo ? 'bg-primary/10 border-primary shadow-sm text-primary' : 'bg-surface-container-high border-outline-variant/30 hover:border-outline'
-      }`;
-      label.innerHTML = `
-        <input type="radio" name="avatarSelect" value="${av.id}" class="sr-only" ${av.id === avatarAtivo ? 'checked' : ''}/>
-        <div class="text-2xl mb-1">${av.icone}</div>
-        <div class="text-[10px] font-code-md font-semibold truncate">${av.nome}</div>
-      `;
-      label.addEventListener('click', function () {
-        dom.gridAvatares.querySelectorAll('label').forEach(function (l) {
-          l.className = 'cursor-pointer p-2.5 rounded-xl border text-center transition-all bg-surface-container-high border-outline-variant/30 hover:border-outline';
-        });
-        label.className = 'cursor-pointer p-2.5 rounded-xl border text-center transition-all bg-primary/10 border-primary shadow-sm text-primary';
-      });
-      dom.gridAvatares.appendChild(label);
-    });
-  }
-
+  // Ciclo da Lição / Desafio Arcade
   function iniciarDesafio() {
     estado.emJogo = true;
     estado.indiceQuestaoAtual = 0;
@@ -396,6 +401,7 @@ document.addEventListener('DOMContentLoaded', function () {
       dom.estrelasContainer.appendChild(estrela);
     }
 
+    // Revela a surpresa do diagnóstico temático com humor
     dom.badgeProficiencia.textContent = resultado.proficiencia.badge;
     dom.tituloProficiencia.textContent = `Nível de Proficiência: ${resultado.proficiencia.titulo}`;
     dom.descricaoProficiencia.textContent = resultado.proficiencia.descricao;
@@ -438,37 +444,33 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Event Listeners
-  dom.btnAbrirPerfil.addEventListener('click', abrirModalPerfil);
-  dom.btnFecharPerfil.addEventListener('click', fecharModalPerfil);
-
-  dom.formPerfil.addEventListener('submit', async function (e) {
+  dom.formLoginDireto.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const matricula = dom.inputMatricula.value.trim();
-    const nome = dom.inputNome.value.trim();
-    const avatarInput = dom.formPerfil.querySelector('input[name="avatarSelect"]:checked');
+    const matricula = dom.loginMatricula.value.trim();
+    const nome = dom.loginNome.value.trim();
+    const avatarInput = dom.formLoginDireto.querySelector('input[name="avatarLoginSelect"]:checked');
     if (!matricula) {
-      alert('Informe sua matrícula ou identificador.');
+      alert('Informe sua matrícula ou código.');
       return;
     }
     const alunoSalvo = await Storage.entrarOuCadastrarAluno({
       matricula: matricula,
       nomeExibicao: nome,
       avatarId: avatarInput ? avatarInput.value : 'dev_pixel',
-      exibirRanking: dom.checkExibirRanking.checked,
+      exibirRanking: dom.checkRankingLogin.checked,
     });
     estado.aluno = alunoSalvo;
-    atualizarHeaderAluno();
-    renderizarCheckpoints();
-    fecharModalPerfil();
+    alternarTelasFluxo();
   });
 
-  dom.btnSairConta.addEventListener('click', function () {
+  function desconectarAluno() {
     Storage.encerrarSessao();
     estado.aluno = null;
-    atualizarHeaderAluno();
-    renderizarCheckpoints();
-    fecharModalPerfil();
-  });
+    alternarTelasFluxo();
+  }
+
+  dom.btnSairNavbar.addEventListener('click', desconectarAluno);
+  dom.btnTrocarAluno.addEventListener('click', desconectarAluno);
 
   dom.btnProximaQuestao.addEventListener('click', avancarQuestao);
   dom.btnFecharDesafio.addEventListener('click', function () {
@@ -497,6 +499,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   dom.btnRanking.addEventListener('click', abrirRanking);
+  if (dom.btnAbrirRankingTopo) dom.btnAbrirRankingTopo.addEventListener('click', abrirRanking);
   dom.btnFecharRanking.addEventListener('click', function () {
     dom.modalRanking.classList.add('hidden');
     dom.modalRanking.classList.remove('flex');
@@ -509,6 +512,5 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Inicialização
-  atualizarHeaderAluno();
-  renderizarCheckpoints();
+  alternarTelasFluxo();
 });
