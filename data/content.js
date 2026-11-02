@@ -73,6 +73,22 @@ const PORTFOLIO = {
         context: 'Gestão de Manutenção em Campo',
       },
       {
+        id: 'gabscan-omr',
+        featured: true,
+        category: 'mobile',
+        title: 'GabScan — Corretor Inteligente de Provas OMR (100% Offline-First)',
+        problem:
+          'Eliminação de leitoras ópticas físicas de alto custo e horas de correção manual de provas e gabaritos no setor educacional, com necessidade de processamento instantâneo sem depender de conexão com a internet ou infraestrutura na nuvem.',
+        solution:
+          'Aplicativo móvel de alta performance em Flutter e Dart que transforma a câmera do celular em scanner OMR em tempo real com custo zero de nuvem. Inclui pipeline matemático em Dart puro (filtros de luminância, binarização de Otsu e âncoras fiduciais com tratamento de rasuras e marcações duplas), retificação projetiva por homografia 3x3 para matriz plana de 800×1131 px com interpolação bilinear, paralelismo com Dart Isolates, OCR On-Device com Google ML Kit sincronizado com Fuzzy Matching para identificação de alunos, e engenharia de emissão de PDFs dinâmicos em folhas A4, A5 e A6.',
+        result:
+          'Correção instantânea de provas com 100% de operação offline e zero custo de infraestrutura na nuvem, ausência de latência na interface através de Isolates e suíte automatizada com 86 testes (distorções, ruído, rotação) com CI/CD no GitHub Actions.',
+        highlight: '100% Offline',
+        tech: ['Flutter', 'Dart', 'Google ML Kit', 'Visão Computacional', 'TDD', 'Homografia', 'Isolates'],
+        links: [{ label: 'Site Oficial', url: 'https://gabscan.com.br' }],
+        context: 'gabscan.com.br · EdTech & Mobile OMR',
+      },
+      {
         id: 'disponibilidade',
         featured: true,
         category: 'python',
