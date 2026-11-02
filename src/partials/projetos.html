@@ -219,25 +219,14 @@
             <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
-                Dependência de leitoras ópticas físicas caras e horas de correção manual de provas e gabaritos no setor educacional, com riscos de erro humano e lentidão na entrega de notas.
+                Dependência de leitoras ópticas físicas caras e horas de correção manual de gabaritos no setor educacional, vulneráveis a falhas humanas e atrasos.
               </p>
             </div>
             <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
-                Aplicativo móvel de alta performance em Flutter e Dart que transforma a câmera do celular em um scanner óptico de marcas (OMR) em tempo real, sem necessidade de internet e com custo zero de infraestrutura na nuvem.
+                Aplicativo móvel que transforma o celular em scanner OMR em tempo real com custo zero de nuvem. Pipeline matemático com homografia 3×3, binarização de Otsu, paralelismo com Isolates e OCR On-Device via Google ML Kit.
               </p>
-            </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-tertiary">
-              <span class="font-label-caps text-[10px] text-tertiary block uppercase tracking-wider mb-1">Destaques de Engenharia e Arquitetura</span>
-              <ul class="text-xs text-on-surface-variant space-y-1.5 leading-relaxed list-disc list-inside">
-                <li><strong class="text-on-surface">Pipeline OMR em Dart Puro:</strong> Filtros de luminância, binarização de Otsu e identificação de âncoras fiduciais nos 4 cantos com tratamento de questões em branco e rasuras/duplas marcações.</li>
-                <li><strong class="text-on-surface">Retificação Projetiva (Homografia 3×3):</strong> Correção automática de fotos oblíquas, mapeando as coordenadas para matriz plana calibrada de 800×1131 px com interpolação bilinear.</li>
-                <li><strong class="text-on-surface">Paralelismo com Isolates:</strong> Delegação do processamento de matrizes pesadas para threads de fundo (<em>Isolates</em>), eliminando engasgos de UI.</li>
-                <li><strong class="text-on-surface">OCR &amp; Fuzzy Matching:</strong> Reconhecimento de cabeçalhos manuscritos com Google ML Kit On-Device sincronizado com busca aproximada na lista de presença.</li>
-                <li><strong class="text-on-surface">Engenharia de PDF sob Demanda:</strong> Emissão de gabaritos direto no smartphone, suportando 1 (A4), 2 (A5) ou 4 (A6) provas por folha com linhas de corte.</li>
-                <li><strong class="text-on-surface">Robustez e CI/CD:</strong> Suíte com 86 testes automatizados (distorções, ruído, rotação e regras de negócio) com pipeline contínuo no GitHub Actions.</li>
-              </ul>
             </div>
           </div>
 
@@ -261,17 +250,11 @@
         </div>
 
         <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
-          <span class="font-label-caps text-[10px] text-outline">STATUS: PRODUÇÃO / OFFLINE</span>
-          <div class="flex items-center gap-3">
-            <a class="inline-flex items-center gap-1 font-code-md text-sm text-tertiary hover:underline" href="https://gabscan.com.br" target="_blank" rel="noopener noreferrer">
-              <span>gabscan.com.br</span>
-              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
-            </a>
-            <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
-              <span>Conversar</span>
-              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-            </a>
-          </div>
+          <span class="font-label-caps text-[10px] text-outline">STATUS: SITE OFICIAL NO AR</span>
+          <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="https://gabscan.com.br" target="_blank" rel="noopener noreferrer">
+            <span>Acessar gabscan.com.br</span>
+            <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+          </a>
         </div>
       </div>
 
