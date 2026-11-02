@@ -73,7 +73,7 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 ├── .gitignore                   # Exclusão de arquivos de SO, IDE e temporários
 ├── .nojekyll                    # Instrução para o GitHub Pages ignorar o Jekyll
 ├── 404.html                     # Página 404 customizada
-├── AGENTS.md                    # Diretrizes e padrões de commit para agentes e colaboradores
+├── GEMINI.md                    # Governança de IA e diretrizes modulares (.gemini/rules/)
 ├── index.html                   # GERADO por scripts/build.js — não edite direto
 ├── package.json                 # Scripts: build, build:check, test
 ├── scripts/
