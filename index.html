@@ -107,15 +107,14 @@
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-6">
-      <a class="nav-section-link text-primary font-code-md text-sm border-b-2 border-primary pb-1 transition-colors" href="#sobre">Sobre</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#projetos">Projetos</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#portal-aluno">Portal do Aluno</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#experiencia">Experiência</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#habilidades">Habilidades</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#educacao">Educação</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#videos">Vídeos</a>
-      <a class="nav-section-link text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#contato">Contato</a>
+    <nav aria-label="Navegação Principal" class="hidden lg:flex items-center lg:gap-5 xl:gap-6">
+      <a class="nav-section-link whitespace-nowrap text-primary font-code-md text-sm border-b-2 border-primary pb-1 transition-colors" href="#sobre">Sobre</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#projetos">Projetos</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#portal-aluno">Portal do Aluno</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#experiencia">Experiência</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#habilidades">Habilidades</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#educacao">Educação</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#videos">Vídeos</a>
     </nav>
 
     <!-- Trailing Action Controls -->
@@ -127,14 +126,14 @@
         <span class="material-symbols-outlined text-[16px]">mail</span>
         <span>Contato</span>
       </a>
-      <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu de navegação" class="md:hidden w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="mobileMenuBtn">
+      <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu de navegação" class="lg:hidden w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="mobileMenuBtn">
         <span class="material-symbols-outlined text-[20px]" id="mobileMenuIcon">menu</span>
       </button>
     </div>
   </div>
 
   <!-- Mobile Navigation Drawer -->
-  <nav aria-label="Menu Mobile" class="hidden md:hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md px-4 py-4 space-y-1" id="mobileMenu">
+  <nav aria-label="Menu Mobile" class="hidden lg:hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md px-4 py-4 space-y-1" id="mobileMenu">
     <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#sobre">Sobre</a>
     <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#projetos">Projetos</a>
     <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-primary font-bold hover:bg-surface-container-high transition-colors" href="#portal-aluno">Portal do Aluno</a>
@@ -172,7 +171,7 @@
     </div>
 
     <!-- Hero Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
       <!-- Coluna Esquerda: Textos e CTAs -->
       <div class="lg:col-span-7 flex flex-col space-y-6">
         <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/40 w-fit">
@@ -182,7 +181,7 @@
           </span>
         </div>
 
-        <h1 class="font-display-xl text-3xl sm:text-4xl md:text-5xl text-on-surface font-extrabold tracking-tight leading-tight">
+        <h1 class="font-display-xl text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl text-on-surface font-extrabold tracking-tight leading-[1.15]">
           Engenharia e Dados: <br class="hidden sm:inline"/>
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-fixed to-primary-container">
             Transformando o chão de fábrica
@@ -237,7 +236,7 @@
       </div>
 
       <!-- Coluna Direita: Foto HUD -->
-      <div class="lg:col-span-5 relative" id="sobre">
+      <div class="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none" id="sobre">
         <div class="reticle-corner p-1 rounded-lg bg-surface-container-high border border-outline-variant/50 cyan-glow-subtle">
           <!-- HUD Header -->
           <div class="bg-surface-container-lowest px-3 py-2 flex items-center justify-between border-b border-outline-variant/30 rounded-t">
@@ -249,8 +248,8 @@
           </div>
 
           <!-- Moldura da Imagem -->
-          <div class="relative overflow-hidden bg-surface-container-lowest group">
-            <img alt="Foto de Dione Nascimento - Especialista em Dados Industriais e Confiabilidade" class="w-full h-[430px] object-cover object-top filter contrast-[1.03] group-hover:scale-102 transition-transform duration-500" decoding="async" fetchpriority="high" src="assets/img/EU.jpg"/>
+          <div class="relative aspect-[4/5] max-h-[460px] w-full overflow-hidden bg-surface-container-lowest group">
+            <img alt="Foto de Dione Nascimento - Especialista em Dados Industriais e Confiabilidade" class="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-102 transition-transform duration-500" decoding="async" fetchpriority="high" src="assets/img/EU.jpg"/>
             <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80 pointer-events-none"></div>
 
             <!-- Badge Flutuante Inferior -->
@@ -292,7 +291,7 @@
 <!-- ========================================================================= -->
 <section class="py-12 bg-surface-container-lowest border-b border-outline-variant/30">
   <div class="max-w-7xl mx-auto px-4 md:px-12">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
       <!-- Métrica 1 -->
       <div class="p-4 rounded bg-surface-container laser-border flex flex-col justify-between">
         <div class="flex items-center justify-between mb-2">
@@ -304,7 +303,7 @@
           <div class="font-label-caps text-[10px] text-primary tracking-wide uppercase mt-1">Anos na Indústria</div>
           <p class="font-body-sm text-[12px] text-on-surface-variant mt-1 leading-snug">Gestão de Indicadores & Projetos</p>
         </div>
-        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[10px] font-label-caps text-tertiary">
+        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-1 text-[10px] font-label-caps text-tertiary">
           <span>OPERACIONAL</span>
           <span>+MTBF / -MTTR</span>
         </div>
@@ -321,7 +320,7 @@
           <div class="font-label-caps text-[10px] text-secondary tracking-wide uppercase mt-1">Anos em Siderurgia</div>
           <p class="font-body-sm text-[12px] text-on-surface-variant mt-1 leading-snug">Manutenção & Operação</p>
         </div>
-        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[10px] font-label-caps text-outline">
+        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-1 text-[10px] font-label-caps text-outline">
           <span>CSP / ARCELORMITTAL</span>
           <span class="text-tertiary">ALTO IMPACTO</span>
         </div>
@@ -338,7 +337,7 @@
           <div class="font-label-caps text-[10px] text-primary tracking-wide uppercase mt-1">Anos com Power BI</div>
           <p class="font-body-sm text-[12px] text-on-surface-variant mt-1 leading-snug">Gestão de Custos e Indicadores</p>
         </div>
-        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[10px] font-label-caps text-outline">
+        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-1 text-[10px] font-label-caps text-outline">
           <span>DAX AVANÇADO</span>
           <span class="text-primary">GOVERNANÇA</span>
         </div>
@@ -355,14 +354,14 @@
           <div class="font-label-caps text-[10px] text-tertiary tracking-wide uppercase mt-1">Automações</div>
           <p class="font-body-sm text-[12px] text-on-surface-variant mt-1 leading-snug">Python, Power Platform e SQL</p>
         </div>
-        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[10px] font-label-caps text-outline">
+        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-1 text-[10px] font-label-caps text-outline">
           <span>ZERO RETRABALHO</span>
           <span class="text-tertiary">TEMPO REAL</span>
         </div>
       </div>
 
       <!-- Métrica 5 -->
-      <div class="p-4 rounded bg-surface-container laser-border col-span-2 md:col-span-1 lg:col-span-1 flex flex-col justify-between">
+      <div class="p-4 rounded bg-surface-container laser-border col-span-2 sm:col-span-2 lg:col-span-1 flex flex-col justify-between">
         <div class="flex items-center justify-between mb-2">
           <span class="font-label-caps text-xs text-outline">[IMPACTO // ROI]</span>
           <span class="material-symbols-outlined text-primary text-[18px]">target</span>
@@ -372,7 +371,7 @@
           <div class="font-label-caps text-[10px] text-primary tracking-wide uppercase mt-1">Projetos Estratégicos</div>
           <p class="font-body-sm text-[12px] text-on-surface-variant mt-1 leading-snug">Ganhos mensuráveis e redução de perdas</p>
         </div>
-        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[10px] font-label-caps text-outline">
+        <div class="mt-3 pt-2 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-1 text-[10px] font-label-caps text-outline">
           <span>HORAS POUPADAS</span>
           <span class="text-tertiary">−10h / MÊS</span>
         </div>
@@ -414,7 +413,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="projectsGrid">
       <!-- CARD 1: Avine -->
       <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="bi">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">monitoring</span>
             <span>REF // 001-CUSTOS-AVINE</span>
@@ -422,7 +421,7 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">POWER BI • MYSQL • EXCEL</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Dashboard de Custos de Manutenção — Avine
           </h3>
@@ -441,19 +440,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">+Confiança</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">+Confiança</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Métricas Precisas</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">100%</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">100%</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Base Centralizada</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">Ágil</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">Ágil</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Ciclo de Relatório</div>
               </div>
             </div>
@@ -471,7 +470,7 @@
 
       <!-- CARD 2: Portal de Indicadores ArcelorMittal -->
       <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="bi">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
             <span>REF // 002-PORTAL-AM</span>
@@ -479,7 +478,7 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-primary border border-primary/30">POWER BI • SAP PM • MES • SGI</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Portal de Indicadores de Manutenção — ArcelorMittal
           </h3>
@@ -498,19 +497,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">SAP/MES</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">SAP/MES</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Integração Total</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">1 Painel</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">1 Painel</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Visão Unificada</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">Diário</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">Diário</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Decisão em Tempo Hábil</div>
               </div>
             </div>
@@ -528,7 +527,7 @@
 
       <!-- CARD 3: PM Mobit -->
       <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="mobile">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">smartphone</span>
             <span>REF // 003-PM-MOBIT</span>
@@ -536,7 +535,7 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • SUPABASE • POSTGRESQL</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Aplicativo Mobile para Gestão de Manutenção em Campo (PM Mobit)
           </h3>
@@ -555,19 +554,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">100%</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">100%</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Fluxo Digital &amp; Fotos</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">Auto</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">Auto</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Disparo de Corretivas</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">SLA &amp; KPIs</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">SLA &amp; KPIs</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Auditoria em Tempo Real</div>
               </div>
             </div>
@@ -585,7 +584,7 @@
 
       <!-- CARD 4: GabScan -->
       <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="mobile">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">document_scanner</span>
             <span>REF // 004-GABSCAN-OMR</span>
@@ -593,7 +592,7 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • ML KIT • VISÃO COMPUTACIONAL • TDD</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             GabScan — Corretor Inteligente de Provas OMR (100% Offline-First)
           </h3>
@@ -612,19 +611,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">100%</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">100%</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Offline-First</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">86 Testes</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">86 Testes</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">CI/CD Actions</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">0ms Lag</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">0ms Lag</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Dart Isolates</div>
               </div>
             </div>
@@ -642,7 +641,7 @@
 
       <!-- CARD 5: Disponibilidade ArcelorMittal -->
       <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">schedule</span>
             <span>REF // 005-DISP-MES</span>
@@ -650,7 +649,7 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • MES • EXCEL</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Aplicativo para Cálculo da Disponibilidade dos Equipamentos — ArcelorMittal
           </h3>
@@ -669,19 +668,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">−10 hrs</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">−10 hrs</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Poupadas / Mês</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">MES Direto</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">MES Direto</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Cálculo Rápido</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">Excel/UI</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">Excel/UI</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Exportação Padronizada</div>
               </div>
             </div>
@@ -699,7 +698,7 @@
 
       <!-- CARD 6: Inconsistências Contábeis ArcelorMittal -->
       <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">receipt_long</span>
             <span>REF // 006-CONTABIL-AM</span>
@@ -707,7 +706,7 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • PANDAS • EXCEL • REGRAS</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Automação em Python para Inconsistências Contábeis — ArcelorMittal
           </h3>
@@ -726,19 +725,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">−4 hrs</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">−4 hrs</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Poupadas / Mês</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">100%</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">100%</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Dados Auditados</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">Precisão</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">Precisão</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Custo Fixo/Variável</div>
               </div>
             </div>
@@ -755,8 +754,8 @@
       </div>
 
       <!-- CARD 7: Inconsistências em Requisições de Compra ArcelorMittal -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
-        <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
+      <div class="lg:col-span-2 rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
+        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">shopping_cart_checkout</span>
             <span>REF // 007-COMPRAS-AM</span>
@@ -764,11 +763,11 @@
           <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • POWER BI • CENTROS DE CUSTO</span>
         </div>
 
-        <div class="p-6 space-y-4">
+        <div class="p-6 flex-1 flex flex-col gap-4">
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Automação em Python para Requisições de Compra — ArcelorMittal
           </h3>
-          <div class="space-y-3 text-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 text-sm">
             <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
@@ -783,19 +782,19 @@
             </div>
           </div>
 
-          <div class="pt-2">
+          <div class="mt-auto pt-2">
             <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
             <div class="grid grid-cols-3 gap-2">
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-tertiary font-bold">−4 hrs</div>
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">−4 hrs</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Poupadas / Mês</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-primary font-bold">Real-Time</div>
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">Real-Time</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Visão Power BI</div>
               </div>
               <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
-                <div class="font-metric-display text-lg text-on-surface font-bold">Conformidade</div>
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">Conformidade</div>
                 <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Processos de Compra</div>
               </div>
             </div>
@@ -960,7 +959,7 @@
     </div>
 
     <!-- Timeline Wrapper -->
-    <div class="relative pl-6 md:pl-8 border-l border-outline-variant/40 space-y-12">
+    <div class="relative pl-6 md:pl-8 border-l border-outline-variant/40 space-y-10 max-w-5xl">
 
       <!-- Cargo 1: Avine -->
       <div class="relative group">
@@ -978,7 +977,7 @@
             Consultor em Dados
           </h3>
           <p class="font-body-md text-primary mt-1 font-medium text-sm">BI Avançado, Modelagem de Indicadores e Soluções Tecnológicas</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none">
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
             <li class="flex items-start gap-2">
               <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
               <span>Análise de dados para identificação de padrões, tendências e oportunidades de melhoria em processos de negócio.</span>
@@ -1039,7 +1038,7 @@
             Instrutor
           </h3>
           <p class="font-body-md text-primary mt-1 font-medium text-sm">Formação Técnica em Data Analytics, Engenharia e Manutenção Industrial</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none">
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
             <li class="flex items-start gap-2">
               <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
               <span>Condução de treinamentos técnicos focados em Data Analytics, Engenharia de Produção e processos de Manutenção Industrial.</span>
@@ -1092,7 +1091,7 @@
             Analista de Confiabilidade Mecânica
           </h3>
           <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Monitoramento de Ativos, Indicadores Críticos e Soluções Digitais</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none">
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
             <li class="flex items-start gap-2">
               <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
               <span>Análise de dados de manutenção para identificação de padrões de falha e oportunidades de melhoria.</span>
@@ -1149,7 +1148,7 @@
             Programador de Manutenção
           </h3>
           <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Otimização de Ordens de Manutenção e Gestão de Desvios</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none">
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
             <li class="flex items-start gap-2">
               <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
               <span>Análise de dados de ordens de manutenção para otimização da programação.</span>
@@ -1192,7 +1191,7 @@
             Técnico de Inspeção/Planejamento Mecânico
           </h3>
           <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Manutenção Preventiva, Preditiva e Dados de Condition</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none">
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
             <li class="flex items-start gap-2">
               <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
               <span>Coleta e análise de dados de inspeção para suporte à manutenção preventiva e preditiva.</span>
@@ -1235,7 +1234,7 @@
             Instrutor de Metalurgia/Mecânica
           </h3>
           <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Formação Profissional em Metalurgia e Mecânica</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none">
+          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
             <li class="flex items-start gap-2">
               <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
               <span>Desenvolvimento de materiais técnicos e didáticos voltados à formação profissional na área de metalurgia e mecânica.</span>
@@ -1546,10 +1545,10 @@
           <span class="material-symbols-outlined text-[16px] text-red-500">smart_display</span>
           DISSEMINAÇÃO DE CONHECIMENTO // CANAL PORTAL DOS DADOS
         </div>
-        <h2 class="font-display-xl text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
+        <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
           Vídeos & Aulas Práticas
         </h2>
-        <p class="font-body-lg text-sm md:text-base text-on-surface-variant mt-2 leading-relaxed">
+        <p class="font-body-md text-sm md:text-base text-on-surface-variant mt-1 leading-relaxed">
           Canal no YouTube dedicado à análise de dados industriais, Power BI, Python, SQL e gestão da manutenção, conectando teoria à prática de fábrica por meio de aulas aplicadas de desenvolvimento de soluções.
         </p>
 
@@ -1588,8 +1587,8 @@
     <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 no-scrollbar" id="videoCarouselTrack">
 
       <!-- CARD VÍDEO 1: Power BI do Zero (Manutenção de Frota) -->
-      <div class="min-w-[320px] sm:min-w-[440px] md:min-w-[520px] max-w-[560px] flex-shrink-0 snap-start rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all video-card">
-        <div>
+      <div class="min-w-[300px] sm:min-w-[440px] lg:w-[calc(50%-12px)] lg:min-w-[calc(50%-12px)] lg:max-w-none max-w-[560px] flex-shrink-0 snap-start rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all video-card">
+        <div class="flex-1 flex flex-col">
           <!-- Barra Superior do Card -->
           <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
             <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
@@ -1621,7 +1620,7 @@
           </div>
 
           <!-- Conteúdo do Card -->
-          <div class="p-6 space-y-4">
+          <div class="p-6 flex-1 flex flex-col gap-4">
             <h3 class="text-xl md:text-2xl text-on-surface font-bold">
               Power BI do Zero: Dashboard de Manutenção de Frota
             </h3>
@@ -1630,7 +1629,7 @@
             </p>
 
             <!-- Tópicos Abordados -->
-            <div class="flex flex-wrap gap-1.5 pt-1">
+            <div class="mt-auto flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Modelagem Relacional</span>
               <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Taxa Preventivas (28.19%)</span>
               <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Árvore de Decomposição</span>
@@ -1650,8 +1649,8 @@
       </div>
 
       <!-- CARD VÍDEO 2: Power Apps (App Gestão de Estoque) -->
-      <div class="min-w-[320px] sm:min-w-[440px] md:min-w-[520px] max-w-[560px] flex-shrink-0 snap-start rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-secondary/50 transition-all video-card">
-        <div>
+      <div class="min-w-[300px] sm:min-w-[440px] lg:w-[calc(50%-12px)] lg:min-w-[calc(50%-12px)] lg:max-w-none max-w-[560px] flex-shrink-0 snap-start rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-secondary/50 transition-all video-card">
+        <div class="flex-1 flex flex-col">
           <!-- Barra Superior do Card -->
           <div class="bg-surface-container-high px-4 py-2.5 flex items-center justify-between border-b border-outline-variant/30">
             <div class="flex items-center gap-2 font-label-caps text-[11px] text-secondary">
@@ -1683,7 +1682,7 @@
           </div>
 
           <!-- Conteúdo do Card -->
-          <div class="p-6 space-y-4">
+          <div class="p-6 flex-1 flex flex-col gap-4">
             <h3 class="text-xl md:text-2xl text-on-surface font-bold">
               Power Apps: App de Gestão e Controle de Estoque
             </h3>
@@ -1692,7 +1691,7 @@
             </p>
 
             <!-- Tópicos Abordados -->
-            <div class="flex flex-wrap gap-1.5 pt-1">
+            <div class="mt-auto flex flex-wrap gap-1.5 pt-1">
               <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Telas & Navegação</span>
               <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Formulários Dinâmicos</span>
               <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-md text-[11px] border border-outline-variant/30">Entradas & Saídas</span>
@@ -1719,7 +1718,7 @@
 <!-- 9. SEÇÃO DE CONTATO DE ALTA CONVERSÃO                                     -->
 <!-- ========================================================================= -->
 <section class="py-16 md:py-24 relative" id="contato">
-  <div class="max-w-5xl mx-auto px-4 md:px-12">
+  <div class="max-w-7xl mx-auto px-4 md:px-12">
     <div class="reticle-corner p-8 md:p-12 rounded-lg bg-surface-container laser-border relative overflow-hidden cyan-glow-subtle">
       <div class="absolute top-0 right-0 w-80 h-80 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -1731,7 +1730,7 @@
           </span>
         </div>
 
-        <h2 class="font-display-xl text-2xl md:text-4xl text-on-surface font-bold tracking-tight">
+        <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
           Vamos construir soluções inteligentes para a sua operação?
         </h2>
 
