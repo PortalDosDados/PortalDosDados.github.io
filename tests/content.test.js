@@ -6,6 +6,9 @@ const portfolio = require('../data/content.js');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
 const indexHtml = fs.readFileSync(path.join(ROOT_DIR, 'index.html'), 'utf8');
+const curriculoHtml = fs.existsSync(path.join(ROOT_DIR, 'curriculo.html'))
+  ? fs.readFileSync(path.join(ROOT_DIR, 'curriculo.html'), 'utf8')
+  : '';
 
 describe('Base de Conteúdo Estruturada (data/content.js)', () => {
   test('Deve exportar a chave de idioma pt com a estrutura correta', () => {
@@ -67,7 +70,6 @@ describe('Integridade de Produção, Acessibilidade e SEO (index.html)', () => {
     const parsedLd = JSON.parse(jsonLdMatch[1]);
     assert.equal(parsedLd['@type'], 'Person', 'Schema.org @type deve ser Person');
     assert.ok(parsedLd.name.includes('Dione'), 'Schema.org name deve conter Dione');
-
     assert.match(indexHtml, /href="assets\/css\/main\.css"/, 'index.html deve importar assets/css/main.css');
     assert.match(indexHtml, /src="data\/content\.js"/, 'index.html deve importar data/content.js');
     assert.match(indexHtml, /src="assets\/js\/app\.js"/, 'index.html deve importar assets/js/app.js');
@@ -84,7 +86,7 @@ describe('Integridade de Produção, Acessibilidade e SEO (index.html)', () => {
     });
   });
 
-  test('Dados de formação e estatísticas em data/content.js devem estar sincronizados com index.html', () => {
+  test('Dados de formação e estatísticas em data/content.js devem estar sincronizados com o portfólio e currículo', () => {
     portfolio.pt.stats.forEach((stat) => {
       const expectedValue = `${stat.value}${stat.suffix}`;
       assert.ok(
@@ -97,10 +99,11 @@ describe('Integridade de Produção, Acessibilidade e SEO (index.html)', () => {
       );
     });
 
+    const combinedHtml = `${indexHtml}\n${curriculoHtml}`;
     portfolio.pt.education.forEach((edu) => {
       assert.ok(
-        indexHtml.includes(edu.type),
-        `Tipo de formação "${edu.type}" (${edu.title}) não encontrado em index.html`
+        combinedHtml.includes(edu.type),
+        `Tipo de formação "${edu.type}" (${edu.title}) não encontrado nas páginas do portfólio/currículo`
       );
     });
   });

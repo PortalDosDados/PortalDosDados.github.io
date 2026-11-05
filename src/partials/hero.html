@@ -42,7 +42,7 @@
         </h1>
 
         <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
-          Profissional com 15 anos de experiência na indústria, sendo 10 deles no setor siderúrgico. Atuo na integração entre engenharia e análise de dados para transformar informações operacionais (SAP, MES, SGI) em conhecimento capaz de gerar eficiência, produtividade, redução de perdas e maior confiabilidade de ativos.
+          Profissional com 15 anos de atuação na indústria pesada (siderurgia e alimentos). Desenvolvo soluções práticas, calculadoras operacionais e arquitetura analítica (SAP, MES, SQL, Power BI) para reduzir downtime, eliminar perdas e elevar a confiabilidade de ativos.
         </p>
 
         <!-- Informações Complementares Rápidas -->
@@ -57,19 +57,23 @@
           </span>
         </div>
 
-        <!-- Botões de Ação -->
-        <div class="flex flex-wrap items-center gap-4 pt-2">
-          <a class="inline-flex items-center gap-2.5 px-6 py-3 rounded bg-primary-container text-on-primary font-code-md text-sm font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all" href="#contato">
-            <span class="material-symbols-outlined text-[18px]">mail</span>
-            <span>Entrar em Contato</span>
+        <!-- Botões de Ação do Portfólio -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a class="inline-flex items-center gap-2 px-5 py-3 rounded bg-primary-container text-on-primary font-code-md text-sm font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all" href="#solucoes">
+            <span class="material-symbols-outlined text-[18px]">build_circle</span>
+            <span>Explorar Ferramentas</span>
           </a>
-          <a class="inline-flex items-center gap-2 px-5 py-3 rounded bg-surface-container laser-border text-on-surface font-code-md text-sm font-semibold hover:border-primary hover:text-primary active:scale-[0.98] transition-all" href="assets/cv/Dione_Nascimento_CV.pdf" download>
-            <span class="material-symbols-outlined text-[18px]">download</span>
-            <span>Baixar CV (PDF)</span>
+          <a class="inline-flex items-center gap-2 px-4 py-3 rounded bg-surface-container laser-border text-on-surface font-code-md text-sm font-semibold hover:border-primary hover:text-primary active:scale-[0.98] transition-all" href="#projetos">
+            <span class="material-symbols-outlined text-[18px]">cases</span>
+            <span>Casos de Impacto</span>
+          </a>
+          <a class="inline-flex items-center gap-2 px-4 py-3 rounded bg-surface-container-high border border-primary/40 text-primary font-code-md text-sm font-semibold hover:bg-primary-container hover:text-on-primary active:scale-[0.98] transition-all" href="curriculo.html">
+            <span class="material-symbols-outlined text-[18px]">description</span>
+            <span>Currículo Detalhado</span>
           </a>
         </div>
 
-        <!-- Links de Perfis -->
+        <!-- Links de Perfis Profissionais -->
         <div class="pt-4 flex flex-wrap items-center gap-3">
           <span class="font-label-caps text-xs text-outline uppercase tracking-wider mr-1">CONEXÕES //</span>
           <a class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-high/60 laser-border hover:border-primary text-on-surface-variant hover:text-primary text-xs transition-colors" href="https://www.linkedin.com/in/dione-nascimento-37287a233/" target="_blank" rel="noopener noreferrer">
@@ -88,49 +92,36 @@
       </div>
 
       <!-- Coluna Direita: Foto HUD -->
-      <div class="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none" id="sobre">
+      <div class="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none" id="perfil-hud">
         <div class="reticle-corner p-1 rounded-lg bg-surface-container-high border border-outline-variant/50 cyan-glow-subtle">
           <!-- HUD Header -->
           <div class="bg-surface-container-lowest px-3 py-2 flex items-center justify-between border-b border-outline-variant/30 rounded-t">
             <div class="flex items-center gap-2">
-              <span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
-              <span class="font-label-caps text-[11px] text-on-surface tracking-widest">PERFIL // DIONE_NASCIMENTO</span>
+              <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              <span class="font-label-caps text-[10px] text-primary tracking-widest">PERFIL OPERACIONAL // DIONE NASCIMENTO</span>
             </div>
-            <span class="font-label-caps text-[10px] text-tertiary font-bold tracking-wider">[ATIVO]</span>
+            <span class="font-label-caps text-[9px] text-outline">DN-SYS 2026.4</span>
           </div>
 
-          <!-- Moldura da Imagem -->
-          <div class="relative aspect-[4/5] max-h-[460px] w-full overflow-hidden bg-surface-container-lowest group">
-            <img alt="Foto de Dione Nascimento - Especialista em Dados Industriais e Confiabilidade" class="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-102 transition-transform duration-500" decoding="async" fetchpriority="high" src="assets/img/EU.jpg"/>
+          <!-- Moldura da Foto com Grid Blueprint -->
+          <div class="relative bg-surface-container overflow-hidden group">
+            <img alt="Foto de perfil profissional de Dione Nascimento" class="w-full h-auto object-cover max-h-[440px] grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" height="600" src="assets/img/EU.jpg" width="600"/>
             <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80 pointer-events-none"></div>
 
-            <!-- Badge Flutuante Inferior -->
-            <div class="absolute bottom-4 left-4 right-4 bg-surface-container/90 backdrop-blur-md border border-primary/30 p-3 rounded">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded bg-primary-container/20 text-primary flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[20px]">verified</span>
-                  </div>
-                  <div>
-                    <div class="font-metric-display text-lg text-primary leading-tight">Analista de Dados</div>
-                    <div class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Dados & Engenharia</div>
-                  </div>
-                </div>
-                <div class="text-right">
-
-                </div>
+            <!-- Badges Sobrepostos na Foto -->
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2 p-2 rounded bg-surface-container-lowest/90 backdrop-blur border border-outline-variant/40">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+                <span class="font-label-caps text-[11px] text-on-surface font-semibold">15 ANOS NO CHÃO DE FÁBRICA</span>
               </div>
-            </div>
-
-            <!-- Badge Superior -->
-            <div class="absolute top-3 right-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded border border-outline-variant/40">
-              <span class="font-label-caps text-[9px] text-outline">STATUS: OPERACIONAL</span>
+              <span class="font-label-caps text-[9px] text-primary px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30">ATIVO</span>
             </div>
           </div>
 
-          <!-- HUD Telemetria Rodapé -->
-          <div class="bg-surface-container-lowest px-3 py-1.5 flex items-center justify-center text-center text-[10px] font-label-caps text-outline rounded-b border-t border-outline-variant/30">
-            <span>STACK: POWER BI • PYTHON • SQL • SAP • MES • POWER APPS</span>
+          <!-- HUD Footer -->
+          <div class="bg-surface-container-lowest px-3 py-2 flex items-center justify-between text-[10px] font-label-caps text-outline rounded-b">
+            <span>ENG. PRODUÇÃO & DADOS</span>
+            <span class="text-primary font-semibold">PRONTO PARA NOVOS PROJETOS</span>
           </div>
         </div>
       </div>

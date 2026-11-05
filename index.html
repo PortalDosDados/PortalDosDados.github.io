@@ -44,7 +44,6 @@
       "jobTitle": "Especialista em Dados Industriais, Automação e Engenharia de Confiabilidade",
       "url": "https://portaldosdados.github.io/",
       "image": "https://portaldosdados.github.io/assets/img/EU.jpg",
-      "email": "mailto:morrone.dione@gmail.com",
       "address": { "@type": "PostalAddress", "addressRegion": "CE", "addressCountry": "BR" },
       "worksFor": [
         { "@type": "Organization", "name": "Avine" },
@@ -91,7 +90,7 @@
 <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
 
 <!-- ========================================================================= -->
-<!-- 1. NAVBAR                                                                 -->
+<!-- 1. NAVBAR (PORTFÓLIO DE SOLUÇÕES & CONSULTOR)                             -->
 <!-- ========================================================================= -->
 <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
   <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
@@ -102,30 +101,39 @@
       </div>
       <div class="flex flex-col">
         <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">DN // DADOS.IND</span>
-        <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">CONFIABILIDADE v4.2</span>
+        <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">PORTFÓLIO & ENGENHARIA</span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav aria-label="Navegação Principal" class="hidden lg:flex items-center lg:gap-5 xl:gap-6">
-      <a class="nav-section-link whitespace-nowrap text-primary font-code-md text-sm border-b-2 border-primary pb-1 transition-colors" href="#sobre">Sobre</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#projetos">Projetos</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#portal-aluno">Portal do Aluno</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#experiencia">Experiência</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#habilidades">Habilidades</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#educacao">Educação</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#videos">Vídeos</a>
+    <!-- Desktop Navigation Links (Minimalista) -->
+    <nav aria-label="Navegação Principal" class="hidden lg:flex items-center lg:gap-5 xl:gap-7">
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#solucoes">Soluções</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#projetos">Projetos</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#laboratorio">Laboratório</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#sobre">Sobre</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#contato">Contato</a>
     </nav>
 
     <!-- Trailing Action Controls -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2.5">
+      <!-- Botão para Currículo Detalhado -->
+      <a class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-high border border-primary/40 text-primary hover:bg-primary-container hover:text-on-primary font-code-md text-xs font-semibold active:scale-[0.98] transition-all" href="curriculo.html">
+        <span class="material-symbols-outlined text-[16px]">description</span>
+        <span>Currículo</span>
+      </a>
+
+      <!-- Alternador de Tema -->
       <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
         <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
       </button>
-      <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-primary-container text-on-primary font-code-md text-sm font-semibold hover:opacity-95 active:scale-[0.98] transition-transform cyan-glow-subtle" href="#contato">
-        <span class="material-symbols-outlined text-[16px]">mail</span>
-        <span>Contato</span>
+
+      <!-- CTA Contato Rápido -->
+      <a class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-primary-container text-on-primary font-code-md text-xs font-semibold hover:opacity-95 active:scale-[0.98] transition-transform cyan-glow-subtle" href="#contato">
+        <span class="material-symbols-outlined text-[16px]">chat</span>
+        <span>Falar Comigo</span>
       </a>
+
+      <!-- Botão Hamburger Mobile -->
       <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu de navegação" class="lg:hidden w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="mobileMenuBtn">
         <span class="material-symbols-outlined text-[20px]" id="mobileMenuIcon">menu</span>
       </button>
@@ -134,17 +142,19 @@
 
   <!-- Mobile Navigation Drawer -->
   <nav aria-label="Menu Mobile" class="hidden lg:hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md px-4 py-4 space-y-1" id="mobileMenu">
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#sobre">Sobre</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#projetos">Projetos</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-primary font-bold hover:bg-surface-container-high transition-colors" href="#portal-aluno">Portal do Aluno</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#experiencia">Experiência</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#habilidades">Habilidades</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#educacao">Educação</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#videos">Vídeos</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-primary font-semibold hover:bg-surface-container-high transition-colors" href="#contato">Contato</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#solucoes">Soluções (Ferramentas)</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#projetos">Projetos & Casos</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#laboratorio">Laboratório & Docência</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#sobre">Sobre a Trajetória</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#contato">Contato</a>
+    <div class="pt-2 border-t border-outline-variant/30">
+      <a class="mobile-nav-link flex items-center gap-2 px-3 py-2.5 rounded font-code-md text-sm bg-primary-container text-on-primary font-bold" href="curriculo.html">
+        <span class="material-symbols-outlined text-[18px]">description</span>
+        <span>Acessar Currículo Completo</span>
+      </a>
+    </div>
   </nav>
 </header>
-
 <main id="main-content">
 <!-- ========================================================================= -->
 <!-- 2. HERO SECTION                                                           -->
@@ -190,7 +200,7 @@
         </h1>
 
         <p class="font-body-lg text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
-          Profissional com 15 anos de experiência na indústria, sendo 10 deles no setor siderúrgico. Atuo na integração entre engenharia e análise de dados para transformar informações operacionais (SAP, MES, SGI) em conhecimento capaz de gerar eficiência, produtividade, redução de perdas e maior confiabilidade de ativos.
+          Profissional com 15 anos de atuação na indústria pesada (siderurgia e alimentos). Desenvolvo soluções práticas, calculadoras operacionais e arquitetura analítica (SAP, MES, SQL, Power BI) para reduzir downtime, eliminar perdas e elevar a confiabilidade de ativos.
         </p>
 
         <!-- Informações Complementares Rápidas -->
@@ -205,19 +215,23 @@
           </span>
         </div>
 
-        <!-- Botões de Ação -->
-        <div class="flex flex-wrap items-center gap-4 pt-2">
-          <a class="inline-flex items-center gap-2.5 px-6 py-3 rounded bg-primary-container text-on-primary font-code-md text-sm font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all" href="#contato">
-            <span class="material-symbols-outlined text-[18px]">mail</span>
-            <span>Entrar em Contato</span>
+        <!-- Botões de Ação do Portfólio -->
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a class="inline-flex items-center gap-2 px-5 py-3 rounded bg-primary-container text-on-primary font-code-md text-sm font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all" href="#solucoes">
+            <span class="material-symbols-outlined text-[18px]">build_circle</span>
+            <span>Explorar Ferramentas</span>
           </a>
-          <a class="inline-flex items-center gap-2 px-5 py-3 rounded bg-surface-container laser-border text-on-surface font-code-md text-sm font-semibold hover:border-primary hover:text-primary active:scale-[0.98] transition-all" href="assets/cv/Dione_Nascimento_CV.pdf" download>
-            <span class="material-symbols-outlined text-[18px]">download</span>
-            <span>Baixar CV (PDF)</span>
+          <a class="inline-flex items-center gap-2 px-4 py-3 rounded bg-surface-container laser-border text-on-surface font-code-md text-sm font-semibold hover:border-primary hover:text-primary active:scale-[0.98] transition-all" href="#projetos">
+            <span class="material-symbols-outlined text-[18px]">cases</span>
+            <span>Casos de Impacto</span>
+          </a>
+          <a class="inline-flex items-center gap-2 px-4 py-3 rounded bg-surface-container-high border border-primary/40 text-primary font-code-md text-sm font-semibold hover:bg-primary-container hover:text-on-primary active:scale-[0.98] transition-all" href="curriculo.html">
+            <span class="material-symbols-outlined text-[18px]">description</span>
+            <span>Currículo Detalhado</span>
           </a>
         </div>
 
-        <!-- Links de Perfis -->
+        <!-- Links de Perfis Profissionais -->
         <div class="pt-4 flex flex-wrap items-center gap-3">
           <span class="font-label-caps text-xs text-outline uppercase tracking-wider mr-1">CONEXÕES //</span>
           <a class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-high/60 laser-border hover:border-primary text-on-surface-variant hover:text-primary text-xs transition-colors" href="https://www.linkedin.com/in/dione-nascimento-37287a233/" target="_blank" rel="noopener noreferrer">
@@ -236,49 +250,36 @@
       </div>
 
       <!-- Coluna Direita: Foto HUD -->
-      <div class="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none" id="sobre">
+      <div class="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none" id="perfil-hud">
         <div class="reticle-corner p-1 rounded-lg bg-surface-container-high border border-outline-variant/50 cyan-glow-subtle">
           <!-- HUD Header -->
           <div class="bg-surface-container-lowest px-3 py-2 flex items-center justify-between border-b border-outline-variant/30 rounded-t">
             <div class="flex items-center gap-2">
-              <span class="inline-block w-2 h-2 rounded-full bg-primary-container"></span>
-              <span class="font-label-caps text-[11px] text-on-surface tracking-widest">PERFIL // DIONE_NASCIMENTO</span>
+              <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              <span class="font-label-caps text-[10px] text-primary tracking-widest">PERFIL OPERACIONAL // DIONE NASCIMENTO</span>
             </div>
-            <span class="font-label-caps text-[10px] text-tertiary font-bold tracking-wider">[ATIVO]</span>
+            <span class="font-label-caps text-[9px] text-outline">DN-SYS 2026.4</span>
           </div>
 
-          <!-- Moldura da Imagem -->
-          <div class="relative aspect-[4/5] max-h-[460px] w-full overflow-hidden bg-surface-container-lowest group">
-            <img alt="Foto de Dione Nascimento - Especialista em Dados Industriais e Confiabilidade" class="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-102 transition-transform duration-500" decoding="async" fetchpriority="high" src="assets/img/EU.jpg"/>
+          <!-- Moldura da Foto com Grid Blueprint -->
+          <div class="relative bg-surface-container overflow-hidden group">
+            <img alt="Foto de perfil profissional de Dione Nascimento" class="w-full h-auto object-cover max-h-[440px] grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500" height="600" src="assets/img/EU.jpg" width="600"/>
             <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-80 pointer-events-none"></div>
 
-            <!-- Badge Flutuante Inferior -->
-            <div class="absolute bottom-4 left-4 right-4 bg-surface-container/90 backdrop-blur-md border border-primary/30 p-3 rounded">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded bg-primary-container/20 text-primary flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[20px]">verified</span>
-                  </div>
-                  <div>
-                    <div class="font-metric-display text-lg text-primary leading-tight">Analista de Dados</div>
-                    <div class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-wider">Dados & Engenharia</div>
-                  </div>
-                </div>
-                <div class="text-right">
-
-                </div>
+            <!-- Badges Sobrepostos na Foto -->
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2 p-2 rounded bg-surface-container-lowest/90 backdrop-blur border border-outline-variant/40">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+                <span class="font-label-caps text-[11px] text-on-surface font-semibold">15 ANOS NO CHÃO DE FÁBRICA</span>
               </div>
-            </div>
-
-            <!-- Badge Superior -->
-            <div class="absolute top-3 right-3 bg-surface-container-lowest/80 backdrop-blur-md px-2.5 py-1 rounded border border-outline-variant/40">
-              <span class="font-label-caps text-[9px] text-outline">STATUS: OPERACIONAL</span>
+              <span class="font-label-caps text-[9px] text-primary px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30">ATIVO</span>
             </div>
           </div>
 
-          <!-- HUD Telemetria Rodapé -->
-          <div class="bg-surface-container-lowest px-3 py-1.5 flex items-center justify-center text-center text-[10px] font-label-caps text-outline rounded-b border-t border-outline-variant/30">
-            <span>STACK: POWER BI • PYTHON • SQL • SAP • MES • POWER APPS</span>
+          <!-- HUD Footer -->
+          <div class="bg-surface-container-lowest px-3 py-2 flex items-center justify-between text-[10px] font-label-caps text-outline rounded-b">
+            <span>ENG. PRODUÇÃO & DADOS</span>
+            <span class="text-primary font-semibold">PRONTO PARA NOVOS PROJETOS</span>
           </div>
         </div>
       </div>
@@ -376,6 +377,177 @@
           <span class="text-tertiary">−10h / MÊS</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- 3. VITRINE DE SOLUÇÕES & FERRAMENTAS INDUSTRIAIS INTERATIVAS              -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 border-b border-outline-variant/20 relative" id="solucoes">
+  <div class="max-w-7xl mx-auto px-4 md:px-12">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
+          <span class="material-symbols-outlined text-[16px]">build_circle</span>
+          LABORATÓRIO INDUSTRIAL NO AR // FERRAMENTAS REAIS
+        </div>
+        <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+          Aplicações Desenvolvidas para o Chão de Fábrica
+        </h2>
+        <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
+          Soluções práticas executadas diretamente no navegador (100% client-side, zero latência), desenhadas para otimizar a rotina de manutenção, PCM e engenharia de confiabilidade.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <span class="font-label-caps text-[11px] text-tertiary px-3 py-1 rounded bg-tertiary-container/10 border border-tertiary/30 font-semibold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+          4 FERRAMENTAS DISPONÍVEIS
+        </span>
+      </div>
+    </div>
+
+    <!-- 4 Cards Grid das Ferramentas Industriais -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Ferramenta 1: Controle de Paradas & Downtime -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group">
+        <div class="bg-surface-container-high px-4 py-3 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-xs text-primary font-bold">
+            <span class="material-symbols-outlined text-[18px]">timer</span>
+            <span>FERRAMENTA // 01</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">
+            DOWNTIME • OEE • MTBF
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between gap-4">
+          <div>
+            <h3 class="text-xl text-on-surface font-bold group-hover:text-primary transition-colors flex items-center gap-2">
+              Controle de Paradas & Downtime
+            </h3>
+            <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+              Cálculo ágil e padronizado do tempo de parada de linha com classificação automática de severidade (Análise de Falha, FCA ou Relatório de Turno) e suporte a viradas de turno.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5 text-[11px] font-code-md text-on-surface-variant">
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Vanilla JS</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">ISO Parsing</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Auditoria</span>
+            </div>
+            <a href="ferramentas/calculadora-paradas.html" class="inline-flex items-center gap-1.5 text-xs font-label-caps font-bold text-primary group-hover:underline">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ferramenta 2: Calculadora de 52 Semanas (ISO 8601) -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group">
+        <div class="bg-surface-container-high px-4 py-3 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-xs text-primary font-bold">
+            <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+            <span>FERRAMENTA // 02</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">
+            ISO 8601 • PCM • PLANO ANUAL
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between gap-4">
+          <div>
+            <h3 class="text-xl text-on-surface font-bold group-hover:text-primary transition-colors flex items-center gap-2">
+              Calculadora de 52 Semanas (PCM)
+            </h3>
+            <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+              Conversor e planejador de cronograma anual de manutenção seguindo a norma ISO 8601, com tratamento correto de anos bissextos e semanas de 53 semanas sem erros de planilha.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5 text-[11px] font-code-md text-on-surface-variant">
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">ISO 8601</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">PCM Avançado</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Exportação</span>
+            </div>
+            <a href="ferramentas/calculadora-52-semanas.html" class="inline-flex items-center gap-1.5 text-xs font-label-caps font-bold text-primary group-hover:underline">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ferramenta 3: Gerador de Curva S & EVM -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group">
+        <div class="bg-surface-container-high px-4 py-3 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-xs text-primary font-bold">
+            <span class="material-symbols-outlined text-[18px]">show_chart</span>
+            <span>FERRAMENTA // 03</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">
+            EVM • CURVA S • PARADAS
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between gap-4">
+          <div>
+            <h3 class="text-xl text-on-surface font-bold group-hover:text-primary transition-colors flex items-center gap-2">
+              Gerador de Curva S & Tendência (EVM)
+            </h3>
+            <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+              Gestão de Valor Agregado (EVM) para grandes paradas de manutenção e reformas de ativos. Acompanhamento gráfico em tempo real de avanço Físico e Financeiro (Planejado vs. Realizado).
+            </p>
+          </div>
+          <div class="pt-4 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5 text-[11px] font-code-md text-on-surface-variant">
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Chart.js</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">EVM / Earned Value</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Gestão de Paradas</span>
+            </div>
+            <a href="ferramentas/gerador-curva-s.html" class="inline-flex items-center gap-1.5 text-xs font-label-caps font-bold text-primary group-hover:underline">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ferramenta 4: Matriz FMEA & RPN Automatizado -->
+      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group">
+        <div class="bg-surface-container-high px-4 py-3 flex items-center justify-between border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-xs text-primary font-bold">
+            <span class="material-symbols-outlined text-[18px]">grid_view</span>
+            <span>FERRAMENTA // 04</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">
+            FMEA • RPN • CONFIABILIDADE
+          </span>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between gap-4">
+          <div>
+            <h3 class="text-xl text-on-surface font-bold group-hover:text-primary transition-colors flex items-center gap-2">
+              Matriz FMEA Industrial & RPN
+            </h3>
+            <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+              Mapeamento de Modos e Efeitos de Falha com cálculo dinâmico de RPN (Severidade × Ocorrência × Detecção), categorização de risco em cores e gráficos de Pareto para tomada de decisão.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5 text-[11px] font-code-md text-on-surface-variant">
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Cálculo RPN</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Análise de Risco</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container-high">Exportação CSV</span>
+            </div>
+            <a href="ferramentas/matriz-fmea.html" class="inline-flex items-center gap-1.5 text-xs font-label-caps font-bold text-primary group-hover:underline">
+              <span>Abrir Ferramenta</span>
+              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -815,7 +987,8 @@
 <!-- ========================================================================= -->
 <!-- 3.5 PORTAL DO ALUNO // DESTAQUE EM GAMIFICAÇÃO TÉCNICA                   -->
 <!-- ========================================================================= -->
-<section class="py-16 md:py-24 border-b border-outline-variant/20 relative bg-surface-container-lowest/50" id="portal-aluno">
+<section class="py-16 md:py-24 border-b border-outline-variant/20 relative bg-surface-container-lowest/50" id="laboratorio">
+  <span id="portal-aluno" class="sr-only"></span>
   <div class="max-w-7xl mx-auto px-4 md:px-12">
     
     <div class="rounded-2xl bg-gradient-to-br from-surface-container via-surface-container-high to-surface-container border border-primary/40 p-8 md:p-12 shadow-2xl relative overflow-hidden">
@@ -937,599 +1110,6 @@
 
     </div>
 
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 5. LINHA DO TEMPO DA CARREIRA (15 Anos na Indústria)                       -->
-<!-- ========================================================================= -->
-<section class="py-16 md:py-24 bg-surface-container-lowest border-b border-outline-variant/20 relative" id="experiencia">
-  <div class="max-w-7xl mx-auto px-4 md:px-12">
-    <div class="mb-12">
-      <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
-        <span class="material-symbols-outlined text-[16px]">history_toggle_off</span>
-        HISTÓRICO // CRONOLOGIA PROFISSIONAL
-      </div>
-      <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-        Trajetória Consolidada no Chão de Fábrica
-      </h2>
-      <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
-        Do trabalho prático na manutenção mecânica à arquitetura analítica de dados e consultoria executiva.
-      </p>
-    </div>
-
-    <!-- Timeline Wrapper -->
-    <div class="relative pl-6 md:pl-8 border-l border-outline-variant/40 space-y-10 max-w-5xl">
-
-      <!-- Cargo 1: Avine -->
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-primary-container flex items-center justify-center cyan-glow">
-          <div class="w-1.5 h-1.5 bg-primary-container rounded-full"></div>
-        </div>
-        <div class="bg-surface-container p-6 rounded-lg laser-border">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span class="font-label-caps text-xs text-primary px-2.5 py-0.5 rounded bg-primary-container/10 border border-primary/30">
-              MAIO/2026 – ATUAL // ATUAÇÃO ATIVA
-            </span>
-            <span class="font-code-md text-xs text-outline">Avine (Consultor PJ)</span>
-          </div>
-          <h3 class="text-lg md:text-xl text-on-surface font-bold mt-1">
-            Consultor em Dados
-          </h3>
-          <p class="font-body-md text-primary mt-1 font-medium text-sm">BI Avançado, Modelagem de Indicadores e Soluções Tecnológicas</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Análise de dados para identificação de padrões, tendências e oportunidades de melhoria em processos de negócio.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Desenvolvimento de dashboards e relatórios gerenciais em Power BI para acompanhamento de indicadores de desempenho (KPIs).</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Coleta, tratamento, limpeza, transformação e consolidação de dados provenientes de diferentes fontes.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Modelagem de indicadores e métricas para suporte à tomada de decisão baseada em dados.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Desenvolvimento de aplicações utilizando Power Apps para coleta, validação e gestão de informações.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Automatização de processos e elaboração de soluções para aumentar a eficiência operacional e reduzir atividades manuais.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Criação de consultas, análises e relatórios utilizando SQL, Excel e Python.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Capacitação de equipes por meio de treinamentos e consultorias em análise de dados, Power BI, Excel e ferramentas Microsoft Power Platform.</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-outline-variant/30 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power BI</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">DAX</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Python</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SQL</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Apps</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Excel Avançado</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cargo 2: SENAI -->
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-primary-container flex items-center justify-center">
-          <div class="w-1.5 h-1.5 bg-primary-container rounded-full"></div>
-        </div>
-        <div class="bg-surface-container p-6 rounded-lg laser-border">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span class="font-label-caps text-xs text-primary px-2.5 py-0.5 rounded bg-primary-container/10 border border-primary/30">
-              AGOSTO/2026 – ATUAL
-            </span>
-            <span class="font-code-md text-xs text-outline">SENAI</span>
-          </div>
-          <h3 class="text-lg md:text-xl text-on-surface font-bold mt-1">
-            Instrutor
-          </h3>
-          <p class="font-body-md text-primary mt-1 font-medium text-sm">Formação Técnica em Data Analytics, Engenharia e Manutenção Industrial</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Condução de treinamentos técnicos focados em Data Analytics, Engenharia de Produção e processos de Manutenção Industrial.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Execução de atividades práticas com Power BI, Excel, SQL e Python para tratamento e visualização de dados operacionais.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Criação de dashboards e indicadores de desempenho (KPIs) para suporte estratégico e monitoramento de resultados.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Desenvolvimento de soluções com Power Apps e automações para otimização da coleta e gestão de informações industriais.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Produção de materiais didáticos e estudos de caso aplicados à melhoria de processos de produção e manutenção.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">check_circle</span>
-              <span>Capacitação profissional no uso de tecnologias e ferramentas de engenharia para análise e solução de problemas baseada em dados.</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-outline-variant/30 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Data Analytics</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power BI</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Python</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SQL</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Apps</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Engenharia de Produção</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cargo 3: ArcelorMittal Pecém -->
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-outline flex items-center justify-center">
-          <div class="w-1.5 h-1.5 bg-outline rounded-full"></div>
-        </div>
-        <div class="bg-surface-container p-6 rounded-lg laser-border">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span class="font-label-caps text-xs text-outline px-2.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/30">
-              AGOSTO/2022 – ABRIL/2026
-            </span>
-            <span class="font-code-md text-xs text-outline">ArcelorMittal Pecém</span>
-          </div>
-          <h3 class="text-lg md:text-xl text-on-surface font-bold mt-1">
-            Analista de Confiabilidade Mecânica
-          </h3>
-          <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Monitoramento de Ativos, Indicadores Críticos e Soluções Digitais</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Análise de dados de manutenção para identificação de padrões de falha e oportunidades de melhoria.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Desenvolvimento de dashboards em Power BI para acompanhamento de indicadores (MTBF, MTTR, backlog, disponibilidade).</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Aplicação de análise de causa raiz baseada em dados históricos de falhas.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Estruturação e monitoramento de KPIs para suporte à tomada de decisão.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Priorização de ordens de serviço com base em criticidade e análise de dados.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Criação de soluções digitais com Power Apps para coleta e tratamento de dados operacionais.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Apoio na definição de estratégias de manutenção baseadas em dados.</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-outline-variant/30 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power BI</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SAP PM</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">MES & SGI</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">MTBF / MTTR</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">RCA</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Apps</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cargo 4: CSP Programador -->
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-outline flex items-center justify-center">
-          <div class="w-1.5 h-1.5 bg-outline rounded-full"></div>
-        </div>
-        <div class="bg-surface-container p-6 rounded-lg laser-border">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span class="font-label-caps text-xs text-outline px-2.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/30">
-              JANEIRO/2021 – AGOSTO/2022
-            </span>
-            <span class="font-code-md text-xs text-outline">CSP (Companhia Siderúrgica do Pecém)</span>
-          </div>
-          <h3 class="text-lg md:text-xl text-on-surface font-bold mt-1">
-            Programador de Manutenção
-          </h3>
-          <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Otimização de Ordens de Manutenção e Gestão de Desvios</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Análise de dados de ordens de manutenção para otimização da programação.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Monitoramento de indicadores e geração de insights para melhoria do planejamento.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Priorização de atividades com base em criticidade e dados históricos.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Identificação de desvios e oportunidades de melhoria no processo através de análise de dados.</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-outline-variant/30 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SAP PM</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Programação de Paradas</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Criticidade</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Siderurgia</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cargo 5: CSP Técnico -->
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-outline flex items-center justify-center">
-          <div class="w-1.5 h-1.5 bg-outline rounded-full"></div>
-        </div>
-        <div class="bg-surface-container p-6 rounded-lg laser-border">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span class="font-label-caps text-xs text-outline px-2.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/30">
-              OUTUBRO/2015 – JANEIRO/2021
-            </span>
-            <span class="font-code-md text-xs text-outline">CSP (Companhia Siderúrgica do Pecém)</span>
-          </div>
-          <h3 class="text-lg md:text-xl text-on-surface font-bold mt-1">
-            Técnico de Inspeção/Planejamento Mecânico
-          </h3>
-          <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Manutenção Preventiva, Preditiva e Dados de Condition</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Coleta e análise de dados de inspeção para suporte à manutenção preventiva e preditiva.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Identificação de padrões de falha em equipamentos industriais.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Apoio à tomada de decisão com base em dados de condition dos ativos.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Utilização de dados para priorização de intervenções de manutenção.</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-outline-variant/30 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Preditiva</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Preventiva</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Condition Monitoring</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Inspeção de Ativos</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cargo 6: SENAI Metalurgia -->
-      <div class="relative group">
-        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface-container-lowest border-2 border-outline flex items-center justify-center">
-          <div class="w-1.5 h-1.5 bg-outline rounded-full"></div>
-        </div>
-        <div class="bg-surface-container p-6 rounded-lg laser-border">
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span class="font-label-caps text-xs text-outline px-2.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/30">
-              JUNHO/2012 – SETEMBRO/2015
-            </span>
-            <span class="font-code-md text-xs text-outline">SENAI</span>
-          </div>
-          <h3 class="text-lg md:text-xl text-on-surface font-bold mt-1">
-            Instrutor de Metalurgia/Mecânica
-          </h3>
-          <p class="font-body-md text-on-surface-variant mt-1 font-medium text-sm">Formação Profissional em Metalurgia e Mecânica</p>
-          <ul class="mt-4 space-y-2 text-xs md:text-sm text-on-surface-variant list-none max-w-4xl">
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Desenvolvimento de materiais técnicos e didáticos voltados à formação profissional na área de metalurgia e mecânica.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Estruturação e organização de conteúdos técnicos.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Planejamento e ministração de treinamentos e palestras para turmas técnicas.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="material-symbols-outlined text-outline text-[16px] mt-0.5">chevron_right</span>
-              <span>Acompanhamento do aprendizado dos alunos e suporte no desenvolvimento de competências técnicas.</span>
-            </li>
-          </ul>
-          <div class="mt-4 pt-3 border-t border-outline-variant/30 flex flex-wrap gap-2">
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Metalurgia</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Mecânica Industrial</span>
-            <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Treinamentos Técnicos</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 6. MATRIZ DE COMPETÊNCIAS TÉCNICAS (4 Módulos)                           -->
-<!-- ========================================================================= -->
-<section class="py-16 md:py-24 border-b border-outline-variant/20 relative" id="habilidades">
-  <div class="max-w-7xl mx-auto px-4 md:px-12">
-    <div class="mb-12">
-      <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
-        <span class="material-symbols-outlined text-[16px]">developer_board</span>
-        COMPETÊNCIAS // STACK INDUSTRIAL
-      </div>
-      <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-        Matriz Técnica Calibrada
-      </h2>
-      <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
-        Sincronizando tecnologia operacional (TO) de fábrica com engenharia moderna de dados.
-      </p>
-    </div>
-
-    <!-- 4 Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Módulo 1: BI -->
-      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/40 transition-colors">
-        <div>
-          <div class="w-10 h-10 rounded bg-primary-container/20 text-primary flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-[24px]">query_stats</span>
-          </div>
-          <div class="font-label-caps text-[10px] text-primary uppercase tracking-wider mb-1">[MÓDULO // 01]</div>
-          <h3 class="text-lg text-on-surface font-bold">BI & Visualização</h3>
-          <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">
-            Desenvolvimento de dashboards estratégicos em Power BI, domínio de DAX, modelagem relacional e dimensional (Star Schema e Normalização), Power Query e relatórios analíticos em Excel Avançado.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power BI</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">DAX</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Star Schema</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Normalização</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Query</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Excel Avançado</span>
-        </div>
-      </div>
-
-      <!-- Módulo 2: Programação & Automação -->
-      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/40 transition-colors">
-        <div>
-          <div class="w-10 h-10 rounded bg-tertiary-container/20 text-tertiary flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-[24px]">terminal</span>
-          </div>
-          <div class="font-label-caps text-[10px] text-tertiary uppercase tracking-wider mb-1">[MÓDULO // 02]</div>
-          <h3 class="text-lg text-on-surface font-bold">Programação & Automação</h3>
-          <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">
-            Desenvolvimento de aplicativos móveis em Flutter e Dart integrados a Supabase/PostgreSQL, automações de processos com Python (Pandas, scripts ETL), fluxos com Power Automate, Power Apps e Google Apps Script.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Flutter</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Dart</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Supabase</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Python</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Pandas</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Power Apps</span>
-        </div>
-      </div>
-
-      <!-- Módulo 3: Bancos de Dados & ETL -->
-      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/40 transition-colors">
-        <div>
-          <div class="w-10 h-10 rounded bg-secondary-container/20 text-secondary flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-[24px]">database</span>
-          </div>
-          <div class="font-label-caps text-[10px] text-secondary uppercase tracking-wider mb-1">[MÓDULO // 03]</div>
-          <h3 class="text-lg text-on-surface font-bold">Banco de Dados & ETL</h3>
-          <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">
-            Construção e otimização de consultas complexas em SQL, modelagem relacional e dimensional, administração de instâncias em PostgreSQL e MySQL, e integração de fluxos via Pentaho Data Integration (PDI).
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SQL Avançado</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">PostgreSQL</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">MySQL</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Pentaho (PDI)</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">Otimização</span>
-        </div>
-      </div>
-
-      <!-- Módulo 4: Sistemas Industriais & Confiabilidade -->
-      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/40 transition-colors">
-        <div>
-          <div class="w-10 h-10 rounded bg-primary-container/20 text-primary flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-[24px]">precision_manufacturing</span>
-          </div>
-          <div class="font-label-caps text-[10px] text-primary uppercase tracking-wider mb-1">[MÓDULO // 04]</div>
-          <h3 class="text-lg text-on-surface font-bold">Sistemas & Confiabilidade</h3>
-          <p class="text-xs md:text-sm text-on-surface-variant mt-2 leading-relaxed">
-            Extração e integração com SAP, MES, SGI e Excel, gestão de indicadores de manutenção (MTBF, MTTR, disponibilidade, backlog), Análise de Causa Raiz (RCA) e metodologia MASP de solução de problemas.
-          </p>
-        </div>
-        <div class="mt-6 pt-4 border-t border-outline-variant/20 flex flex-wrap gap-1.5">
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SAP PM</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">MES</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">SGI</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">MTBF / MTTR</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">RCA</span>
-          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-code-md text-on-surface">MASP</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========================================================================= -->
-<!-- 7. FORMAÇÃO ACADÊMICA & CERTIFICAÇÕES                                    -->
-<!-- ========================================================================= -->
-<section class="py-16 md:py-24 bg-surface-container-lowest border-b border-outline-variant/20 relative" id="educacao">
-  <div class="max-w-7xl mx-auto px-4 md:px-12">
-    <!-- Header da Seção -->
-    <div class="mb-12">
-      <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
-        <span class="material-symbols-outlined text-[16px]">school</span>
-        QUALIFICAÇÃO CONTINUADA // ENGENHARIA & DADOS
-      </div>
-      <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-        Formação Acadêmica & Certificações
-      </h2>
-      <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
-        Base sólida em tecnologia e engenharia de produção aliada a certificações e capacitações práticas de mercado.
-      </p>
-    </div>
-
-    <!-- Bloco 1: Formação Acadêmica & Certificações do Currículo -->
-    <div class="mb-14">
-      <div class="flex items-center gap-2 mb-6 font-label-caps text-xs text-outline tracking-wider uppercase">
-        <span class="material-symbols-outlined text-primary text-[16px]">menu_book</span>
-        TITULAÇÃO ACADÊMICA & FORMAÇÃO COMPLEMENTAR //
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Graduação 1 -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/40 transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-primary px-2 py-0.5 rounded bg-primary-container/10 border border-primary/30 uppercase font-bold">Graduação</span>
-              <span class="material-symbols-outlined text-primary text-[20px]">engineering</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Engenharia de Produção</h4>
-            <p class="text-xs text-on-surface-variant mt-1">Cursando 7º Semestre</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Estácio</span>
-            <span class="text-primary font-semibold">Em Andamento</span>
-          </div>
-        </div>
-
-        <!-- Graduação 2 -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-tertiary/40 transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-tertiary px-2 py-0.5 rounded bg-tertiary-container/10 border border-tertiary/30 uppercase font-bold">Graduação</span>
-              <span class="material-symbols-outlined text-tertiary text-[20px]">terminal</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Análise e Desenv. de Sistemas</h4>
-            <p class="text-xs text-on-surface-variant mt-1">Tecnólogo</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Estácio</span>
-            <span class="text-tertiary font-semibold">Graduado (2022)</span>
-          </div>
-        </div>
-
-        <!-- Formação Digital College -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-secondary/40 transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-secondary px-2 py-0.5 rounded bg-secondary-container/10 border border-secondary/30 uppercase font-bold">Formação</span>
-              <span class="material-symbols-outlined text-secondary text-[20px]">analytics</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Formação em Data Analytics</h4>
-            <p class="text-xs text-on-surface-variant mt-1">Imersão em Dados & Negócios</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Digital College</span>
-            <span class="text-secondary font-semibold">Concluído</span>
-          </div>
-        </div>
-
-        <!-- Certificação Google -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/40 transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-primary px-2 py-0.5 rounded bg-primary-container/10 border border-primary/30 uppercase font-bold">Certificação</span>
-              <span class="material-symbols-outlined text-primary text-[20px]">verified</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Certificação Analista de Dados</h4>
-            <p class="text-xs text-on-surface-variant mt-1">Google Data Analytics</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Google · Coursera</span>
-            <span class="text-primary font-semibold">Certificado</span>
-          </div>
-        </div>
-
-        <!-- Curso FIAP -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-outline transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-outline px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 uppercase">Formação</span>
-              <span class="material-symbols-outlined text-outline text-[20px]">insights</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Business Intelligence</h4>
-            <p class="text-xs text-on-surface-variant mt-1">40 horas de imersão</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>FIAP</span>
-            <span class="text-on-surface-variant">Concluído</span>
-          </div>
-        </div>
-
-        <!-- Curso DSA -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-outline transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-outline px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 uppercase">Formação</span>
-              <span class="material-symbols-outlined text-outline text-[20px]">query_stats</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Power BI para Análise de Dados</h4>
-            <p class="text-xs text-on-surface-variant mt-1">72 horas de prática avançada</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Data Science Academy</span>
-            <span class="text-on-surface-variant">Concluído</span>
-          </div>
-        </div>
-
-        <!-- Curso USP -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-outline transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-outline px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 uppercase">Formação</span>
-              <span class="material-symbols-outlined text-outline text-[20px]">assignment_turned_in</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Gestão de Projetos</h4>
-            <p class="text-xs text-on-surface-variant mt-1">45 horas de formação</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Veduca / USP (2021)</span>
-            <span class="text-on-surface-variant">Concluído</span>
-          </div>
-        </div>
-
-        <!-- Curso MASP Voitto -->
-        <div class="p-5 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-outline transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-2">
-              <span class="font-label-caps text-[10px] text-outline px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/30 uppercase">Formação</span>
-              <span class="material-symbols-outlined text-outline text-[20px]">troubleshoot</span>
-            </div>
-            <h4 class="text-base text-on-surface font-bold mt-1">Metodologia MASP</h4>
-            <p class="text-xs text-on-surface-variant mt-1">Análise e Solução de Problemas</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-code-md text-outline">
-            <span>Grupo Voitto</span>
-            <span class="text-on-surface-variant">Concluído</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1715,7 +1295,115 @@
 </section>
 
 <!-- ========================================================================= -->
-<!-- 9. SEÇÃO DE CONTATO DE ALTA CONVERSÃO                                     -->
+<!-- 5. TRAJETÓRIA EM 3 ATOS // RESUMO EXECUTIVO (SOBRE MIM)                   -->
+<!-- ========================================================================= -->
+<section class="py-16 md:py-24 bg-surface-container-lowest border-b border-outline-variant/20 relative" id="sobre">
+  <div class="max-w-7xl mx-auto px-4 md:px-12">
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
+        <span class="material-symbols-outlined text-[16px]">timeline</span>
+        TRAJETÓRIA & IDENTIDADE // 15 ANOS DE INDÚSTRIA
+      </div>
+      <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+        A Ponte entre o Chão de Fábrica e a Ciência de Dados
+      </h2>
+      <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
+        Minha carreira foi forjada no calor da operação real. Não sou apenas um analista que olha planilhas: conheço o funcionamento mecânico dos equipamentos, o impacto das paradas e como transformar dados dispersos em decisões estratégicas.
+      </p>
+    </div>
+
+    <!-- 3 Atos da Trajetória (Cards de Evolução) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+      <!-- ATO 1 -->
+      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-label-caps text-[11px] text-tertiary px-2.5 py-0.5 rounded bg-tertiary-container/10 border border-tertiary/30 font-bold">
+              ATO I // 2010 – 2015
+            </span>
+            <span class="material-symbols-outlined text-tertiary text-[24px]">hardware</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">Fundação Técnica no Chão de Fábrica</h3>
+          <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+            Início da vivência direta com manutenção mecânica, montagem e desmontagem de redutores, alinhamento a laser, bombas, esteiras e paradas operacionais. Onde aprendi a sentir a operação e o impacto humano e financeiro de um equipamento quebrado.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20 text-xs font-label-caps text-outline">
+          MANUTENÇÃO MECÂNICA • CHÃO DE FÁBRICA • ROTINA OPERACIONAL
+        </div>
+      </div>
+
+      <!-- ATO 2 -->
+      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-label-caps text-[11px] text-primary px-2.5 py-0.5 rounded bg-primary-container/10 border border-primary/30 font-bold">
+              ATO II // 2015 – 2024
+            </span>
+            <span class="material-symbols-outlined text-primary text-[24px]">precision_manufacturing</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">Siderurgia & Engenharia de Confiabilidade</h3>
+          <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+            Atuação na indústria siderúrgica de alta complexidade (Gerdau). Liderança em confiabilidade, análise de causa raiz (RCA/RCFA), implementação de FMEA, planos de manutenção preventiva/preditiva e gestão de sobressalentes críticos no SAP.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20 text-xs font-label-caps text-outline">
+          GERDAU • SAP • CONFIABILIDADE (FMEA / MTBF / RCA)
+        </div>
+      </div>
+
+      <!-- ATO 3 -->
+      <div class="p-6 rounded-lg bg-surface-container laser-border flex flex-col justify-between hover:border-primary/50 transition-colors">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-label-caps text-[11px] text-tertiary px-2.5 py-0.5 rounded bg-tertiary-container/10 border border-tertiary/30 font-bold">
+              ATO III // 2024 – ATUAL
+            </span>
+            <span class="material-symbols-outlined text-tertiary text-[24px]">analytics</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface">Inteligência de Dados, Consultoria & Docência</h3>
+          <p class="text-sm text-on-surface-variant mt-2 leading-relaxed">
+            Consultoria especializada em dados operacionais (Avine), saneamento de bancos relacionais (MySQL/PostgreSQL), modelagem dimensional Star Schema, dashboards corporativos em Power BI e formação de novos técnicos como docente.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-outline-variant/20 text-xs font-label-caps text-outline">
+          CONSULTORIA PJ • POWER BI AVANÇADO • PYTHON • DOCÊNCIA
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Callout Banner para Currículo Detalhado -->
+    <div class="p-6 md:p-8 rounded-lg bg-surface-container laser-border flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded bg-primary-container/20 text-primary flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[28px]">article</span>
+        </div>
+        <div>
+          <h4 class="text-base md:text-lg font-bold text-on-surface">Procurando o histórico formal detalhado para recrutamento?</h4>
+          <p class="text-xs md:text-sm text-on-surface-variant mt-0.5">
+            Acesse a página de currículo com a linha do tempo completa de 15 anos de cargos, atribuições e formações.
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 shrink-0 w-full sm:w-auto">
+        <a href="curriculo.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-primary-container text-on-primary font-code-md text-sm font-semibold hover:opacity-95 active:scale-[0.98] transition-all cyan-glow-subtle">
+          <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+          <span>Acessar Currículo Completo</span>
+        </a>
+        <a href="assets/cv/Dione_Nascimento_CV.pdf" download class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface hover:border-primary text-sm font-code-md transition-colors">
+          <span class="material-symbols-outlined text-[18px]">download</span>
+          <span>Baixar PDF</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- 7. SEÇÃO DE CONTATO INTERATIVO & CONEXÕES PROFISSIONAIS                   -->
 <!-- ========================================================================= -->
 <section class="py-16 md:py-24 relative" id="contato">
   <div class="max-w-7xl mx-auto px-4 md:px-12">
@@ -1726,7 +1414,7 @@
         <div class="flex items-center gap-2 mb-3">
           <span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
           <span class="font-label-caps text-xs text-tertiary tracking-widest uppercase">
-            STATUS // DISPONÍVEL PARA NOVOS DESAFIOS
+            STATUS // DISPONÍVEL PARA PROJETOS & CONSULTORIA
           </span>
         </div>
 
@@ -1735,56 +1423,104 @@
         </h2>
 
         <p class="font-body-lg text-sm md:text-base text-on-surface-variant max-w-2xl mt-4 leading-relaxed">
-          Aberto a oportunidades profissionais, consultorias em inteligência de manutenção e dados industriais, projetos em Power BI corporativo e automações de processos.
+          Tem um desafio de paradas não programadas, saneamento de dados ou necessidade de dashboards gerenciais de alto impacto? Preencha as informações abaixo ou conecte-se diretamente através das minhas redes profissionais.
         </p>
 
-        <!-- Ações Rápidas -->
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <!-- LinkedIn -->
-          <a class="p-4 rounded bg-surface-container-high laser-border hover:border-tertiary flex flex-col justify-between group transition-all" href="https://www.linkedin.com/in/dione-nascimento-37287a233/" target="_blank" rel="noopener noreferrer">
-            <div class="flex items-center justify-between text-tertiary mb-2">
-              <span class="material-symbols-outlined text-[24px]">badge</span>
-              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        <!-- Formulário Interativo Client-side -->
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <form id="contactInteractiveForm" class="lg:col-span-7 space-y-4 bg-surface-container-lowest/80 p-6 rounded-lg laser-border">
+            <div class="font-label-caps text-xs text-primary tracking-wider uppercase mb-2 flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px]">edit_note</span>
+              CANAL DE SOLICITAÇÃO DIRETA
             </div>
-            <div>
-              <div class="text-base text-on-surface font-bold">LinkedIn</div>
-              <div class="text-xs text-on-surface-variant mt-0.5">Conexão Profissional</div>
-            </div>
-          </a>
 
-          <!-- Email -->
-          <a class="p-4 rounded bg-surface-container-high laser-border hover:border-primary flex flex-col justify-between group transition-all" href="mailto:morrone.dione@gmail.com">
-            <div class="flex items-center justify-between text-primary mb-2">
-              <span class="material-symbols-outlined text-[24px]">mail</span>
-              <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="contactName" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Seu Nome / Identificação *</label>
+                <input type="text" id="contactName" required placeholder="Ex: Roberto Silva" class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors" />
+              </div>
+              <div>
+                <label for="contactCompany" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Empresa / Setor Industrial</label>
+                <input type="text" id="contactCompany" placeholder="Ex: Siderurgia / Manutenção" class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors" />
+              </div>
             </div>
-            <div>
-              <div class="text-base text-on-surface font-bold">Enviar E-mail</div>
-              <div class="text-xs text-on-surface-variant mt-0.5">morrone.dione@gmail.com</div>
-            </div>
-          </a>
 
-          <!-- CV Download -->
-          <a class="p-4 rounded bg-primary-container text-on-primary flex flex-col justify-between group cyan-glow-subtle hover:bg-primary-fixed active:scale-[0.98] transition-all" href="assets/cv/Dione_Nascimento_CV.pdf" download>
-            <div class="flex items-center justify-between mb-2">
-              <span class="material-symbols-outlined text-[24px]">description</span>
-              <span class="material-symbols-outlined text-[16px] group-hover:translate-y-0.5 transition-transform">download</span>
-            </div>
             <div>
-              <div class="text-base font-bold">Baixar CV (PDF)</div>
-              <div class="text-xs opacity-90 mt-0.5">Dossiê completo de 15 anos</div>
+              <label for="contactSubject" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Objetivo do Contato *</label>
+              <select id="contactSubject" required class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors">
+                <option value="Consultoria em Dados & Power BI">Consultoria em Dados & Power BI</option>
+                <option value="Engenharia de Confiabilidade / FMEA / Paradas">Engenharia de Confiabilidade / FMEA / Paradas</option>
+                <option value="Automação de Processos & Python">Automação de Processos & Python</option>
+                <option value="Treinamentos In-company / Docência Técnica">Treinamentos In-company / Docência Técnica</option>
+                <option value="Oportunidade Profissional / Parceria">Oportunidade Profissional / Parceria</option>
+                <option value="Outro Assunto">Outro Assunto</option>
+              </select>
             </div>
-          </a>
+
+            <div>
+              <label for="contactMessage" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Mensagem ou Descrição do Desafio *</label>
+              <textarea id="contactMessage" rows="3" required placeholder="Descreva brevemente o cenário da sua planta ou o objetivo da conversa..." class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors"></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <button type="submit" id="btnSubmitContact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-primary-container text-on-primary font-code-md text-xs font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-[16px]">send</span>
+                <span>Preparar e Enviar via LinkedIn</span>
+              </button>
+              <span id="formFeedbackMessage" class="text-xs font-label-caps text-tertiary hidden">
+                ✓ Mensagem formatada com sucesso!
+              </span>
+            </div>
+          </form>
+
+          <!-- Cards de Conexões Oficiais Seguras (Sem WhatsApp nem E-mail) -->
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            <!-- LinkedIn -->
+            <a class="p-4 rounded bg-surface-container-high laser-border hover:border-tertiary flex flex-col justify-between group transition-all" href="https://www.linkedin.com/in/dione-nascimento-37287a233/" target="_blank" rel="noopener noreferrer">
+              <div class="flex items-center justify-between text-tertiary mb-2">
+                <span class="material-symbols-outlined text-[24px]">badge</span>
+                <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">open_in_new</span>
+              </div>
+              <div>
+                <div class="text-base text-on-surface font-bold">LinkedIn Oficial</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Conexão direta e mensagens profissionais</div>
+              </div>
+            </a>
+
+            <!-- GitHub -->
+            <a class="p-4 rounded bg-surface-container-high laser-border hover:border-primary flex flex-col justify-between group transition-all" href="https://github.com/PortalDosDados" target="_blank" rel="noopener noreferrer">
+              <div class="flex items-center justify-between text-primary mb-2">
+                <span class="material-symbols-outlined text-[24px]">terminal</span>
+                <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">open_in_new</span>
+              </div>
+              <div>
+                <div class="text-base text-on-surface font-bold">GitHub / Repositórios</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Códigos, algoritmos e projetos abertos</div>
+              </div>
+            </a>
+
+            <!-- Acesso ao Currículo Completo -->
+            <a class="p-4 rounded bg-surface-container-high border border-outline-variant/50 hover:border-primary flex flex-col justify-between group transition-all" href="curriculo.html">
+              <div class="flex items-center justify-between text-on-surface-variant group-hover:text-primary mb-2">
+                <span class="material-symbols-outlined text-[24px]">description</span>
+                <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <div>
+                <div class="text-base text-on-surface font-bold">Currículo Web Completo</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Linha do tempo de 15 anos e certificações</div>
+              </div>
+            </a>
+          </div>
         </div>
 
         <!-- Telemetria Inferior -->
         <div class="mt-8 pt-6 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-3 text-[11px] font-label-caps text-outline">
           <div class="flex items-center gap-2">
             <span class="material-symbols-outlined text-[14px]">lock</span>
-            <span>CONFIDENCIALIDADE: PRONTO PARA NDA</span>
+            <span>PRIVACIDADE &amp; PROTEÇÃO DE DADOS GARANTIDA</span>
           </div>
-          <span>TEMPO DE RESPOSTA: &lt; 24 HORAS</span>
-          <span>FUSO HORÁRIO: GMT-3 (BRASÍLIA)</span>
+          <span>TEMPO MÉDIO DE RETORNO: &lt; 24 HORAS</span>
+          <span>FUSO: BRASÍLIA (GMT-3)</span>
         </div>
       </div>
     </div>

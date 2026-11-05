@@ -8,6 +8,7 @@
   - Filtro interativo de projetos por categoria tecnológica
   - Rolagem suave para navegação interna
   - Carrossel de vídeos e fachada YouTube (Click-to-Play)
+  - Formulário interativo de contato com proteção de privacidade
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -90,13 +91,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Destaque Ativo de Seção na Navbar (ScrollSpy)
   const navLinks = document.querySelectorAll('.nav-section-link');
-  const observedSections = ['sobre', 'projetos', 'portal-aluno', 'experiencia', 'habilidades', 'educacao', 'videos', 'contato']
+  const observedSections = [
+    'solucoes',
+    'projetos',
+    'laboratorio',
+    'portal-aluno',
+    'sobre',
+    'experiencia',
+    'habilidades',
+    'educacao',
+    'videos',
+    'contato',
+  ]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
   const setActiveNavLink = (activeId) => {
     navLinks.forEach((link) => {
-      const isMatch = link.getAttribute('href') === `#${activeId}`;
+      const href = link.getAttribute('href');
+      const isMatch = href === `#${activeId}`;
       if (isMatch) {
         link.classList.add('text-primary', 'border-b-2', 'border-primary', 'pb-1');
         link.classList.remove('text-on-surface-variant');
@@ -248,4 +261,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 9. Formulário de Contato Interativo (Sem exposição de e-mail / WhatsApp)
+  const contactForm = document.getElementById('contactInteractiveForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('contactName')?.value || '').trim();
+      const company = (document.getElementById('contactCompany')?.value || '').trim();
+      const subject = (document.getElementById('contactSubject')?.value || '').trim();
+      const message = (document.getElementById('contactMessage')?.value || '').trim();
+      const feedback = document.getElementById('formFeedbackMessage');
+
+      const fullSummary = `Olá Dione! Meu nome é ${name}${company ? ` (${company})` : ''}. Motivo do contato: ${subject}.\n\nMensagem: ${message}`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullSummary).catch(() => {});
+      }
+
+      if (feedback) {
+        feedback.textContent = '✓ Mensagem copiada! Redirecionando para o LinkedIn...';
+        feedback.classList.remove('hidden');
+      }
+
+      setTimeout(() => {
+        window.open('https://www.linkedin.com/in/dione-nascimento-37287a233/', '_blank', 'noopener,noreferrer');
+      }, 700);
+    });
+  }
 });

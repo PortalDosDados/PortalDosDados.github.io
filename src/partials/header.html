@@ -1,6 +1,6 @@
 
 <!-- ========================================================================= -->
-<!-- 1. NAVBAR                                                                 -->
+<!-- 1. NAVBAR (PORTFÓLIO DE SOLUÇÕES & CONSULTOR)                             -->
 <!-- ========================================================================= -->
 <header class="bg-background/90 backdrop-blur-md text-primary sticky top-0 z-50 border-b border-outline-variant/30">
   <div class="flex justify-between items-center w-full px-4 md:px-12 max-w-7xl mx-auto h-16">
@@ -11,30 +11,39 @@
       </div>
       <div class="flex flex-col">
         <span class="font-metric-display text-sm text-primary tracking-widest uppercase font-bold">DN // DADOS.IND</span>
-        <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">CONFIABILIDADE v4.2</span>
+        <span class="font-label-caps text-[9px] text-on-surface-variant uppercase tracking-wider">PORTFÓLIO & ENGENHARIA</span>
       </div>
     </a>
 
-    <!-- Desktop Navigation Links -->
-    <nav aria-label="Navegação Principal" class="hidden lg:flex items-center lg:gap-5 xl:gap-6">
-      <a class="nav-section-link whitespace-nowrap text-primary font-code-md text-sm border-b-2 border-primary pb-1 transition-colors" href="#sobre">Sobre</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#projetos">Projetos</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#portal-aluno">Portal do Aluno</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#experiencia">Experiência</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#habilidades">Habilidades</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#educacao">Educação</a>
-      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-on-surface transition-colors" href="#videos">Vídeos</a>
+    <!-- Desktop Navigation Links (Minimalista) -->
+    <nav aria-label="Navegação Principal" class="hidden lg:flex items-center lg:gap-5 xl:gap-7">
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#solucoes">Soluções</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#projetos">Projetos</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#laboratorio">Laboratório</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#sobre">Sobre</a>
+      <a class="nav-section-link whitespace-nowrap text-on-surface-variant font-code-md text-sm hover:text-primary transition-colors" href="#contato">Contato</a>
     </nav>
 
     <!-- Trailing Action Controls -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2.5">
+      <!-- Botão para Currículo Detalhado -->
+      <a class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-high border border-primary/40 text-primary hover:bg-primary-container hover:text-on-primary font-code-md text-xs font-semibold active:scale-[0.98] transition-all" href="curriculo.html">
+        <span class="material-symbols-outlined text-[16px]">description</span>
+        <span>Currículo</span>
+      </a>
+
+      <!-- Alternador de Tema -->
       <button aria-label="Alternar Modo de Tema" class="w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="themeToggleBtn">
         <span class="material-symbols-outlined text-[18px]" id="themeIcon">dark_mode</span>
       </button>
-      <a class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-primary-container text-on-primary font-code-md text-sm font-semibold hover:opacity-95 active:scale-[0.98] transition-transform cyan-glow-subtle" href="#contato">
-        <span class="material-symbols-outlined text-[16px]">mail</span>
-        <span>Contato</span>
+
+      <!-- CTA Contato Rápido -->
+      <a class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-primary-container text-on-primary font-code-md text-xs font-semibold hover:opacity-95 active:scale-[0.98] transition-transform cyan-glow-subtle" href="#contato">
+        <span class="material-symbols-outlined text-[16px]">chat</span>
+        <span>Falar Comigo</span>
       </a>
+
+      <!-- Botão Hamburger Mobile -->
       <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Abrir menu de navegação" class="lg:hidden w-9 h-9 rounded bg-surface-container-high laser-border flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-[0.98] transition-all" id="mobileMenuBtn">
         <span class="material-symbols-outlined text-[20px]" id="mobileMenuIcon">menu</span>
       </button>
@@ -43,14 +52,16 @@
 
   <!-- Mobile Navigation Drawer -->
   <nav aria-label="Menu Mobile" class="hidden lg:hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md px-4 py-4 space-y-1" id="mobileMenu">
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#sobre">Sobre</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#projetos">Projetos</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-primary font-bold hover:bg-surface-container-high transition-colors" href="#portal-aluno">Portal do Aluno</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#experiencia">Experiência</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#habilidades">Habilidades</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#educacao">Educação</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#videos">Vídeos</a>
-    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-primary font-semibold hover:bg-surface-container-high transition-colors" href="#contato">Contato</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#solucoes">Soluções (Ferramentas)</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#projetos">Projetos & Casos</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#laboratorio">Laboratório & Docência</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#sobre">Sobre a Trajetória</a>
+    <a class="mobile-nav-link block px-3 py-2 rounded font-code-md text-sm text-on-surface hover:bg-surface-container-high hover:text-primary transition-colors" href="#contato">Contato</a>
+    <div class="pt-2 border-t border-outline-variant/30">
+      <a class="mobile-nav-link flex items-center gap-2 px-3 py-2.5 rounded font-code-md text-sm bg-primary-container text-on-primary font-bold" href="curriculo.html">
+        <span class="material-symbols-outlined text-[18px]">description</span>
+        <span>Acessar Currículo Completo</span>
+      </a>
+    </div>
   </nav>
 </header>
-
