@@ -74,14 +74,16 @@ Este repositório contém o portfólio profissional desenvolvido por Dione Nasci
 ├── .nojekyll                    # Instrução para o GitHub Pages ignorar o Jekyll
 ├── 404.html                     # Página 404 customizada
 ├── GEMINI.md                    # Governança de IA e diretrizes modulares (.gemini/rules/)
-├── index.html                   # GERADO por scripts/build.js — não edite direto
+├── index.html                   # GERADO: Portfólio de Soluções & Consultor
+├── curriculo.html               # GERADO: Currículo Detalhado (15 anos de indústria)
 ├── package.json                 # Scripts: build, build:check, test
 ├── scripts/
 │   └── build.js                 # Monta index.html a partir de src/ (sem dependências)
 ├── src/
-│   ├── index.template.html      # Esqueleto da página (diretivas @include)
-│   └── partials/                # head, header, hero, telemetria, projetos, ferramentas,
-│                                # experiencia, habilidades, formacao, videos, contato, footer
+│   ├── index.template.html      # Esqueleto do Portfólio de Soluções
+│   ├── curriculo.template.html  # Esqueleto do Currículo Detalhado
+│   └── partials/                # head, header, header-curriculo, hero, telemetria, projetos,
+│                                # videos, contato, experiencia, habilidades, formacao, footer
 ├── LICENSE                      # Licença oficial MIT
 ├── robots.txt                   # Diretrizes para indexadores de busca
 ├── sitemap.xml                  # Mapa do site para SEO

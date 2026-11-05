@@ -7,8 +7,7 @@
   - O conteúdo está organizado por idioma (window.PORTFOLIO.pt).
   - Projetos:
       featured: true   → aparece nos cards grandes de destaque
-      category         → usado no filtro ("bi", "python", "powerplatform", "educacao")
-      image (opcional) → caminho da imagem
+      category         → usado no filtro ("bi", "python", "mobile")
       links (opcional) → [{ label: "Demo", url: "https://..." }]
 */
 
