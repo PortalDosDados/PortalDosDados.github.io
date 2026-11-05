@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const observedSections = [
     'projetos',
     'videos',
-    'sobre',
     'experiencia',
     'habilidades',
     'educacao',
