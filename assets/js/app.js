@@ -94,13 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const observedSections = [
     'solucoes',
     'projetos',
-    'laboratorio',
-    'portal-aluno',
+    'videos',
     'sobre',
     'experiencia',
     'habilidades',
     'educacao',
-    'videos',
     'contato',
   ]
     .map((id) => document.getElementById(id))
