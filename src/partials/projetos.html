@@ -1,43 +1,42 @@
-
 <!-- ========================================================================= -->
 <!-- 4. ESTUDOS DE CASO / PROJETOS EM DESTAQUE (2x2 Grid)                      -->
 <!-- ========================================================================= -->
-<section class="py-16 md:py-24 border-b border-outline-variant/20 relative" id="projetos">
+<section class="section-rim rim-cyan py-16 md:py-24 border-b border-outline-variant/20 relative" id="projetos">
   <div class="max-w-7xl mx-auto px-4 md:px-12">
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
       <div>
-        <div class="flex items-center gap-2 mb-2 font-label-caps text-xs text-primary tracking-widest uppercase">
+        <p class="eyebrow flex items-center gap-2 mb-2">
           <span class="material-symbols-outlined text-[16px]">terminal</span>
           IMPACTO REAL EM ENGENHARIA // CASOS DE SUCESSO
-        </div>
+        </p>
         <h2 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
           Soluções Industriais que Geram Resultados
         </h2>
-        <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base">
+        <p class="font-body-md text-on-surface-variant max-w-2xl mt-1 text-sm md:text-base leading-relaxed">
           Projetos aplicados na mitigação de falhas mecânicas, saneamento de dados de ativos e integração corporativa com SAP, MES e Power BI.
         </p>
       </div>
 
       <!-- Filtros Rápidos -->
       <div class="flex flex-wrap items-center gap-2" id="projectFilterContainer">
-        <button class="px-3 py-1 rounded bg-primary-container text-on-primary font-label-caps text-[11px] font-semibold filter-btn active" data-cat="all">Todos</button>
-        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="bi">Power BI</button>
-        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="python">Python & Automação</button>
-        <button class="px-3 py-1 rounded bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="mobile">Mobile & Flutter</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-caps text-[11px] font-semibold filter-btn active" data-cat="all">Todos</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="bi">Power BI</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="python">Python & Automação</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="mobile">Mobile & Flutter</button>
       </div>
     </div>
 
     <!-- 2x2 Bento Project Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="projectsGrid">
       <!-- CARD 1: Avine -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="bi">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="bi">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">monitoring</span>
             <span>REF // 001-CUSTOS-AVINE</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">POWER BI • MYSQL • EXCEL</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-tertiary border border-tertiary/30">POWER BI • MYSQL • EXCEL</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -45,13 +44,13 @@
             Dashboard de Custos de Manutenção — Avine
           </h3>
           <div class="space-y-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Projeto de BI interrompido com dados descentralizados e bases espalhadas entre MySQL e planilhas Excel manuais sem governança.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Mapeamento e saneamento das bases, consolidação das regras de negócio e migração para MySQL como fonte centralizada, eliminando planilhas manuais.
@@ -88,13 +87,13 @@
       </div>
 
       <!-- CARD 2: Portal de Indicadores ArcelorMittal -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="bi">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="bi">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">precision_manufacturing</span>
             <span>REF // 002-PORTAL-AM</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-primary border border-primary/30">POWER BI • SAP PM • MES • SGI</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary border border-primary/30">POWER BI • SAP PM • MES • SGI</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -102,13 +101,13 @@
             Portal de Indicadores de Manutenção — ArcelorMittal
           </h3>
           <div class="space-y-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Indicadores multi-origem complexos dispersos em sistemas industriais legados (SAP, MES e SGI), demandando relatórios manuais e com baixa governança.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Padronização, modelagem dimensional e publicação de dashboards executivos em Power BI integrados diretamente para as reuniões diárias da liderança.
@@ -145,13 +144,13 @@
       </div>
 
       <!-- CARD 3: PM Mobit -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="mobile">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="mobile">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">smartphone</span>
             <span>REF // 003-PM-MOBIT</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • SUPABASE • POSTGRESQL</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • SUPABASE • POSTGRESQL</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -159,13 +158,13 @@
             Aplicativo Mobile para Gestão de Manutenção em Campo (PM Mobit)
           </h3>
           <div class="space-y-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Rotinas de inspeção de equipamentos críticos e apontamentos em campo realizados manualmente em papel, gerando baixa rastreabilidade, lentidão e atrasos no controle de SLA.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Desenvolvimento de aplicação móvel corporativa em Flutter e Dart integrada ao Supabase (Auth, Database e Storage). Digitalização de checklists com evidências fotográficas, abertura automática de ordens corretivas ao detectar não conformidades, controle rigoroso de SLA e dashboard analítico de produtividade e indicadores operacionais em tempo real.
@@ -202,13 +201,13 @@
       </div>
 
       <!-- CARD 4: GabScan -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="mobile">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="mobile">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">document_scanner</span>
             <span>REF // 004-GABSCAN-OMR</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • ML KIT • VISÃO COMPUTACIONAL • TDD</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-secondary-fixed border border-secondary-container/40">FLUTTER • DART • ML KIT • VISÃO COMPUTACIONAL • TDD</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -216,13 +215,13 @@
             GabScan — Corretor Inteligente de Provas OMR (100% Offline-First)
           </h3>
           <div class="space-y-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Dependência de leitoras ópticas físicas caras e horas de correção manual de gabaritos no setor educacional, vulneráveis a falhas humanas e atrasos.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Aplicativo móvel que transforma o celular em scanner OMR em tempo real com custo zero de nuvem. Pipeline matemático com homografia 3×3, binarização de Otsu, paralelismo com Isolates e OCR On-Device via Google ML Kit.
@@ -259,13 +258,13 @@
       </div>
 
       <!-- CARD 5: Disponibilidade ArcelorMittal -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="python">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">schedule</span>
             <span>REF // 005-DISP-MES</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • MES • EXCEL</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • MES • EXCEL</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -273,13 +272,13 @@
             Aplicativo para Cálculo da Disponibilidade dos Equipamentos — ArcelorMittal
           </h3>
           <div class="space-y-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Extração e tratamento manual recorrente de dados operacionais brutos do sistema MES para cálculo da disponibilidade dos equipamentos, gerando lentidão e sobrecarga operacional.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Desenvolvimento de pipeline automatizado para extração e tratamento dos dados do sistema MES, com interface operacional ágil em Python e relatórios com visualização em tela e exportação para Excel.
@@ -316,13 +315,13 @@
       </div>
 
       <!-- CARD 6: Inconsistências Contábeis ArcelorMittal -->
-      <div class="rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="python">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">receipt_long</span>
             <span>REF // 006-CONTABIL-AM</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • PANDAS • EXCEL • REGRAS</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • PANDAS • EXCEL • REGRAS</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -330,13 +329,13 @@
             Automação em Python para Inconsistências Contábeis — ArcelorMittal
           </h3>
           <div class="space-y-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Integração e conferência manual de dados entre múltiplas planilhas Excel, com alto risco de classificações incorretas entre custos fixos e variáveis.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Desenvolvimento de script em Python integrando dados de múltiplas planilhas, com tratamento, padronização, transformação e regras automáticas de validação contábil para relatórios gerenciais.
@@ -373,13 +372,13 @@
       </div>
 
       <!-- CARD 7: Inconsistências em Requisições de Compra ArcelorMittal -->
-      <div class="lg:col-span-2 rounded-lg bg-surface-container laser-border overflow-hidden flex flex-col justify-between hover:border-primary/50 transition-all duration-200 group project-card" data-category="python">
-        <div class="bg-surface-container-high px-4 py-2.5 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+      <div class="lg:col-span-2 card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="python">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">shopping_cart_checkout</span>
             <span>REF // 007-COMPRAS-AM</span>
           </div>
-          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • POWER BI • CENTROS DE CUSTO</span>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-tertiary border border-tertiary/30">PYTHON • POWER BI • CENTROS DE CUSTO</span>
         </div>
 
         <div class="p-6 flex-1 flex flex-col gap-4">
@@ -387,13 +386,13 @@
             Automação em Python para Requisições de Compra — ArcelorMittal
           </h3>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 text-sm">
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Divergências de centros de custo e erros de classificação em requisições de compras descobertos tardiamente, gerando retrabalho operacional e desvios contábeis.
               </p>
             </div>
-            <div class="p-3 rounded bg-surface-container-lowest/70 border-l-2 border-primary">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
               <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
               <p class="text-on-surface-variant leading-relaxed">
                 Automação em Python integrando e validando dados de múltiplas fontes para correção proativa de desvios, associada a dashboard gerencial em Power BI para monitoramento contínuo.

@@ -1,9 +1,9 @@
 <!-- ========================================================================= -->
 <!-- 7. SEÇÃO DE CONTATO INTERATIVO & CONEXÕES PROFISSIONAIS                   -->
 <!-- ========================================================================= -->
-<section class="py-16 md:py-24 relative" id="contato">
+<section class="section-rim rim-industrial py-16 md:py-24 relative" id="contato">
   <div class="max-w-7xl mx-auto px-4 md:px-12">
-    <div class="reticle-corner p-8 md:p-12 rounded-lg bg-surface-container laser-border relative overflow-hidden cyan-glow-subtle">
+    <div class="reticle-corner p-8 md:p-12 rounded-2xl bg-surface-container laser-border relative overflow-hidden cyan-glow-subtle">
       <div class="absolute top-0 right-0 w-80 h-80 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="relative z-10">
@@ -20,7 +20,7 @@
 
         <!-- Formulário Interativo Client-side -->
         <div class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <form id="contactInteractiveForm" class="lg:col-span-7 space-y-4 bg-surface-container-lowest/80 p-6 rounded-lg laser-border">
+          <form id="contactInteractiveForm" class="lg:col-span-7 space-y-4 bg-surface-container-lowest/80 p-6 sm:p-8 rounded-2xl laser-border">
             <div class="font-label-caps text-xs text-primary tracking-wider uppercase mb-2 flex items-center gap-2">
               <span class="material-symbols-outlined text-[16px]">terminal</span>
               CANAL DE SOLICITAÇÃO DIRETA
@@ -29,17 +29,17 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="contactName" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Seu Nome / Identificação *</label>
-                <input type="text" id="contactName" required placeholder="Ex: Roberto Silva" class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors" />
+                <input type="text" id="contactName" required placeholder="Ex: Roberto Silva" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors" />
               </div>
               <div>
                 <label for="contactCompany" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Empresa / Operação</label>
-                <input type="text" id="contactCompany" placeholder="Ex: Indústria / Logística / Tech" class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors" />
+                <input type="text" id="contactCompany" placeholder="Ex: Indústria / Logística / Tech" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors" />
               </div>
             </div>
 
             <div>
               <label for="contactSubject" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Objetivo do Contato *</label>
-              <select id="contactSubject" required class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors">
+              <select id="contactSubject" required class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors">
                 <option value="Desenvolvimento de Aplicativos (Web / Mobile / Flutter)">Desenvolvimento de Aplicativos (Web / Mobile / Flutter)</option>
                 <option value="Inteligência de Dados & Dashboards Estratégicos (Power BI / SQL)">Inteligência de Dados & Dashboards Estratégicos (Power BI / SQL)</option>
                 <option value="Automação de Processos, Scripts & Python">Automação de Processos, Scripts & Python</option>
@@ -51,11 +51,11 @@
 
             <div>
               <label for="contactMessage" class="block font-label-caps text-[11px] text-on-surface-variant mb-1">Mensagem ou Descrição do Desafio *</label>
-              <textarea id="contactMessage" rows="3" required placeholder="Descreva brevemente o aplicativo, necessidade de dados ou desafio tecnológico da sua operação..." class="w-full px-3.5 py-2.5 rounded bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors"></textarea>
+              <textarea id="contactMessage" rows="3" required placeholder="Descreva brevemente o aplicativo, necessidade de dados ou desafio tecnológico da sua operação..." class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container text-on-surface text-sm border border-outline-variant/40 focus:border-primary focus:outline-none transition-colors"></textarea>
             </div>
 
             <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-              <button type="submit" id="btnSubmitContact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-primary-container text-on-primary font-code-md text-xs font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all">
+              <button type="submit" id="btnSubmitContact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-container text-on-primary font-code-md text-xs font-bold cyan-glow hover:bg-primary-fixed active:scale-[0.98] transition-all">
                 <span class="material-symbols-outlined text-[16px]">send</span>
                 <span>Preparar e Enviar via LinkedIn</span>
               </button>
@@ -68,7 +68,7 @@
           <!-- Cards de Conexões Oficiais Seguras (Sem WhatsApp nem E-mail) -->
           <div class="lg:col-span-5 flex flex-col gap-4">
             <!-- LinkedIn -->
-            <a class="p-4 rounded bg-surface-container-high laser-border hover:border-tertiary flex flex-col justify-between group transition-all" href="https://www.linkedin.com/in/dione-nascimento-37287a233/" target="_blank" rel="noopener noreferrer">
+            <a class="card-studio p-5 flex flex-col justify-between group transition-all" href="https://www.linkedin.com/in/dione-nascimento-37287a233/" target="_blank" rel="noopener noreferrer">
               <div class="flex items-center justify-between text-tertiary mb-2">
                 <span class="material-symbols-outlined text-[24px]">badge</span>
                 <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">open_in_new</span>
@@ -80,7 +80,7 @@
             </a>
 
             <!-- GitHub -->
-            <a class="p-4 rounded bg-surface-container-high laser-border hover:border-primary flex flex-col justify-between group transition-all" href="https://github.com/PortalDosDados" target="_blank" rel="noopener noreferrer">
+            <a class="card-studio p-5 flex flex-col justify-between group transition-all" href="https://github.com/PortalDosDados" target="_blank" rel="noopener noreferrer">
               <div class="flex items-center justify-between text-primary mb-2">
                 <span class="material-symbols-outlined text-[24px]">terminal</span>
                 <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">open_in_new</span>
@@ -92,7 +92,7 @@
             </a>
 
             <!-- Acesso ao Currículo Completo -->
-            <a class="p-4 rounded bg-surface-container-high border border-outline-variant/50 hover:border-primary flex flex-col justify-between group transition-all" href="curriculo.html">
+            <a class="card-studio p-5 flex flex-col justify-between group transition-all" href="curriculo.html">
               <div class="flex items-center justify-between text-on-surface-variant group-hover:text-primary mb-2">
                 <span class="material-symbols-outlined text-[24px]">description</span>
                 <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>

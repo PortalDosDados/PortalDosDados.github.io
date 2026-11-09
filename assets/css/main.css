@@ -153,6 +153,32 @@ html {
   top: 1rem;
 }
 
+/* ---------- Barra de Leitura / Reading Progress ---------- */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2.5px;
+  background: linear-gradient(90deg, rgb(var(--c-primary-container)), rgb(var(--c-secondary-container)));
+  z-index: 1000;
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ---------- Tipografia Editorial & Harmônica ---------- */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgb(var(--c-primary));
+}
+
 /* ---------- Padrão Industrial Tech / Blueprint ---------- */
 .blueprint-grid {
   background-size: 24px 24px, 120px 120px;
@@ -161,6 +187,50 @@ html {
     linear-gradient(to bottom, rgb(var(--c-outline) / 0.05) 1px, transparent 1px),
     linear-gradient(to right, rgb(var(--c-primary-container) / 0.07) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(var(--c-primary-container) / 0.07) 1px, transparent 1px);
+}
+
+/* ---------- Sistema Rim Light (Estúdio & Iluminação de Borda) ---------- */
+.section-rim {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-rim::before {
+  content: "";
+  position: absolute;
+  inset: -4% 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.rim-industrial::before {
+  background:
+    radial-gradient(60% 55% at 100% 0%, rgb(var(--c-primary-container) / 0.18), transparent 70%),
+    radial-gradient(55% 50% at 0% 100%, rgb(var(--c-secondary-container) / 0.12), transparent 70%);
+}
+
+.rim-cyan::before {
+  background: radial-gradient(60% 55% at 100% 10%, rgb(var(--c-primary-container) / 0.20), transparent 70%);
+}
+
+.rim-amber::before {
+  background: radial-gradient(55% 50% at 0% 90%, rgb(var(--c-secondary-container) / 0.16), transparent 70%);
+}
+
+/* ---------- Cards Estilo Studio Industrial ---------- */
+.card-studio {
+  background-color: rgb(var(--c-surface-container));
+  border: 1px solid rgb(var(--c-outline-variant) / 0.4);
+  border-radius: 16px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-studio:hover {
+  transform: translateY(-3px);
+  border-color: rgb(var(--c-primary-container) / 0.5);
+  box-shadow: 0 12px 32px -8px rgb(var(--c-primary-container) / 0.18);
 }
 
 .cyan-glow {
