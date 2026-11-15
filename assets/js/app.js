@@ -268,7 +268,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // 9. Formulário de Contato Interativo (Sem exposição de e-mail / WhatsApp)
   const contactForm = document.getElementById('contactInteractiveForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const LINKEDIN_URL = 'https://www.linkedin.com/in/dione-nascimento-37287a233/';
+
+    const copyTextFallback = (text) => {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      let copied = false;
+      try {
+        copied = document.execCommand('copy');
+      } catch (err) {
+        copied = false;
+      }
+      document.body.removeChild(textarea);
+      return copied;
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = (document.getElementById('contactName')?.value || '').trim();
       const company = (document.getElementById('contactCompany')?.value || '').trim();
@@ -278,18 +298,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const fullSummary = `Olá Dione! Meu nome é ${name}${company ? ` (${company})` : ''}. Motivo do contato: ${subject}.\n\nMensagem: ${message}`;
 
+      // Abre o LinkedIn de forma síncrona no evento de clique/submit para evitar bloqueio de pop-up
+      const popup = window.open(LINKEDIN_URL, '_blank', 'noopener,noreferrer');
+
+      let copied = false;
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(fullSummary).catch(() => {});
+        try {
+          await navigator.clipboard.writeText(fullSummary);
+          copied = true;
+        } catch (err) {
+          copied = copyTextFallback(fullSummary);
+        }
+      } else {
+        copied = copyTextFallback(fullSummary);
       }
 
       if (feedback) {
-        feedback.textContent = '✓ Mensagem copiada! Redirecionando para o LinkedIn...';
+        feedback.textContent = '';
+        const statusText = copied
+          ? '✓ Mensagem copiada! '
+          : '✓ Mensagem pronta (copie manualmente caso necessário). ';
+        feedback.appendChild(document.createTextNode(statusText));
+
+        if (!popup) {
+          const link = document.createElement('a');
+          link.href = LINKEDIN_URL;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.className = 'underline font-semibold ml-1';
+          link.textContent = 'Abrir LinkedIn →';
+          feedback.appendChild(link);
+        } else {
+          feedback.appendChild(document.createTextNode('LinkedIn aberto em nova aba.'));
+        }
+
         feedback.classList.remove('hidden');
       }
-
-      setTimeout(() => {
-        window.open('https://www.linkedin.com/in/dione-nascimento-37287a233/', '_blank', 'noopener,noreferrer');
-      }, 700);
     });
   }
 });

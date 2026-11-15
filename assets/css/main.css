@@ -315,6 +315,10 @@ h1, h2, h3 {
 }
 
 /* ---------- Página 404 ---------- */
+body.notfound-body {
+  margin: 0;
+}
+
 .notfound {
   min-height: 100svh;
   display: grid;
