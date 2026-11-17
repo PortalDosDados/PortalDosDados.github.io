@@ -153,13 +153,14 @@ const PORTFOLIO = {
       {
         period: 'Agosto/2026 – Atual',
         company: 'SENAI',
-        role: 'Professor / Instrutor Técnico',
+        role: 'Instrutor',
         achievements: [
-          'Docência e condução de treinamentos técnicos em Data Analytics, Engenharia de Produção e Manutenção Industrial, conectando teoria à realidade do chão de fábrica.',
-          'Orientação prática em Power BI, Excel, SQL e Python para coleta, tratamento, modelagem e visualização de dados operacionais.',
-          'Construção de dashboards e KPIs industriais em sala de aula para capacitar alunos na análise de desempenho, confiabilidade e tomada de decisão.',
-          'Desenvolvimento de soluções aplicadas com Power Apps e automações de processos, além de materiais didáticos e estudos de caso reais da indústria.',
-          'Mentoria de turmas técnicas na resolução de problemas de engenharia e gestão orientados a dados.',
+          'Condução de treinamentos técnicos focados em Data Analytics, Engenharia de Produção e processos de Manutenção Industrial.',
+          'Execução de atividades práticas com Power BI, Excel, SQL e Python para tratamento e visualização de dados operacionais.',
+          'Criação de dashboards e indicadores de desempenho (KPIs) para suporte estratégico e monitoramento de resultados.',
+          'Desenvolvimento de soluções com Power Apps e automações para otimização da coleta e gestão de informações industriais.',
+          'Produção de materiais didáticos e estudos de caso aplicados à melhoria de processos de produção e manutenção.',
+          'Capacitação profissional no uso de tecnologias e ferramentas de engenharia para análise e solução de problemas baseada em dados.',
         ],
       },
       {
