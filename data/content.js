@@ -23,6 +23,7 @@ const PORTFOLIO = {
 
     projectCategories: [
       { id: 'all', label: 'Todos' },
+      { id: 'six-sigma', label: 'Seis Sigma & Confiabilidade' },
       { id: 'bi', label: 'Power BI' },
       { id: 'python', label: 'Python & Automação' },
       { id: 'mobile', label: 'Mobile & Flutter' },
@@ -132,6 +133,27 @@ const PORTFOLIO = {
         tech: ['Python', 'Power BI', 'Pandas', 'Centros de Custo', 'Validação'],
         context: 'ArcelorMittal Pecém',
       },
+      {
+        id: 'seis-sigma-sinterizacao',
+        featured: true,
+        category: 'six-sigma',
+        title: 'Aumento da Confiabilidade da Sinterização via Seis Sigma — ArcelorMittal',
+        problem:
+          'Em 2023, a planta de sinterização registrou Working Ratio de 94,9% (437 horas de paradas emergenciais), impactando o fornecimento de sínter ao Alto-Forno e elevando custos operacionais por conta de microparadas por temperatura e quebras mecânicas severas.',
+        solution:
+          'Aplicação do ciclo DMAIC com análises estatísticas no Minitab (ANOVA e Box-Plot identificando concentração de 70% de microparadas nos turnos C e D), plano de manutenção RCM/FMEA (substituição de trilhos curvos, selagens e célula de lubrificação) e monitoramento via Power BI.',
+        result:
+          'Redução de 72% nas horas de parada emergencial (−214h), salto do nível sigma de 1,80 para 2,78 (redução de 83% dos desvios) e superação da meta com 96,0% de Working Ratio (97,2% no 4ºT). Artigo técnico publicado na ABM Week 9ª edição.',
+        highlight: '−72% Paradas',
+        tech: ['Seis Sigma (DMAIC)', 'Minitab', 'RCM', 'FMEA', 'Power BI', 'Estatística Industrial'],
+        links: [
+          {
+            label: 'Artigo Técnico (PDF)',
+            url: 'assets/docs/artigo-seis-sigma-sinterizacao-abm-2025.pdf',
+          },
+        ],
+        context: 'ArcelorMittal Pecém · ABM Week 2025',
+      },
     ],
 
     experience: [
@@ -168,6 +190,7 @@ const PORTFOLIO = {
         company: 'ArcelorMittal Pecém',
         role: 'Analista de Confiabilidade Mecânica',
         achievements: [
+          'Coautoria e execução de projeto Seis Sigma (DMAIC) na Sinterização publicado na ABM Week 2025: redução de 72% das paradas emergenciais e elevação de 1,80 para 2,78 sigma.',
           'Análise de dados de manutenção para identificação de padrões de falha e oportunidades de melhoria.',
           'Desenvolvimento de dashboards em Power BI para acompanhamento de indicadores (MTBF, MTTR, backlog, disponibilidade).',
           'Aplicação de análise de causa raiz baseada em dados históricos de falhas.',
@@ -261,6 +284,8 @@ const PORTFOLIO = {
         group: 'Confiabilidade & Métodos Industriais',
         icon: 'gear',
         items: [
+          'Seis Sigma (DMAIC, Minitab, ANOVA)',
+          'RCM (Reliability-Centered Maintenance) & FMEA',
           'Confiabilidade Mecânica (MTBF, MTTR, disponibilidade)',
           'Análise de Causa Raiz (RCA)',
           'MASP (Metodologia de Análise e Solução de Problemas)',

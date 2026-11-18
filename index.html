@@ -406,9 +406,10 @@
       <!-- Filtros Rápidos -->
       <div class="flex flex-wrap items-center gap-2" id="projectFilterContainer">
         <button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-caps text-[11px] font-semibold filter-btn active" data-cat="all">Todos</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="six-sigma">Seis Sigma &amp; Confiabilidade</button>
         <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="bi">Power BI</button>
-        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="python">Python & Automação</button>
-        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="mobile">Mobile & Flutter</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="python">Python &amp; Automação</button>
+        <button class="px-3.5 py-1.5 rounded-full bg-surface-container laser-border text-on-surface-variant hover:text-on-surface font-label-caps text-[11px] filter-btn" data-cat="mobile">Mobile &amp; Flutter</button>
       </div>
     </div>
 
@@ -757,7 +758,7 @@
       </div>
 
       <!-- CARD 7: Inconsistências em Requisições de Compra ArcelorMittal -->
-      <div class="lg:col-span-2 card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="python">
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="python">
         <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
           <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
             <span class="material-symbols-outlined text-[16px]">shopping_cart_checkout</span>
@@ -770,7 +771,7 @@
           <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
             Automação em Python para Requisições de Compra — ArcelorMittal
           </h3>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 text-sm">
+          <div class="space-y-3 text-sm">
             <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
               <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
               <p class="text-on-surface-variant leading-relaxed">
@@ -809,6 +810,66 @@
           <a class="inline-flex items-center gap-1 font-code-md text-sm text-primary hover:underline" href="#contato">
             <span>Conversar sobre a solução</span>
             <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CARD 8: Seis Sigma Sinterização ArcelorMittal -->
+      <div class="card-studio overflow-hidden flex flex-col justify-between group project-card" data-category="six-sigma">
+        <div class="bg-surface-container-high px-5 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-outline-variant/30">
+          <div class="flex items-center gap-2 font-label-caps text-[11px] text-primary">
+            <span class="material-symbols-outlined text-[16px]">verified</span>
+            <span>REF // 008-SIXSIGMA-SINTER-AM</span>
+          </div>
+          <span class="font-label-caps text-[10px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary border border-primary/30">DMAIC • MINITAB • RCM • POWER BI</span>
+        </div>
+
+        <div class="p-6 flex-1 flex flex-col gap-4">
+          <div>
+            <h3 class="text-xl md:text-2xl text-on-surface font-bold group-hover:text-primary transition-colors">
+              Aumento da Confiabilidade da Sinterização via Seis Sigma — ArcelorMittal
+            </h3>
+            <span class="font-code-md text-xs text-primary font-medium mt-1 inline-block">Coautoria: Adriano Ferreira Chotoli &amp; Dione Nascimento Morrone</span>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-secondary-container">
+              <span class="font-label-caps text-[10px] text-secondary block uppercase tracking-wider mb-0.5">Problema Operacional</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Working Ratio abaixo da meta (94,9% em 2023, com 437h de paradas não planejadas), elevando o custo com pelotas no Alto-Forno devido a microparadas térmicas e quebras mecânicas severas.
+              </p>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-container-lowest/70 border-l-2 border-primary">
+              <span class="font-label-caps text-[10px] text-primary block uppercase tracking-wider mb-0.5">Solução de Engenharia</span>
+              <p class="text-on-surface-variant leading-relaxed">
+                Ciclo DMAIC completo: Minitab (ANOVA/Box-Plot identificando 70% das microparadas em 2 turnos), plano de manutenção RCM/FMEA (trilhos curvos, selagens, lubrificação) e gestão por dashboard Power BI.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-auto pt-2">
+            <span class="font-label-caps text-[10px] text-outline uppercase tracking-wider block mb-2">Métricas Operacionais Verificadas //</span>
+            <div class="grid grid-cols-3 gap-2">
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-base sm:text-lg text-tertiary font-bold">−72%</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">−214h Emergenciais</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-base sm:text-lg text-primary font-bold">2,78 σ</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">+54% Nível Sigma</div>
+              </div>
+              <div class="p-2.5 rounded bg-surface-container-high border border-outline-variant/30 text-center">
+                <div class="font-metric-display text-base sm:text-lg text-on-surface font-bold">96,0%</div>
+                <div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Meta WR Superada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+          <span class="font-label-caps text-[10px] text-primary font-semibold">PUBLICADO // ABM WEEK 2025</span>
+          <a class="inline-flex items-center gap-1.5 font-code-md text-sm text-primary hover:underline font-semibold" href="assets/docs/artigo-seis-sigma-sinterizacao-abm-2025.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+            <span>Ver Artigo Técnico (PDF)</span>
           </a>
         </div>
       </div>
